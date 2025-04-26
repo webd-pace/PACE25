@@ -166,7 +166,7 @@ function PrudenceSection({ prudenceRef }) {
           social responsibility, journalism, and more.
         </p>
         {/* Sub-Events Grid */}
-        <div className="mt-15 grid grid-cols-1 sm:grid-cols-2 scale-80 lg:grid-cols-4 gap-10">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 scale-80 lg:grid-cols-4 gap-10">
           {events.map((ev) => (
             <div
               key={ev.title}
