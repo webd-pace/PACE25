@@ -3,31 +3,31 @@ import { useEffect, useRef } from "react";
 // Fill in actual member names in `fullName` as you get them
 
 const boardMembersChief = [
-  { post: "President",             fullName: "Vishwajeet Pawar",    imgUrl: "../../public/assets/president.png" },
-  { post: "Vice President",        fullName: "Prasad Bedage",      imgUrl: "../../public/assets/vp.png"        },
-  { post: "Secretary",             fullName: "Pranav Patil",       imgUrl: "../../public/assets/sec.png"       },
-  { post: "Chief PDE",             fullName: "Haripriya Yele",     imgUrl: "../../public/assets/pde3.png"       },
-  { post: "Chief PDE",             fullName: "Samruddhi Shinde",   imgUrl: "../../public/assets/pde2.png"      },
-  { post: "Chief PDE",             fullName: "Gayatri Patil",      imgUrl: "../../public/assets/pde4.png"      },
-  { post: "Chief PDE",             fullName: "Samarth Gaikwad",    imgUrl: "../../public/assets/pde.png"      },
-  { post: "Chief PDF",             fullName: "Chinmayi Bargale",   imgUrl: "../../public/assets/pdf.png"       },
-  // { post: "Chief PDF",             fullName: "Prasad Bedage",      imgUrl: "../../public/assets/vp.png"       },
-  { post: "Chief PDP",             fullName: "Juhi Zinage",        imgUrl: "../../public/assets/pdp.png"       },
-  { post: "Chief PDP",             fullName: "Sahil Badera",       imgUrl: "../../public/assets/pdp2.png"      },
-  { post: "Chief PDP",             fullName: "Sakshi Mehtre",      imgUrl: "../../public/assets/pdp4.png"      },
-  { post: "Chief PDP",             fullName: "Anchit Bagde",       imgUrl: "../../public/assets/pdp3.png"      },
-  { post: "Chief Skid-P",          fullName: "Piyush Dawkhare",    imgUrl: "../../public/assets/skidp.png"     },
-  { post: "Chief Skid-P",          fullName: "Manisha Shinde",     imgUrl: "../../public/assets/skid6p2.png"    },
-  { post: "Chief Skid-P",          fullName: "Dhanshri Mali",      imgUrl: "../../public/assets/skidp.png"     },
-  { post: "Chief Skid-P",          fullName: "Pratik Kapre",       imgUrl: "../../public/assets/skidp2.png"    },
-  // { post: "Chief Skid-W",          fullName: "Samruddhi Shinde",   imgUrl: "../../public/assets/pdf.png"       },
-  { post: "Creative Team Head",    fullName: "Rajvardhan Kadam",   imgUrl: "../../public/assets/CTH.png"       },
-  { post: "Creative Team Head",    fullName: "Chaitrali Jadhav",   imgUrl: "../../public/assets/CTH2.png"      },
-  { post: "Creative Team Head",    fullName: "Tanuja Beskar",      imgUrl: "../../public/assets/CTH3.png"      },
-  { post: "Chief Aptitude Developer", fullName: "Darshan Nandurge", imgUrl: "../../public/assets/aptidev.png"   },
-  // { post: "Chief Web Developer",   fullName: "Haripriya Yele",     imgUrl: "../../public/assets/pdf.png"       },
-  // { post: "Chief Web Developer",   fullName: "Piyush Dawkhare",    imgUrl: "../../public/assets/pdf.png"       },
-  { post: "Chief PACEr",           fullName: "Kalpesh Kamble",     imgUrl: "../../public/assets/5pdf.png"       },
+  { post: "President",             fullName: "Vishwajeet Pawar",    imgUrl: "public/assets/president.png" },
+  { post: "Vice President",        fullName: "Prasad Bedage",      imgUrl: "public/assets/vp.png"        },
+  { post: "Secretary",             fullName: "Pranav Patil",       imgUrl: "public/assets/sec.png"       },
+  { post: "Chief PDE",             fullName: "Haripriya Yele",     imgUrl: "public/assets/pde3.png"       },
+  { post: "Chief PDE",             fullName: "Samruddhi Shinde",   imgUrl: "public/assets/pde2.png"      },
+  { post: "Chief PDE",             fullName: "Gayatri Patil",      imgUrl: "public/assets/pde4.png"      },
+  { post: "Chief PDE",             fullName: "Samarth Gaikwad",    imgUrl: "public/assets/pde.png"      },
+  { post: "Chief PDF",             fullName: "Chinmayi Bargale",   imgUrl: "public/assets/pdf.png"       },
+  // { post: "Chief PDF",             fullName: "Prasad Bedage",      imgUrl: "public/assets/vp.png"       },
+  { post: "Chief PDP",             fullName: "Juhi Zinage",        imgUrl: "public/assets/pdp.png"       },
+  { post: "Chief PDP",             fullName: "Sahil Badera",       imgUrl: "public/assets/pdp2.png"      },
+  { post: "Chief PDP",             fullName: "Sakshi Mehtre",      imgUrl: "public/assets/pdp4.png"      },
+  { post: "Chief PDP",             fullName: "Anchit Bagde",       imgUrl: "public/assets/pdp3.png"      },
+  { post: "Chief Skid-P",          fullName: "Piyush Dawkhare",    imgUrl: "public/assets/skidp.png"     },
+  { post: "Chief Skid-P",          fullName: "Manisha Shinde",     imgUrl: "public/assets/skid6p2.png"    },
+  { post: "Chief Skid-P",          fullName: "Dhanshri Mali",      imgUrl: "public/assets/skidp.png"     },
+  { post: "Chief Skid-P",          fullName: "Pratik Kapre",       imgUrl: "public/assets/skidp2.png"    },
+  // { post: "Chief Skid-W",          fullName: "Samruddhi Shinde",   imgUrl: "public/assets/pdf.png"       },
+  { post: "Creative Team Head",    fullName: "Rajvardhan Kadam",   imgUrl: "public/assets/CTH.png"       },
+  { post: "Creative Team Head",    fullName: "Chaitrali Jadhav",   imgUrl: "public/assets/CTH2.png"      },
+  { post: "Creative Team Head",    fullName: "Tanuja Beskar",      imgUrl: "public/assets/CTH3.png"      },
+  { post: "Chief Aptitude Developer", fullName: "Darshan Nandurge", imgUrl: "public/assets/aptidev.png"   },
+  // { post: "Chief Web Developer",   fullName: "Haripriya Yele",     imgUrl: "public/assets/pdf.png"       },
+  // { post: "Chief Web Developer",   fullName: "Piyush Dawkhare",    imgUrl: "public/assets/pdf.png"       },
+  { post: "Chief PACEr",           fullName: "Kalpesh Kamble",     imgUrl: "public/assets/5pdf.png"       },
 ];
 
 function BoardSection({ title, members }) {
@@ -114,25 +114,25 @@ function PrudenceSection({ prudenceRef }) {
   const events = [
     {
       title: "Aspire",
-      img: "../../public/assets/aspire.png",
+      img: "public/assets/aspire.png",
       desc:
         "A mock placement drive simulating real campus interviews, with Expert & Novice tracks bridging academics and industry.",
     },
     {
       title: "Nitigya",
-      img: "../../public/assets/nitigya.png",
+      img: "public/assets/nitigya.png",
       desc:
         "High-stakes geopolitical challenge with three intense rounds on global politics, diplomacy, and policy-making.",
     },
     {
       title: "Standout",
-      img: "../../public/assets/standout.png",
+      img: "public/assets/standout.png",
       desc:
         "Creative themes and unexpected adaptability tests that leave a lasting impression through immersive experiences.",
     },
     {
       title: "Ideathon",
-      img: "../../public/assets/ideathon.png",
+      img: "public/assets/ideathon.png",
       desc:
         "Teams pitch innovative business ideas in a multi-stage competition to ignite entrepreneurial spirit.",
     },
