@@ -8,13 +8,18 @@ function Navbar() {
     <nav className="bg-black text-white p-4 shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* Logo */}
-        <div className="text-2xl font-bold tracking-widest">
-          PACE
-          <div className="text-xs font-normal tracking-normal">
-            Personality Advancement Circle Of Engineers
-          </div>
-        </div>
+   {/* Logo */}
+<div className="text-2xl font-bold tracking-widest">
+  <img
+    src="/PACE.png"
+    alt="PACE Logo"
+    className="ml-5 h-10 w-15" // Adjust height as you need
+  />
+  <div className="text-xs font-normal tracking-normal">
+    {/* If you need a slogan or tagline under the logo, you can add it here */}
+  </div>
+</div>
+
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 text-sm uppercase tracking-wide">
