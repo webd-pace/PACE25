@@ -24,8 +24,8 @@ export const BoardSection = ({ title, members }) => {
   return (
     <section className="py-16 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-8 text-center uppercase tracking-wide text-yellow-400">
-          {title}
+        <h2 className="text-5xl md:text-5xl scale-90 font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 uppercase tracking-widest font-cinzel-decorative">
+        {title}
         </h2>
 
         {/* Scroll container with hidden scrollbar */}

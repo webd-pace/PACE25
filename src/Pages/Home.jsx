@@ -4,6 +4,8 @@ import { Hero } from '../components/Hero';
 import { PrudenceSection } from '../components/PrudenceSection';
 import { BoardSection } from '../components/BoardSection';
 import { boardMembersChief } from '../constants/boardMembers';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 
 
@@ -20,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-
+    <Navbar />
     <div className="bg-black text-white min-h-screen overflow-hidden">
       <Hero onExploreClick={handleExploreClick} />
       <PrudenceSection prudenceRef={prudenceRef} />
@@ -29,6 +31,7 @@ export default function Home() {
         members={boardMembersChief} 
       />
     </div>
+    <Footer/>
     </>
 
   );

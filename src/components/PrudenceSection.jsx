@@ -1,6 +1,7 @@
-// components/PrudenceSection.jsx
 import React from 'react';
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
 export const PrudenceSection = ({ prudenceRef }) => {
   const events = [
     {
@@ -23,7 +24,7 @@ export const PrudenceSection = ({ prudenceRef }) => {
     },
     {
       title: "Ideathon",
-      img: "/assets/ideathon.png",
+      img: "/assets/Ideathon.jpg",
       desc:
         "Teams pitch innovative business ideas in a multi-stage competition to ignite entrepreneurial spirit.",
     },
@@ -37,27 +38,27 @@ export const PrudenceSection = ({ prudenceRef }) => {
       {/* Background decorative circles */}
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-yellow-500 opacity-10 rounded-full filter blur-3xl"></div>
       <div className="absolute -bottom-20 -right-10 w-96 h-96 bg-yellow-500 opacity-10 rounded-full filter blur-3xl"></div>
-  
+
       <div className="relative max-w-7xl mx-auto px-4">
         {/* Gradient Heading */}
-        <h2 className="text-5xl md:text-6xl scale-80 font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 uppercase tracking-widest">
+        <h2 className="text-5xl md:text-6xl scale-80 font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 uppercase tracking-widest font-cinzel-decorative">
           Prudence 2K24
         </h2>
-  
-        {/* NEW: Main PRUDENCE Image */}
+
+        {/* Main PRUDENCE Image */}
         <div className="flex justify-center mt-6">
           <img
-            src="/assets/prudence-24.png" // <== replace with your image path
+            src="/assets/prudence-24.png"
             alt="Prudence Main Banner"
             className="w-72 md:w-96 h-auto rounded-2xl border-4 object-contain"
           />
         </div>
-  
+
         {/* Underline Accent */}
         <div className="flex justify-center mt-6">
           <span className="block w-24 h-1 bg-yellow-400 rounded-full"></span>
         </div>
-  
+
         {/* Intro Text */}
         <p className="mt-8 text-gray-300 scale-90 text-center max-w-3xl mx-auto text-lg leading-relaxed">
           PRUDENCE is the National Level Management Fest organised by PACE since 2001,
@@ -66,14 +67,15 @@ export const PrudenceSection = ({ prudenceRef }) => {
           featuring tracks across economics, entrepreneurship, marketing, debate, politics,
           social responsibility, journalism, and more.
         </p>
-  
+
         {/* Sub-Events Grid */}
         <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 scale-80 lg:grid-cols-4 gap-10">
           {events.map((ev) => (
-            <div
+            <Link
               key={ev.title}
+              to={`/events/${ev.title.toLowerCase()}`}
               className="relative group bg-gray-900 rounded-3xl overflow-hidden shadow-2xl
-                         hover:shadow-yellow-500/40 transition-shadow duration-300"
+                         hover:shadow-yellow-500/40 transition-shadow duration-300 cursor-pointer"
             >
               {/* Image */}
               <div className="overflow-hidden">
@@ -83,20 +85,17 @@ export const PrudenceSection = ({ prudenceRef }) => {
                   className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-  
-              {/* Glass panel overlay on hover */}
-              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm opacity-0 "></div>
-  
+
               {/* Content */}
               <div className="relative p-6">
-                <h3 className="text-2xl font-semibold mb-2 ">
+                <h3 className="text-2xl font-semibold mb-2">
                   {ev.title}
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
                   {ev.desc}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

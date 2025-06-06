@@ -1,8 +1,10 @@
 // components/Hero.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Hero = ({ onExploreClick }) => {
   return (
+    <>
     <div className="min-h-screen flex flex-col items-center justify-center relative">
       {/* Background Image with Overlay */}
       <div 
@@ -20,16 +22,11 @@ export const Hero = ({ onExploreClick }) => {
       {/* Content Container */}
       <div className="relative z-10 text-center px-4">
         {/* Top Left Text */}
-        {/* <div className="absolute top-5 left-5 text-xs md:text-sm font-light tracking-widest text-white">
-          WCE Sangli
-        </div> */}
+        <div className="absolute top-5 left-5 text-xs md:text-sm font-light tracking-widest text-white">
+          
+        </div>
 
-        {/* Top Right Button
-        <div className="absolute top-5 right-5 text-xs md:text-sm font-bold uppercase cursor-pointer text-white hover:text-yellow-400 transition">
-          Join Now
-        </div> */}
-
-        {/* Logo and Main Content */}
+           {/* Logo and Main Content */}
         <div className="flex justify-center items-center mb-6">
           <img
             src="/PACE.png"
@@ -37,6 +34,8 @@ export const Hero = ({ onExploreClick }) => {
             className="h-24 md:h-40 w-auto object-contain"
           />
         </div>
+
+     
 
         {/* Divider with star */}
         <div className="flex items-center justify-center space-x-4 my-6">
@@ -49,6 +48,19 @@ export const Hero = ({ onExploreClick }) => {
         <p className="text-gray-200 mt-4 max-w-2xl mx-auto text-xs md:text-base leading-relaxed px-2">
           Personality Advancement Circle of Engineers is a student organization started in 1994...
         </p>
+        
+
+        {/*Top Right Button*/}
+       <section className=" text-white py-24 text-center">
+        <h1 className="text-5xl font-bold mb-6">Welcome to Pace </h1>
+        <p className="text-xl mb-10">National Level Management Fest by PACE</p>
+
+        <Link to="/JoinForm">
+        <button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300">
+          Join Now
+        </button>
+        </Link>
+        </section>
 
         {/* Explore Events Button */}
         <button
@@ -64,6 +76,8 @@ export const Hero = ({ onExploreClick }) => {
           <p className="text-[10px] md:text-xs text-gray-300">Scroll Down</p>
         </div> */}
       </div>
-    </div>
+      </div>
+      </>
+    
   );
 };
