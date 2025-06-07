@@ -1,0 +1,41 @@
+# See https://github.com/github/gitignore/blob/main/Node.gitignore
+
+# Dependency directories
+node_modules/
+.cache/
+dist/
+build/
+
+# Production
+.env
+.env.*.local
+.env.local
+
+# Testing
+coverage/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Optional: if using Mac system files or Linux
+*.log
+
+# Optional: if using parcel or other bundlers
+.parcel-cache/
+
+# Optional: if using Firebase or other CLI tools
+.firebase/
+node_modules/
