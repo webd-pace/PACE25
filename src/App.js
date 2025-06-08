@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/Pace-new-website" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/JoinForm" element={<JoinForm />} />
         <Route path="/events/standout" element={<Standout />} />
         <Route path="/events/aspire" element={<Aspire />} />
