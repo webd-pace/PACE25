@@ -6,13 +6,13 @@ export const PrudenceSection = ({ prudenceRef }) => {
   const events = [
     {
       title: "Aspire",
-      img: "/assets/aspire.png",
+      img: "/assets/Aspire.jpg",
       desc:
         "A mock placement drive simulating real campus interviews, with Expert & Novice tracks bridging academics and industry.",
     },
     {
       title: "Nitigya",
-      img: "/assets/nitigya.png",
+      img: "/assets/Nitigya.jpg",
       desc:
         "High-stakes geopolitical challenge with three intense rounds on global politics, diplomacy, and policy-making.",
     },
