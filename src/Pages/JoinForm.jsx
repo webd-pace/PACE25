@@ -23,6 +23,8 @@ const JoinForm = () => {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
 
   // File input refs
   const resumeInputRef = useRef(null);
@@ -81,7 +83,9 @@ const JoinForm = () => {
     }
 
     setErrors({});
+    setLoading(true);
     setSubmitted(true);
+
 
     try {
       // Upload resume
@@ -113,6 +117,7 @@ const JoinForm = () => {
 
       // Show success toast
       toast.success('🎉 Registration successful!');
+      setLoading(false);
 
       // Reset form data and file inputs
       setFormData({
@@ -128,12 +133,15 @@ const JoinForm = () => {
         resume: null,
         photo: null,
       });
+      
       resumeInputRef.current.value = '';
       photoInputRef.current.value = '';
     } catch (error) {
       console.error("❌ Firebase error:", error);
       toast.error('Submission failed. Please try again.');
+      setLoading(false);
       setSubmitted(false);
+
     }
   };
 
@@ -218,9 +226,28 @@ const JoinForm = () => {
           />
           {errors.photo && <p style={styles.error}>{errors.photo}</p>}
 
-          <button type="submit" style={styles.button}>Submit</button>
+          <button type="submit"style={{...styles.button, opacity: loading ? 0.6 : 1, cursor: loading ? 'not-allowed' : 'pointer',}}
+          disabled={loading}>{loading ? 'Submitting...' : 'Submit'}
+          </button>
+
         </form>
-      </div>
+  </div>
+      {loading && (
+        <div style={{
+        position: 'fixed',
+        top: 0, left: 0, right: 0, bottom: 0,
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999,
+        color: '#fff',
+        fontSize: '24px',
+        fontWeight: 'bold'
+      }}>
+    Submitting Form...
+  </div>
+)}
 
       {/* Toast Notifications */}
       <ToastContainer position="top-center" autoClose={3000} />
