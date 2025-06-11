@@ -25,8 +25,6 @@ const JoinForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-
-  // File input refs
   const resumeInputRef = useRef(null);
   const photoInputRef = useRef(null);
 
@@ -86,19 +84,15 @@ const JoinForm = () => {
     setLoading(true);
     setSubmitted(true);
 
-
     try {
-      // Upload resume
       const resumeRef = storageRef(storage, `resumes/${formData.name}-${Date.now()}-${formData.resume.name}`);
       await uploadBytes(resumeRef, formData.resume);
       const resumeURL = await getDownloadURL(resumeRef);
 
-      // Upload photo
       const photoRef = storageRef(storage, `photos/${formData.name}-${Date.now()}-${formData.photo.name}`);
       await uploadBytes(photoRef, formData.photo);
       const photoURL = await getDownloadURL(photoRef);
 
-      // Save form data to Realtime Database
       const newEntryRef = push(dbRef(database, 'registrations'));
       await set(newEntryRef, {
         name: formData.name,
@@ -115,11 +109,8 @@ const JoinForm = () => {
         submittedAt: new Date().toISOString(),
       });
 
-      // Show success toast
       toast.success('🎉 Registration successful!');
       setLoading(false);
-
-      // Reset form data and file inputs
       setFormData({
         name: '',
         phone: '',
@@ -133,7 +124,6 @@ const JoinForm = () => {
         resume: null,
         photo: null,
       });
-      
       resumeInputRef.current.value = '';
       photoInputRef.current.value = '';
     } catch (error) {
@@ -141,171 +131,89 @@ const JoinForm = () => {
       toast.error('Submission failed. Please try again.');
       setLoading(false);
       setSubmitted(false);
-
     }
   };
 
   return (
     <>
       <Navbar />
-      <div style={styles.container}>
-        <h2 style={styles.heading}>Join PACE</h2>
+      <div className="max-w-2xl mx-auto mt-10 p-8 bg-gray-900 text-white rounded-xl shadow-2xl font-sans">
+        <h2 className="text-3xl font-bold mb-6 text-center text-yellow-400">Join PACE</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col">
+          {/* Name */}
+          <label className="mt-4 mb-1 font-semibold">Full Name</label>
+          <input name="name" value={formData.name} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
 
-        <form onSubmit={handleSubmit} style={styles.form}>
-          <label style={styles.label}>Full Name</label>
-          <input name="name" value={formData.name} onChange={handleChange} style={styles.input} />
-          {errors.name && <p style={styles.error}>{errors.name}</p>}
+          {/* Phone */}
+          <label className="mt-4 mb-1 font-semibold">Phone Number</label>
+          <input name="phone" value={formData.phone} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
 
-          <label style={styles.label}>Phone Number</label>
-          <input name="phone" value={formData.phone} onChange={handleChange} style={styles.input} />
-          {errors.phone && <p style={styles.error}>{errors.phone}</p>}
+          {/* Email */}
+          <label className="mt-4 mb-1 font-semibold">Email</label>
+          <input name="email" value={formData.email} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
 
-          <label style={styles.label}>Email</label>
-          <input name="email" value={formData.email} onChange={handleChange} style={styles.input} />
-          {errors.email && <p style={styles.error}>{errors.email}</p>}
-
-          {/* Preference 1 */}
-          <label style={styles.label}>1st Preference</label>
-          <select name="preference1" value={formData.preference1} onChange={handleChange} style={styles.input}>
-            <option value="">-- Select Preference --</option>
-            {options.map((opt, idx) => (
+          {/* Preferences */}
+      {[1, 2, 3].map((num) => {
+        const ordinal = num === 1 ? '1st' : num === 2 ? '2nd' : '3rd';
+          return (
+          <div key={num} className="mt-6">
+          <label className="block mb-1 font-semibold">{ordinal} Preference</label>
+          <select
+              name={`preference${num}`}
+              value={formData[`preference${num}`]}
+              onChange={handleChange}
+              className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white"
+            >
+          <option value="">-- Select Preference --</option>
+              {options.map((opt, idx) => (
               <option key={idx} value={opt}>{opt}</option>
             ))}
           </select>
-          {errors.preference1 && <p style={styles.error}>{errors.preference1}</p>}
+        {num === 1 && errors.preference1 && <p className="text-red-500 text-sm mt-1">{errors.preference1}</p>}
 
-          <label style={styles.label}>Why this preference?</label>
-          <textarea name="reason1" value={formData.reason1} onChange={handleChange} style={{ ...styles.input, height: '100px' }} />
-          {errors.reason1 && <p style={styles.error}>{errors.reason1}</p>}
+        <label className="block mt-4 mb-1 font-semibold">Why this preference?</label>
+        <textarea
+          name={`reason${num}`}
+          value={formData[`reason${num}`]}
+          onChange={handleChange}
+          className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white h-24"
+        />
+        {num === 1 && errors.reason1 && <p className="text-red-500 text-sm mt-1">{errors.reason1}</p>}
+      </div>
+      );
+    })}
 
-          {/* Preference 2 */}
-          <label style={styles.label}>2nd Preference</label>
-          <select name="preference2" value={formData.preference2} onChange={handleChange} style={styles.input}>
-            <option value="">-- Select Preference --</option>
-            {options.map((opt, idx) => (
-              <option key={idx} value={opt}>{opt}</option>
-            ))}
-          </select>
-
-          <label style={styles.label}>Why this preference?</label>
-          <textarea name="reason2" value={formData.reason2} onChange={handleChange} style={{ ...styles.input, height: '100px' }} />
-
-          {/* Preference 3 */}
-          <label style={styles.label}>3rd Preference</label>
-          <select name="preference3" value={formData.preference3} onChange={handleChange} style={styles.input}>
-            <option value="">-- Select Preference --</option>
-            {options.map((opt, idx) => (
-              <option key={idx} value={opt}>{opt}</option>
-            ))}
-          </select>
-
-          <label style={styles.label}>Why this preference?</label>
-          <textarea name="reason3" value={formData.reason3} onChange={handleChange} style={{ ...styles.input, height: '100px' }} />
 
           {/* Resume Upload */}
-          <label style={styles.label}>Upload Resume (PDF)</label>
-          <input
-            type="file"
-            name="resume"
-            onChange={handleChange}
-            accept=".pdf"
-            style={styles.input}
-            ref={resumeInputRef}
-          />
-          {errors.resume && <p style={styles.error}>{errors.resume}</p>}
+          <label className="mt-4 mb-1 font-semibold">Upload Resume (PDF)</label>
+          <input type="file" name="resume" onChange={handleChange} accept=".pdf" ref={resumeInputRef} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.resume && <p className="text-red-500 text-sm mt-1">{errors.resume}</p>}
 
           {/* Photo Upload */}
-          <label style={styles.label}>Upload Passport Photo (JPG/PNG)</label>
-          <input
-            type="file"
-            name="photo"
-            onChange={handleChange}
-            accept="image/jpeg, image/png"
-            style={styles.input}
-            ref={photoInputRef}
-          />
-          {errors.photo && <p style={styles.error}>{errors.photo}</p>}
+          <label className="mt-4 mb-1 font-semibold">Upload Passport Photo (JPG/PNG)</label>
+          <input type="file" name="photo" onChange={handleChange} accept="image/jpeg, image/png" ref={photoInputRef} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.photo && <p className="text-red-500 text-sm mt-1">{errors.photo}</p>}
 
-          <button type="submit"style={{...styles.button, opacity: loading ? 0.6 : 1, cursor: loading ? 'not-allowed' : 'pointer',}}
-          disabled={loading}>{loading ? 'Submitting...' : 'Submit'}
+          {/* Submit Button */}
+          <button type="submit" disabled={loading}
+            className={`mt-6 py-3 px-6 rounded-lg font-bold text-black text-lg bg-yellow-400 ${loading ? 'opacity-60 cursor-not-allowed' : 'hover:bg-yellow-300'}`}>
+            {loading ? 'Submitting...' : 'Submit'}
           </button>
-
         </form>
-  </div>
-      {loading && (
-        <div style={{
-        position: 'fixed',
-        top: 0, left: 0, right: 0, bottom: 0,
-        backgroundColor: 'rgba(0,0,0,0.6)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 9999,
-        color: '#fff',
-        fontSize: '24px',
-        fontWeight: 'bold'
-      }}>
-    Submitting Form...
-  </div>
-)}
+      </div>
 
-      {/* Toast Notifications */}
+      {loading && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 text-white text-2xl font-bold">
+          Submitting Form...
+        </div>
+      )}
+
       <ToastContainer position="top-center" autoClose={3000} />
     </>
   );
-};
-
-const styles = {
-  container: {
-    maxWidth: '600px',
-    margin: '40px auto',
-    padding: '30px',
-    backgroundColor: '#111',
-    color: '#fff',
-    borderRadius: '12px',
-    boxShadow: '0 0 20px rgba(255, 215, 0, 0.3)',
-    fontFamily: 'sans-serif',
-  },
-  heading: {
-    fontSize: '28px',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-    textAlign: 'center',
-    color: '#ffd700',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  label: {
-    marginTop: '16px',
-    marginBottom: '6px',
-    fontWeight: 'bold',
-  },
-  input: {
-    padding: '10px',
-    borderRadius: '6px',
-    border: '1px solid #555',
-    backgroundColor: '#222',
-    color: '#fff',
-    fontSize: '16px',
-  },
-  error: {
-    color: 'red',
-    fontSize: '14px',
-    marginTop: '4px',
-  },
-  button: {
-    marginTop: '24px',
-    padding: '12px',
-    backgroundColor: '#ffd700',
-    color: '#000',
-    fontWeight: 'bold',
-    border: 'none',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    fontSize: '16px',
-  },
 };
 
 export default JoinForm;
