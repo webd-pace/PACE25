@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero';
 import { PrudenceSection } from '../components/PrudenceSection';
 import { BoardSection } from '../components/BoardSection';
 import { boardMembersChief } from '../constants/boardMembers';
+import { boardMembersjoints } from '../constants/jointboard';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
@@ -29,6 +30,10 @@ export default function Home() {
       <BoardSection 
         title="Chief Board 2025" 
         members={boardMembersChief} 
+      />
+      <BoardSection 
+        title="Joint Board 2025" 
+        members={boardMembersjoints} 
       />
     </div>
     <Footer/>
