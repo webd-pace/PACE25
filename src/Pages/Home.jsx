@@ -31,10 +31,10 @@ export default function Home() {
         title="Chief Board 2025" 
         members={boardMembersChief} 
       />
-      <BoardSection 
+      {/* <BoardSection 
         title="Joint Board 2025" 
         members={boardMembersjoints} 
-      />
+      /> */}
     </div>
     <Footer/>
     </>
