@@ -36,7 +36,7 @@ export const jointboard = ({ title, members }) => {
           {members.map((m, i) => (
             <div
               key={i}
-              className="snap-center flex-shrink-0 w-64 bg-transparent rounded-3xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20"
+              className="snap-center flex-shrink-0 w-64 bg-transparent rounded-3xl p-6 flex flex-col items-center text-center transition-all duration-250 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20"
             >
               <div className="relative mb-4">
                 <img
