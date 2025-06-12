@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar';
+import Loader from '../components/Loader';
 import { ref as dbRef, push, set } from 'firebase/database';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage, database } from '../firebase'; // adjust path as needed
@@ -205,11 +206,7 @@ const JoinForm = () => {
         </form>
       </div>
 
-      {loading && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 text-white text-2xl font-bold">
-          Submitting Form...
-        </div>
-      )}
+     {loading && <Loader />}
 
       <ToastContainer position="top-center" autoClose={3000} />
     </>
