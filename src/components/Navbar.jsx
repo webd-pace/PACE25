@@ -73,7 +73,7 @@ export default function Navbar() {
           <a href="/" className="block hover:text-yellow-400 py-2">About</a>
           <a href="/" className="block hover:text-yellow-400 py-2">Events</a>
           <a href="/" className="block hover:text-yellow-400 py-2">Contact</a>
-          <a href="/" className="block bg-yellow-400 text-black text-center px-4 py-2 rounded-full mt-2 font-bold hover:bg-yellow-300 transition"> Join Now </a>
+          {/* <a href="/" className="block bg-yellow-400 text-black text-center px-4 py-2 rounded-full mt-2 font-bold hover:bg-yellow-300 transition"> Join Now </a> */}
         </div>
       )}
     </nav>
