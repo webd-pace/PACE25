@@ -103,13 +103,13 @@ const StyledWrapper = styled.div`
 
   @keyframes fade00 {
     0% {
-      background: #FFA500;
+      background: #00bfff;
     }
     50% {
-      background: #000000;
+      background: #1e90ff;
     }
     100% {
-      background: #FFA500;
+      background: #00bfff;
     }
   }
 `;
