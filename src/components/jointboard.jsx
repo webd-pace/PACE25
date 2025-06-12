@@ -6,8 +6,8 @@ export const jointboard = ({ title, members }) => {
   // Auto-scroll every 1.5 seconds
   useEffect(() => {
     const el = containerRef.current;
-    const scrollAmount = 300;
-    const scrollDelay = 1500;
+    const scrollAmount = 250;
+    const scrollDelay = 1000;
 
     const intervalId = setInterval(() => {
       if (!el) return;
