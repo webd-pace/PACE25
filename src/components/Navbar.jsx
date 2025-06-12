@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,10 +15,10 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8 text-gray-200 font-medium">
-            <a href="#" className="hover:text-yellow-400 transition-colors">Home</a>
-            <a href="#" className="hover:text-yellow-400 transition-colors">About</a>
-            <a href="#" className="hover:text-yellow-400 transition-colors">Events</a>
-            <a href="#" className="hover:text-yellow-400 transition-colors">Contact</a>
+            <a href="/" className="hover:text-yellow-400 transition-colors">Home</a>
+            <a href="/" className="hover:text-yellow-400 transition-colors">About</a>
+            <a href="/" className="hover:text-yellow-400 transition-colors">Events</a>
+            <a href="/" className="hover:text-yellow-400 transition-colors">Contact</a>
           </div>
 
           {/* CTA */}
@@ -68,17 +69,11 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-black px-4 pt-2 pb-4 space-y-2 text-gray-200 font-medium border-b border-yellow-400/20">
-          <a href="#" className="block hover:text-yellow-400 py-2">Home</a>
-          <a href="#" className="block hover:text-yellow-400 py-2">About</a>
-          <a href="#" className="block hover:text-yellow-400 py-2">Events</a>
-          <a href="#" className="block hover:text-yellow-400 py-2">Contact</a>
-          <a
-            href="#"
-            className="block bg-yellow-400 text-black text-center px-4 py-2 
-                      rounded-full mt-2 font-bold hover:bg-yellow-300 transition"
-          >
-            Join Now
-          </a>
+          <a href="/" className="block hover:text-yellow-400 py-2">Home</a>
+          <a href="/" className="block hover:text-yellow-400 py-2">About</a>
+          <a href="/" className="block hover:text-yellow-400 py-2">Events</a>
+          <a href="/" className="block hover:text-yellow-400 py-2">Contact</a>
+          <a href="/" className="block bg-yellow-400 text-black text-center px-4 py-2 rounded-full mt-2 font-bold hover:bg-yellow-300 transition"> Join Now </a>
         </div>
       )}
     </nav>
