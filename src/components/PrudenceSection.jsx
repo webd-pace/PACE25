@@ -74,28 +74,27 @@ export const PrudenceSection = ({ prudenceRef }) => {
             <Link
               key={ev.title}
               to={`/events/${ev.title.toLowerCase()}`}
-              className="relative group bg-gray-900 rounded-3xl overflow-hidden shadow-2xl
-                         hover:shadow-yellow-500/40 transition-shadow duration-300 cursor-pointer"
-            >
-              {/* Image */}
-              <div className="overflow-hidden">
-                <img
-                  src={ev.img}
-                  alt={ev.title}
-                  className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
+              className="relative group bg-gray-900 border border-yellow-200 rounded-3xl overflow-hidden shadow-2xl hover:shadow-yellow-500/40 transform hover:scale-105 transition-all duration-300 cursor-pointer"
+            >       
+          {/* Image */}
+            <div className="overflow-hidden">
+              <img
+              src={ev.img}
+              alt={ev.title}
+              className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"/>
+            </div>
 
-              {/* Content */}
-              <div className="relative p-6">
-                <h3 className="text-2xl font-semibold mb-2">
-                  {ev.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
-                  {ev.desc}
-                </p>
-              </div>
-            </Link>
+          {/* Content */}
+            <div className="relative p-6">
+              <h3 className="text-2xl font-semibold text-yellow-300 mb-2">
+                {ev.title}
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                {ev.desc}
+              </p>
+            </div>
+          </Link>
+
           ))}
         </div>
       </div>
