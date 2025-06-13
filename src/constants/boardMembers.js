@@ -7,7 +7,7 @@ export const boardMembersChief = [
   { post: "Chief PDE & Chief Skid-W",          fullName: "Samruddhi Shinde",   imgUrl: "/assets/Cheif_Board/Samruddhi_Shinde.jpg"},
   { post: "Chief PDE",                         fullName: "Gayatri Patil",      imgUrl: "/assets/Cheif_Board/Gayatri_Patil.jpg"      },
   { post: "Chief PDE",                         fullName: "Samarth Gaikwad",    imgUrl: "/assets/Cheif_Board/Samarth_Gaikwad.jpg"      },
-  { post: "Chief PDF",                         fullName: "Chinmayi Bargale",   imgUrl: "/assets/Cheif_Board/Chinmayi_Bargale.jpg"       },
+  { post: "Chief PDF",                         fullName: "Chinmayi Bargale",   imgUrl: "/assets/Cheif_Board/Chinmayi_Bargale.JPG"       },
   //{ post: "Chief PDF",                         fullName: "Prasad Bedage",      imgUrl: "/assets/Cheif_Board/Prasad_Bedage.jpg"       },
   { post: "Chief PDP",                         fullName: "Juhi Zinage",        imgUrl: "/assets/Cheif_Board/Juhi_Zinage.jpg"       },
   { post: "Chief PDP",                         fullName: "Sahil Badera",       imgUrl: "/assets/Cheif_Board/Sahil_Badera.jpg"      },
