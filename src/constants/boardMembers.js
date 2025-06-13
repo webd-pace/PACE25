@@ -23,6 +23,6 @@ export const boardMembersChief = [
   { post: "Creative Team Head",                fullName: "Tanuja Beskar",      imgUrl: "/assets/Cheif_Board/Tanuja_Beskar.png"      },
   { post: "Chief Aptitude Developer",          fullName: "Darshan Nandurge", imgUrl: "/assets/Cheif_Board/Darshan_Nandurge.jpg"   },
   //{ post: "Chief Web Developer",               fullName: "Haripriya Yele",     imgUrl: "/assets/Cheif_Board/Haripriya_Yele.jpg"       },
-  //{ post: "Chief Web Developer",               fullName: "Piyush Dawkhare",    imgUrl: "/assets/Cheif_Board/Piyush_Dawkhare.png"       },
+  //{ post: "Chief Web Developer",               fullName: "Pyush Dawkhare",    imgUrl: "/assets/Cheif_Board/Piyush_Dawkhare.png"       },
   { post: "Chief PACEr",                       fullName: "Kalpesh Kamble",     imgUrl: "/assets/Cheif_Board/Kalpesh_Kamble.jpg"       },
 ];
