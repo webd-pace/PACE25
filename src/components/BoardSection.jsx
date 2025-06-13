@@ -54,7 +54,7 @@ export const BoardSection = ({ title, members }) => {
 
         <div className="flex justify-center mt-8">
           <button className="px-6 py-2 bg-yellow-400 text-black font-bold rounded-full hover:bg-yellow-300 transition">
-            View Full Board
+            <a href="/FullBoard" >View Full Board </a>
           </button>
         </div>
       </div>
