@@ -15,16 +15,17 @@ const Footer = () => {
           </div>
 
           {/* Link Columns */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 text-sm">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-1 text-sm">
             <div>
-              <h3 className="text-yellow-400 font-semibold mb-2">Company</h3>
+              <h2 className="text-yellow-400 font-semibold mb-2">Contact</h2>
               <ul className="space-y-1">
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Contact</a></li>
+                <li><a className="hover:text-yellow-400 transition-colors">President: Vishvajeet Pawar  :+91 7887739590</a></li>
+                <li><a className="hover:text-yellow-400 transition-colors">Vice-President: Prasad Bedge :+91 9307286697</a></li>
+                <li><a className="hover:text-yellow-400 transition-colors">Secretary: Pranav Patil      :+91 8767939192</a></li>
+                <li><a className="hover:text-yellow-400 transition-colors">Mail: wcepace@walchandsangli.ac.in</a></li>
               </ul>
             </div>
-            <div>
+            {/* <div>
               <h3 className="text-yellow-400 font-semibold mb-2">Resources</h3>
               <ul className="space-y-1">
                 <li><a href="#" className="hover:text-yellow-400 transition-colors">Blog</a></li>
@@ -38,7 +39,7 @@ const Footer = () => {
                 <li><a href="#" className="hover:text-yellow-400 transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-yellow-400 transition-colors">Terms of Service</a></li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
 
