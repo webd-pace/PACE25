@@ -1,10 +1,10 @@
 // constants/boardMembers.js
 export const boardMembersChief = [
   { post: "President",                         fullName: "Vishwajeet Pawar",   imgUrl: "/assets/Cheif_Board/Vishvajeet_Pawar.jpg" },
-  { post: "Vice President & Chief PDF",        fullName: "Prasad Bedage",      imgUrl: "/assets/Cheif_Board/Prasad_Bedage.jpg "},
+  { post: "Vice President & Chief PDF",        fullName: "Prasad Bedage",      imgUrl: "/assets/Cheif_Board/Prasad_Bedage.jpg"},
   { post: "Secretary",                         fullName: "Pranav Patil",       imgUrl: "/assets/Cheif_Board/Pranav_Patil.jpg" },
   { post: "Chief PDE & Chief Web Developer",   fullName: "Haripriya Yele",     imgUrl: "/assets/Cheif_Board/Haripriya_Yele.jpg"},
-  { post: "Chief PDE & Chief Skid-W",          fullName: "Samruddhi Shinde",   imgUrl: "/assets/Cheif_Board/Samruddhi_Shinde.jpg "},
+  { post: "Chief PDE & Chief Skid-W",          fullName: "Samruddhi Shinde",   imgUrl: "/assets/Cheif_Board/Samruddhi_Shinde.jpg"},
   { post: "Chief PDE",                         fullName: "Gayatri Patil",      imgUrl: "/assets/Cheif_Board/Gayatri_Patil.jpg"      },
   { post: "Chief PDE",                         fullName: "Samarth Gaikwad",    imgUrl: "/assets/Cheif_Board/Samarth_Gaikwad.jpg"      },
   { post: "Chief PDF",                         fullName: "Chinmayi Bargale",   imgUrl: "/assets/Cheif_Board/Chinmayi_Bargale.jpg"       },
