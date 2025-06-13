@@ -17,6 +17,11 @@ const Loader = () => {
           <div className="hex-brick h2" />
           <div className="hex-brick h3" />
         </div>
+        <div className="gel c2 r1">
+          <div className="hex-brick h1" />
+          <div className="hex-brick h2" />
+          <div className="hex-brick h3" />
+        </div>
         {/* ...rest of gels */}
       </div>
     </StyledWrapper>
@@ -84,6 +89,11 @@ const StyledWrapper = styled.div`
     margin-left: -47px;
     margin-top: -15px;
     animation: pulse00 2s infinite 0.2s;
+  }
+  .c2 {
+    margin-left: -31px;
+    margin-top: -43px;
+    animation: pulse00 2s infinite 0.4s;
   }
 
   .r1 > .hex-brick {
