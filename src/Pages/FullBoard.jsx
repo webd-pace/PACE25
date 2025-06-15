@@ -17,7 +17,7 @@ const FullBoard = () => {
 
         {/* Underline */}
         <div className="flex justify-center mt-4">
-          <span className="block w-24 h-1 bg-yellow-400 rounded-full"></span>
+          <span className="block w-20 h-1 bg-yellow-400 rounded-full"></span>
         </div>
 
         {/* Grid of Members */}
