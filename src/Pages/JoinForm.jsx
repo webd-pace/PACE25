@@ -196,8 +196,19 @@ const JoinForm = () => {
 
           {/* Branch */}
           <label className="mt-4 mb-1 font-semibold">Which Branch do you belong to?</label>
-          <input name="Branch" value={formData.Branch} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          <select name="Branch" value={formData.Branch} onChange={handleChange} className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white"> 
+          <option value="">-- Select Branch --</option>
+          <option value="Computer Science">S.Y. CSE</option>
+          <option value="Information Technology">S.Y. IT</option>
+          <option value="Electronics">S.Y. Electronics</option>
+          <option value="Electrical">S.Y. Electrical</option>
+          <option value="Mechanical">S.Y. Mechanical</option>
+          <option value="Civil">S.Y. Civil</option>
+          <option value="Chemical">S.Y. AIML</option>
+          <option value="Other">S.Y. Robotics</option>
+          </select>
           {errors.Branch && <p className="text-red-500 text-sm mt-1">{errors.Branch}</p>}
+
 
           {/* Linked_In */}
           <label className="mt-4 mb-1 font-semibold">Linked In Profile Link </label>
@@ -249,8 +260,6 @@ const JoinForm = () => {
           <label className="mt-4 mb-1 font-semibold">What new initiatives would you bring to Pace?</label>
           <input name="Initiatives" value={formData.Initiatives} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.Initiatives && <p className="text-red-500 text-sm mt-1">{errors.Initiatives}</p>}
-
-          
 
           {/* Resume Upload */}
           <label className="mt-4 mb-1 font-semibold">Upload Resume (PDF)</label>
