@@ -12,12 +12,17 @@ const JoinForm = () => {
     name: '',
     phone: '',
     email: '',
+    Branch: '',
+    LinkedIn: '',
     preference1: '',
     reason1: '',
     preference2: '',
     reason2: '',
     preference3: '',
     reason3: '',
+    Describe: '',
+    Why_Pace: '',
+    Initiatives: '',
     resume: null,
     photo: null,
   });
@@ -56,8 +61,17 @@ const JoinForm = () => {
     if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.phone.trim()) newErrors.phone = 'Phone is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
+    if (!formData.Branch.trim()) newErrors.Branch = 'Branch is required';
+    if (!formData.LinkedIn.trim()) newErrors.LinkedIn = 'LinkedIn profile';
     if (!formData.preference1) newErrors.preference1 = 'Preference 1 is required';
     if (!formData.reason1.trim()) newErrors.reason1 = 'Reason 1 is required';
+    if (!formData.preference2) newErrors.preference2 = 'Preference 2 is required';
+    //if (!formData.reason2.trim()) newErrors.reason2 = 'Reason 2 is required';
+    if (!formData.preference3) newErrors.preference3 = 'Preference 3 is required';
+    //if (!formData.reason3.trim()) newErrors.reason3 = 'Reason 3 is required';
+    if (!formData.Describe.trim()) newErrors.Describe = 'Description is required';
+    if (!formData.Why_Pace.trim()) newErrors.Why_Pace = 'Why Pace is required';
+    if (!formData.Initiatives.trim()) newErrors.Initiatives = 'Initiatives is required';
     if (!formData.resume) newErrors.resume = 'Resume is required';
     if (!formData.photo) newErrors.photo = 'Photo is required';
     else {
@@ -99,29 +113,53 @@ const JoinForm = () => {
         name: formData.name,
         phone: formData.phone,
         email: formData.email,
+        Branch: formData.Branch,
+        LinkedIn: formData.LinkedIn,
         preference1: formData.preference1,
         reason1: formData.reason1,
         preference2: formData.preference2,
         reason2: formData.reason2,
         preference3: formData.preference3,
         reason3: formData.reason3,
+        Describe: formData.Describe,
+        Why_Pace: formData.Why_Pace,
+        Initiatives: formData.Initiatives,
         resumeURL,
         photoURL,
         submittedAt: new Date().toISOString(),
       });
 
-      toast.success('🎉 Registration successful!');
+      toast.success(
+       <>
+        🎉 Registration successful!
+        <br/>
+        You will be contacted soon.
+        </>,
+        {
+          icon: "✅",
+          style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff"
+          }
+        });
+
       setLoading(false);
       setFormData({
         name: '',
         phone: '',
         email: '',
+        Branch: '',
         preference1: '',
         reason1: '',
         preference2: '',
         reason2: '',
         preference3: '',
         reason3: '',
+        Describe: '',
+        Why_Pace: '',
+        Initiatives: '',
+        LinkedIn: '',
         resume: null,
         photo: null,
       });
@@ -156,6 +194,16 @@ const JoinForm = () => {
           <input name="email" value={formData.email} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
 
+          {/* Branch */}
+          <label className="mt-4 mb-1 font-semibold">Which Branch do you belong to?</label>
+          <input name="Branch" value={formData.Branch} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.Branch && <p className="text-red-500 text-sm mt-1">{errors.Branch}</p>}
+
+          {/* Linked_In */}
+          <label className="mt-4 mb-1 font-semibold">Linked In Profile Link </label>
+          <input name="LinkedIn" value={formData.LinkedIn} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.LinkedIn && <p className="text-red-500 text-sm mt-1">{errors.LinkedIn}</p>}
+
           {/* Preferences */}
       {[1, 2, 3].map((num) => {
         const ordinal = num === 1 ? '1st' : num === 2 ? '2nd' : '3rd';
@@ -187,6 +235,22 @@ const JoinForm = () => {
       );
     })}
 
+          {/* Describe Yourself */}
+          <label className="mt-4 mb-1 font-semibold">Describe yourself and why should we take you on board?</label>
+          <input name="Describe" value={formData.Describe} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.Describe && <p className="text-red-500 text-sm mt-1">{errors.Describe}</p>}
+
+          {/* Why do you want to Join Pace */}
+          <label className="mt-4 mb-1 font-semibold">Why do you want to join Pace?</label>
+          <input name="Why_Pace" value={formData.Why_Pace} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.Why_Pace && <p className="text-red-500 text-sm mt-1">{errors.Why_Pace}</p>}
+
+          {/* Initiatives */}
+          <label className="mt-4 mb-1 font-semibold">What new initiatives would you bring to Pace?</label>
+          <input name="Initiatives" value={formData.Initiatives} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.Initiatives && <p className="text-red-500 text-sm mt-1">{errors.Initiatives}</p>}
+
+          
 
           {/* Resume Upload */}
           <label className="mt-4 mb-1 font-semibold">Upload Resume (PDF)</label>
@@ -208,7 +272,19 @@ const JoinForm = () => {
 
      {loading && <Loader />}
 
-      <ToastContainer position="top-center" autoClose={3000} />
+      <ToastContainer
+            position="center"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+        />
+
     </>
   );
 };
