@@ -6,6 +6,8 @@ import Loader from '../components/Loader';
 import { ref as dbRef, push, set } from 'firebase/database';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage, database } from '../firebase'; // adjust path as needed
+import PopupMessage from '../components/PopupMessage';
+
 
 const JoinForm = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +32,7 @@ const JoinForm = () => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
 
   const resumeInputRef = useRef(null);
   const photoInputRef = useRef(null);
@@ -128,21 +131,15 @@ const JoinForm = () => {
         photoURL,
         submittedAt: new Date().toISOString(),
       });
+      
+      
+     setPopupMessage(<>
+     🎉 Registration successful! You will be contacted soon.
+     <br/>
+     <br/>
+        We will Contact you soon. 
+     </> );
 
-      toast.success(
-       <>
-        🎉 Registration successful!
-        <br/>
-        You will be contacted soon.
-        </>,
-        {
-          icon: "✅",
-          style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff"
-          }
-        });
 
       setLoading(false);
       setFormData({
@@ -279,20 +276,16 @@ const JoinForm = () => {
         </form>
       </div>
 
-     {loading && <Loader />}
+    {popupMessage && (
+      <PopupMessage
+      message={popupMessage}
+      onClose={() => setPopupMessage('')}
+      duration={3000}
+      />
+    )}
 
-      <ToastContainer
-            position="center"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-        />
+
+     {loading && <Loader />}
 
     </>
   );

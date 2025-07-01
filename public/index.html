@@ -43,6 +43,27 @@
         },
       };
     </script>
+    <style>
+@keyframes popup-slide {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+}
+
+.animate-popup-slide {
+  animation: popup-slide 3s ease-in-out forwards;
+}
+</style>
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
