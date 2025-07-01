@@ -5,24 +5,27 @@ const Loader = () => {
   return (
     <StyledWrapper>
       <div className="overlay" />
-      <div className="socket">
-        <div className="gel center-gel">
-          <div className="hex-brick h1" />
-          <div className="hex-brick h2" />
-          <div className="hex-brick h3" />
+      <div className="loader-container">
+        <div className="socket">
+          <div className="gel center-gel">
+            <div className="hex-brick h1" />
+            <div className="hex-brick h2" />
+            <div className="hex-brick h3" />
+          </div>
+          <div className="gel c1 r1">
+            <div className="hex-brick h1" />
+            <div className="hex-brick h2" />
+            <div className="hex-brick h3" />
+          </div>
+          <div className="gel c2 r1">
+            <div className="hex-brick h1" />
+            <div className="hex-brick h2" />
+            <div className="hex-brick h3" />
+          </div>
         </div>
-        {/* You can keep or reduce the number of .gel elements as needed */}
-        <div className="gel c1 r1">
-          <div className="hex-brick h1" />
-          <div className="hex-brick h2" />
-          <div className="hex-brick h3" />
-        </div>
-        <div className="gel c2 r1">
-          <div className="hex-brick h1" />
-          <div className="hex-brick h2" />
-          <div className="hex-brick h3" />
-        </div>
-        {/* ...rest of gels */}
+
+        {/* ✅ Add your "Please wait..." message here */}
+        <p className="loader-text">Please Wait ...</p>
       </div>
     </StyledWrapper>
   );
@@ -43,13 +46,19 @@ const StyledWrapper = styled.div`
     background: rgba(255, 255, 255, 0.8);
   }
 
+  .loader-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
   .socket {
     width: 200px;
     height: 200px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    position: relative;
   }
 
   .hex-brick {
@@ -90,6 +99,7 @@ const StyledWrapper = styled.div`
     margin-top: -15px;
     animation: pulse00 2s infinite 0.2s;
   }
+
   .c2 {
     margin-left: -31px;
     margin-top: -43px;
@@ -100,7 +110,12 @@ const StyledWrapper = styled.div`
     animation: fade00 2s infinite 0.2s;
   }
 
-  /* Add rest of your .gel positioning & animation delay as needed */
+  .loader-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+  }
 
   @keyframes pulse00 {
     0%, 100% {
