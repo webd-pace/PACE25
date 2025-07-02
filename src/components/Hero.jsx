@@ -29,7 +29,7 @@ export const Hero = ({ onExploreClick }) => {
           {/* Logo and Main Content */}
           <div className="flex justify-center items-center mb-6">
             <img
-              src="/PACE.png"
+              src="/assets/Pace_Logo.svg"
               alt="PACE Logo"
               className="h-24 md:h-40 w-auto object-contain"
             />

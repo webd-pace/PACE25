@@ -5,25 +5,25 @@ export const PrudenceSection = ({ prudenceRef }) => {
   const events = [
     {
       title: "Aspire",
-      img: "/assets/Aspire.jpg",
+      img: "/assets/Events/Logos/Aspire.png",
       desc:
         "A mock placement drive simulating real campus interviews, with Expert & Novice tracks bridging academics and industry.",
     },
     {
       title: "Nitigya",
-      img: "/assets/Nitigya.jpg",
+      img: "assets/Events/Logos/Nitigya.jpg",
       desc:
         "High-stakes geopolitical challenge with three intense rounds on global politics, diplomacy, and policy-making.",
     },
     {
       title: "Standout",
-      img: "/assets/Standout.jpg",
+      img: "/assets/Events/Logos/Standout.jpg",
       desc:
         "Creative themes and unexpected adaptability tests that leave a lasting impression through immersive experiences.",
     },
     {
       title: "Ideathon",
-      img: "/assets/Ideathon.jpg",
+      img: "/assets/Events/Logos/Ideathon.jpg",
       desc:
         "Teams pitch innovative business ideas in a multi-stage competition to ignite entrepreneurial spirit.",
     },
