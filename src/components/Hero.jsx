@@ -63,12 +63,12 @@ export const Hero = ({ onExploreClick }) => {
           </section>
 
           {/* Explore Events Button */}
-          <button
+          {/* <button
             onClick={onExploreClick}
             className="mt-8 px-5 py-2 bg-yellow-400 text-black font-bold rounded-full hover:bg-yellow-300 transition text-xs md:text-base"
           >
             Explore Events
-          </button>
+          </button> */}
 
           {/* Scroll Down Animation */}
           {/* <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 animate-bounce">
