@@ -22,7 +22,7 @@ const Footer = () => {
                 <li><a className="hover:text-yellow-400 transition-colors">President: Vishvajeet Pawar  +91 7887739590</a></li>
                 <li><a className="hover:text-yellow-400 transition-colors">Vice-President: Prasad Bedge +91 9307286697</a></li>
                 <li><a className="hover:text-yellow-400 transition-colors">Secretary: Pranav Patil      +91 8767939192</a></li>
-                <li><a className="hover:text-yellow-400 transition-colors">Mail: wcepace@walchandsangli.ac.in</a></li>
+                <li><a className="hover:text-yellow-400 transition-colors">Mail: wcepace@gmail.com </a></li>
               </ul>
             </div>
             {/* <div>
