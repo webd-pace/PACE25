@@ -28,6 +28,11 @@ export const BoardSection = ({ title, members }) => {
         {title}
         </h2>
 
+        { /* Accent line below the title */}
+        <div className="flex justify-center mt-6 mb-10">
+          <span className="block w-[200px] h-1 bg-yellow-400 rounded-full"></span>
+        </div>
+
         {/* Scroll container with hidden scrollbar */}
         <div
           ref={containerRef}

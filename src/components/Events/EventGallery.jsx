@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import PrudenceSection from "../PrudenceSection.jsx"; // Ensure default export
 
-// Dummy event data
 const eventData = {
   "2024": [
     {
       title: "Prudence 2k24",
-      desc: "Mock interviews for real-world preparation.",
+      desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc.",
       img: "/assets/aspire-2024.jpg",
       winners: ["Team Alpha", "Team Beta", "Team Gamma"],
       gallery: [
@@ -14,9 +14,9 @@ const eventData = {
         "/assets/aspire-2024c.jpg",
       ],
     },
-     {
+    {
       title: "CSR 2k24",
-      desc: "Social outreach events promoting ethical awareness.",
+      desc: "Every year PACE conducts CSR which is an event exclusively aiming to conduct social activities to benefit the less privileged people around Sangli.",
       img: "/assets/csr-2023.jpg",
       winners: ["Team CSR", "Group Hope"],
       gallery: [
@@ -27,14 +27,14 @@ const eventData = {
     },
     {
       title: "Campus Tour 2k24",
-      desc: "Geopolitical simulation and diplomacy challenges.",
+      desc: "Every year PACE Conducts campus tour for the first year students to give an amazing start to the wonderful journey of  four years in this campus.",
       img: "/assets/nitigya-2024.jpg",
       winners: ["Student X", "Student Y"],
       gallery: ["/assets/nitigya-2024.jpg"],
     },
     {
       title: "PAT 2k24",
-      desc: "Skill-based assessment with a unique practical twist.",
+      desc: "PACE APTITUDE TEST A regular test series designed to evaluate and enhance students’ aptitude skills",
       img: "/assets/csr-2023.jpg",
       winners: ["Winner A", "Winner B"],
       gallery: ["/assets/csr-2023.jpg"],
@@ -43,7 +43,7 @@ const eventData = {
   "2025": [
     {
       title: "Prudence 2k25",
-      desc: "Mock interviews for real-world preparation.",
+      desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc",
       img: "/assets/aspire-2024.jpg",
       winners: ["Team Alpha", "Team Beta", "Team Gamma"],
       gallery: [
@@ -52,9 +52,9 @@ const eventData = {
         "/assets/aspire-2024c.jpg",
       ],
     },
-     {
+    {
       title: "CSR 2k25",
-      desc: "Social outreach events promoting ethical awareness.",
+      desc: "Every year PACE conducts CSR which is an event exclusively aiming to conduct social activities to benefit the less privileged people around Sangli.",
       img: "/assets/csr-2023.jpg",
       winners: ["Team CSR", "Group Hope"],
       gallery: [
@@ -65,14 +65,14 @@ const eventData = {
     },
     {
       title: "Campus Tour 2k25",
-      desc: "Geopolitical simulation and diplomacy challenges.",
+      desc: "Every year PACE Conducts campus tour for the first year students to give an amazing start to the wonderful journey of  four years in this campus.",
       img: "/assets/nitigya-2024.jpg",
       winners: ["Student X", "Student Y"],
       gallery: ["/assets/nitigya-2024.jpg"],
     },
     {
       title: "PAT 2k25",
-      desc: "Skill-based assessment with a unique practical twist.",
+      desc: "PACE APTITUDE TEST A regular test series designed to evaluate and enhance students’ aptitude skills",
       img: "/assets/csr-2023.jpg",
       winners: ["Winner A", "Winner B"],
       gallery: ["/assets/csr-2023.jpg"],
@@ -80,81 +80,113 @@ const eventData = {
   ],
 };
 
+const EventDetails = { 
+  "Prudence 2k24": <PrudenceSection />,
+  "CSR 2k24": (
+    <div className="text-gray-300">
+      {/* <h4 className="text-yellow-400 font-semibold text-xl mb-2">About CSR</h4> */}
+      <p text-gray-200 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10>
+        CSR (CORPORATE SOCIAL RESPONSIBLITY)
+        <br /><br />
+        Every year PACE conducts CSR which is an event exclusively aiming to conduct social activities to benefit the less privileged people around Sangli.
+        The main purpose of CSR is to facilitate students with the opportunity to do something for the society and less privilaged people
+      </p>
+    </div>
+  ),
+  "Campus Tour 2k24": (
+    <div className="text-gray-300 " >
+      {/* <h4 className="text-yellow-400 font-semibold text-xl mb-2">About Campus Tour</h4> */}
+      <p text-gray-200 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10>
+      CAMPUS TOUR
+      <br/><br />
+      Every year PACE Conducts campus tour for the first year students to give an amazing start to the wonderful journey of  four years in this campus.
+      </p>
+    </div>
+  ),
+  "PAT 2k24": (
+    <div className="text-gray-300">
+      {/* <h4 className="text-yellow-400 font-semibold text-xl mb-2">About PAT</h4> */}
+      <p text-gray-200 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10> 
+        PAT (PACE APTITUDE TEST)
+        <br /><br />
+         A regular test series designed to evaluate and enhance students’ aptitude skills. It simulates real exam conditions and is followed by discussions to improve conceptual clarity and time management.
+      </p>
+    </div>
+    
+  ),
+};
+
 const EventGallery = ({ year }) => {
   const data = eventData[year] || [];
-  const [selected, setSelected] = useState(null); // for main modal
   const [winnerEvent, setWinnerEvent] = useState(null);
   const [galleryImages, setGalleryImages] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   return (
     <>
       <div className="flex flex-col gap-16 max-w-6xl mx-auto px-4">
-        {data.map((event, i) => (
-          <div
-            key={i}
-            className={`flex flex-col md:flex-row ${
-              i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-            } items-center gap-6 border border-yellow-500 rounded-2xl p-5 hover:shadow-yellow-400 shadow-md transition`}
-          >
-            <img
-              src={event.img}
-              alt={event.title}
-              className="w-full md:w-1/2 h-60 object-cover rounded-xl"
-            />
-            <div className="md:w-1/2">
-              <h3 className="text-2xl font-bold text-yellow-400 font-cinzel-decorative">
-                {event.title}
-              </h3>
-              <p className="text-sm text-gray-300 mt-2">{event.desc}</p>
-
-              {/* Buttons */}
-              <div className="flex gap-4 mt-4">
-                <button
-                  onClick={() => setWinnerEvent(event)}
-                  className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
-                >
-                  Winners
-                </button>
-                <button
-                  onClick={() => setGalleryImages(event.gallery)}
-                  className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
-                >
-                  Gallery
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Modal for selected event (full image + desc) */}
-      {selected && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-          onClick={() => setSelected(null)}
-        >
-          <div
-            className="bg-[#111] border border-yellow-500 rounded-xl p-6 max-w-3xl mx-4 text-white relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="absolute top-2 right-4 text-yellow-400 text-2xl font-bold"
-              onClick={() => setSelected(null)}
+        {data.map((event, i) => {
+          const isExpanded = expandedIndex === i;
+          return (
+            <div
+              key={i}
+              className={`flex flex-col gap-6 border border-yellow-500 rounded-2xl p-5 shadow-md transition overflow-hidden ${
+                isExpanded ? "bg-black bg-opacity-90" : ""
+              }`}
             >
-              &times;
-            </button>
-            <img
-              src={selected.img}
-              alt={selected.title}
-              className="w-full max-h-[70vh] object-contain rounded-md mb-4"
-            />
-            <h2 className="text-3xl text-yellow-400 font-cinzel-decorative">
-              {selected.title}
-            </h2>
-            <p className="text-gray-300 mt-2">{selected.desc}</p>
-          </div>
-        </div>
-      )}
+              <div
+                className={`flex flex-col md:flex-row ${
+                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                } items-center gap-6`}
+              >
+                <img
+                  src={event.img}
+                  alt={event.title}
+                  className="w-full md:w-1/2 h-60 object-cover rounded-xl"
+                />
+                <div className="md:w-1/2">
+                  <h3 className="text-3xl font-semibold text-yellow-400 font-cinzel-decorative">
+                    {event.title}
+                  </h3>
+                  <p className="text-sm text-gray-300 mt-2">{event.desc}</p>
+
+                  <div className="flex flex-wrap gap-4 mt-4">
+                    <button
+                      onClick={() => setWinnerEvent(event)}
+                      className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
+                    >
+                      Winners
+                    </button>
+                    <button
+                      onClick={() => setGalleryImages(event.gallery)}
+                      className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
+                    >
+                      Gallery
+                    </button>
+                    <button
+                      onClick={() =>
+                        setExpandedIndex(isExpanded ? null : i)
+                      }
+                      className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
+                    >
+                      {isExpanded ? "Hide Details" : "View More"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Unique View More Content */}
+              {isExpanded && (
+                <div className="mt-6 border-t border-yellow-700 pt-6">
+                  {EventDetails[event.title] || (
+                    <p className="text-gray-400 italic">More details coming soon...</p>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
 
       {/* Winners Modal */}
       {winnerEvent && (

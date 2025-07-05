@@ -44,16 +44,10 @@ export const Hero = ({ onExploreClick }) => {
             <hr className="w-12 md:w-16 border-gray-300" />
           </div>
 
-          {/* Description */}
-          <p className="text-gray-200 mt-4 max-w-2xl mx-auto text-xs md:text-base leading-relaxed px-2">
-            Personality Advancement Circle of Engineers is a student organization started in 1994...
-          </p>
-
-
           {/*Top Right Button*/}
-          <section className=" text-white py-24 text-center">
-            <h1 className="text-5xl font-bold mb-6">Welcome to Pace </h1>
-            <p className="text-xl mb-10">National Level Management Fest by PACE</p>
+          <section className=" text-white py-23.8 text-center font-cinzel-decorative">
+            <h1 className="text-5xl font-bold mb-6">Welcome to <span className="font-semibold text-yellow-400 ">PACE</span> </h1>
+            <p className="text-xl mb-10 ">Scaling Heights Since 1994</p>
 
             <Link to="/JoinForm">
               <button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300">
@@ -61,7 +55,13 @@ export const Hero = ({ onExploreClick }) => {
               </button>
             </Link>
           </section>
+          
+           {/* Description */}
+          <p className="text-gray-200 mt-4 max-w-2xl mx-auto text-xs md:text-base leading-relaxed px-2">
+            Personality Advancement Circle of Engineers is a student organization started in 1994...
+          </p>
 
+         
           {/* Explore Events Button */}
           {/* <button
             onClick={onExploreClick}

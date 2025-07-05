@@ -15,6 +15,11 @@ const Events = () => {
         <h1 className="text-5xl font-extrabold text-yellow-400 uppercase font-cinzel-decorative">
           Events
         </h1>
+        
+        { /* Accent line below the title */}
+        <div className="flex justify-center mt-6 mb-10">
+          <span className="block w-24 h-1 bg-yellow-400 rounded-full"></span>
+        </div>
         <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
           Browse through the highlights of different event years and relive the excitement.
         </p>

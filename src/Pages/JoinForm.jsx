@@ -174,7 +174,13 @@ const JoinForm = () => {
     <>
       <Navbar />
       <div className="max-w-2xl mx-auto mt-10 p-8 bg-gray-900 text-white rounded-xl shadow-2xl font-sans">
-        <h2 className="text-3xl font-bold mb-6 text-center text-yellow-400">Join PACE</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-yellow-400 font-cinzel-decorative">Join PACE</h2>
+
+        { /* Accent line below the title */}
+        <div className="flex justify-center mt-6 mb-10">
+          <span className="block w-20 h-1 bg-yellow-400 rounded-full"></span>
+        </div>
+
         <form onSubmit={handleSubmit} className="flex flex-col">
           {/* Name */}
           <label className="mt-4 mb-1 font-semibold">Full Name</label>
@@ -192,7 +198,7 @@ const JoinForm = () => {
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
 
           {/* Branch */}
-          <label className="mt-4 mb-1 font-semibold">Which Branch do you belong to?</label>
+          <label className="mt-4 mb-1 font-semibold">Branch </label>
           <select name="Branch" value={formData.Branch} onChange={handleChange} className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white"> 
           <option value="">-- Select Branch --</option>
           <option value="Computer Science">S.Y. CSE</option>
