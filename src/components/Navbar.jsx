@@ -16,7 +16,7 @@ export default function Navbar() {
           {/* Desktop Links */}
            <div className="hidden md:flex space-x-8 text-gray-200 font-medium">
             <Link to="/" className="hover:text-yellow-400 transition-colors">Home</Link>
-            <Link to="/#about" className="hover:text-yellow-400 transition-colors">About</Link>
+            <Link to="/about" className="hover:text-yellow-400 transition-colors">About</Link>
             <Link to="/Events" className="hover:text-yellow-400 transition-colors">Events</Link>
             <a href="#contact" className="hover:text-yellow-400 transition-colors">Contact</a>
           </div>

@@ -8,6 +8,7 @@ import FullBoard from "./Pages/FullBoard";
 // import Ideathon from "./Pages/events/Ideathon";
 // import Nitigya from "./Pages/events/Nitigya";
 import Events from "./Pages/Events";
+import About from "./Pages/About";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/events/nitigya" element={<Nitigya />} />
         <Route path="/events/ideathon" element={<Ideathon />} /> */}
         <Route path="/Events" element={<Events />} />
+        <Route path="/About" element={<About />} />
       </Routes>
     </Router>
   );
