@@ -72,7 +72,7 @@ export default function Navbar() {
           <Link to="/" className="block hover:text-yellow-400 py-2">Home</Link>
           <Link to="/#about" className="block hover:text-yellow-400 py-2">About</Link>
           <Link to="/events" className="block hover:text-yellow-400 py-2">Events</Link>
-          <a href="#contact" className="block hover:text-yellow-400 py-2">Contact</a>
+          <a href="#contact" className="hover:text-yellow-400 transition-colors">Contact</a>
         </div>
       )}
     </nav>
