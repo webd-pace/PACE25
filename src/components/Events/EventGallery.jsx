@@ -14,6 +14,17 @@ const eventData = {
         "/assets/aspire-2024c.jpg",
       ],
     },
+     {
+      title: "CSR 2k24",
+      desc: "Social outreach events promoting ethical awareness.",
+      img: "/assets/csr-2023.jpg",
+      winners: ["Team CSR", "Group Hope"],
+      gallery: [
+        "/assets/csr-2023.jpg",
+        "/assets/csr-2023b.jpg",
+        "/assets/csr-2023c.jpg",
+      ],
+    },
     {
       title: "Campus Tour 2k24",
       desc: "Geopolitical simulation and diplomacy challenges.",
@@ -21,9 +32,27 @@ const eventData = {
       winners: ["Student X", "Student Y"],
       gallery: ["/assets/nitigya-2024.jpg"],
     },
+    {
+      title: "PAT 2k24",
+      desc: "Skill-based assessment with a unique practical twist.",
+      img: "/assets/csr-2023.jpg",
+      winners: ["Winner A", "Winner B"],
+      gallery: ["/assets/csr-2023.jpg"],
+    },
   ],
   "2025": [
     {
+      title: "Prudence 2k25",
+      desc: "Mock interviews for real-world preparation.",
+      img: "/assets/aspire-2024.jpg",
+      winners: ["Team Alpha", "Team Beta", "Team Gamma"],
+      gallery: [
+        "/assets/aspire-2024.jpg",
+        "/assets/aspire-2024b.jpg",
+        "/assets/aspire-2024c.jpg",
+      ],
+    },
+     {
       title: "CSR 2k25",
       desc: "Social outreach events promoting ethical awareness.",
       img: "/assets/csr-2023.jpg",
@@ -33,6 +62,13 @@ const eventData = {
         "/assets/csr-2023b.jpg",
         "/assets/csr-2023c.jpg",
       ],
+    },
+    {
+      title: "Campus Tour 2k25",
+      desc: "Geopolitical simulation and diplomacy challenges.",
+      img: "/assets/nitigya-2024.jpg",
+      winners: ["Student X", "Student Y"],
+      gallery: ["/assets/nitigya-2024.jpg"],
     },
     {
       title: "PAT 2k25",
