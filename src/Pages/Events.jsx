@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import YearSelector from "../components/Events/YearSelector";
 import EventGallery from "../components/Events/EventGallery";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 
 const Events = () => {
@@ -28,6 +29,7 @@ const Events = () => {
       <YearSelector selectedYear={selectedYear} onChange={setSelectedYear} />
       <EventGallery year={selectedYear} />
     </div>
+    <Footer />
     </>
   );
 };

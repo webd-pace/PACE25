@@ -18,7 +18,7 @@ export default function Navbar() {
             <Link to="/" className="hover:text-yellow-400 transition-colors">Home</Link>
             <Link to="/#about" className="hover:text-yellow-400 transition-colors">About</Link>
             <Link to="/Events" className="hover:text-yellow-400 transition-colors">Events</Link>
-            <Link to="/#contact" className="hover:text-yellow-400 transition-colors">Contact</Link>
+            <a href="#contact" className="hover:text-yellow-400 transition-colors">Contact</a>
           </div>
 
           {/* CTA */}
@@ -72,7 +72,7 @@ export default function Navbar() {
           <Link to="/" className="block hover:text-yellow-400 py-2">Home</Link>
           <Link to="/#about" className="block hover:text-yellow-400 py-2">About</Link>
           <Link to="/events" className="block hover:text-yellow-400 py-2">Events</Link>
-          <Link to="/#contact" className="block hover:text-yellow-400 py-2">Contact</Link>
+          <a href="#contact" className="block hover:text-yellow-400 py-2">Contact</a>
         </div>
       )}
     </nav>
