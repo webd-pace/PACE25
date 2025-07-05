@@ -68,7 +68,7 @@ const EventSection_Homepage = () => {
 
         {/* Explore More Button */}
         <div className="text-center mt-12">
-          <Link to="/events">
+          <Link to="/Events">
             <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full shadow-md transition-all duration-300">
               Explore More Events
             </button>
