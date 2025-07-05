@@ -119,6 +119,26 @@ const About = () => {
               For nearly three decades, PACE has been at the forefront of shaping dynamic, confident, and socially conscious engineers. The circle continues to thrive — fostering personal growth, teamwork, and leadership in every member.
             </p>
           </motion.section>
+          {/* Section: Staff Advisor */}
+          <section>
+            <h2 className="text-3xl font-bold text-yellow-400 mb-6">From Our Staff Advisor</h2>
+            <div className="flex flex-col md:flex-row items-center gap-6 border border-yellow-500 p-6 rounded-xl bg-gray-900">
+              <img
+                src="/assets/staff-advisor.jpg"
+                alt="Staff Advisor"
+                className="w-40 h-40 object-cover rounded-full border-4 border-yellow-400"
+              />
+              <div>
+                <h3 className="text-2xl font-semibold text-yellow-300 mb-2">Shubham S Medhekar </h3>
+                <p className="text-gray-300 mb-4 text-yellow-300" >
+                 - Assistant Professor Electrical department
+                </p>
+                <p className="text-gray-300 italic">
+                  "PACE is more than a club; it's a transformative journey. I am proud to witness the growth and achievements of our students who push their boundaries through this vibrant platform."
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
       <Footer />
