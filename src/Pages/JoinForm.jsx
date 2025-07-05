@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import Loader from '../components/Loader';
 import { ref as dbRef, push, set } from 'firebase/database';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -292,7 +293,7 @@ const JoinForm = () => {
 
 
      {loading && <Loader />}
-
+     <Footer />
     </>
   );
 };
