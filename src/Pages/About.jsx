@@ -124,7 +124,7 @@ const About = () => {
             <h2 className="text-3xl font-bold text-yellow-400 mb-6">From Our Staff Advisor</h2>
             <div className="flex flex-col md:flex-row items-center gap-6 border border-yellow-500 p-6 rounded-xl bg-gray-900">
               <img
-                src="/assets/staff-advisor.jpg"
+                src="/assets/Staff Advissor.jpg"
                 alt="Staff Advisor"
                 className="w-40 h-40 object-cover rounded-full border-4 border-yellow-400"
               />
