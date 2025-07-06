@@ -138,7 +138,7 @@ const EventGallery = ({ year }) => {
           return (
             <div
               key={i}
-              className={`flex flex-col gap-6 border border-yellow-500 rounded-2xl p-5 shadow-md transition overflow-hidden ${
+              className={`flex flex-col gap-10 border border-yellow-500 rounded-2xl p-5 shadow-md transition overflow-hidden ${
                 isExpanded ? "bg-black bg-opacity-90" : ""
               }`}
             >
