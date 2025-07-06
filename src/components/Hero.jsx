@@ -12,6 +12,7 @@ export const Hero = ({ onExploreClick }) => {
           style={{
             backgroundImage: `url('/assets/FullBoard.jpg')`,
             backgroundSize: 'cover',
+
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
           }}
@@ -29,9 +30,9 @@ export const Hero = ({ onExploreClick }) => {
           {/* Logo and Main Content */}
           <div className="flex justify-center items-center mb-6">
             <img
-              src="/assets/pace_logo5.svg"
-              alt="PACE Logo"
-              className="h-24 md:h-40 w-auto object-contain"
+              src="/assets/Pace_Logo3.svg"
+              alt="Pace_Logo"
+              className="h-23 md:h-42 w-auto object-contain" //h-20 md:h-40
             />
           </div>
 
