@@ -8,6 +8,8 @@ import { ref as dbRef, push, set } from 'firebase/database';
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage, database } from '../firebase'; // adjust path as needed
 import PopupMessage from '../components/PopupMessage';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const JoinForm = () => {
@@ -34,6 +36,7 @@ const JoinForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [popupMessage, setPopupMessage] = useState('');
+  const navigate = useNavigate();
 
   const resumeInputRef = useRef(null);
   const photoInputRef = useRef(null);
@@ -141,7 +144,6 @@ const JoinForm = () => {
         We will Contact you soon. 
      </> );
 
-
       setLoading(false);
       setFormData({
         name: '',
@@ -163,12 +165,17 @@ const JoinForm = () => {
       });
       resumeInputRef.current.value = '';
       photoInputRef.current.value = '';
-    } catch (error) {
+    } 
+    catch (error) {
       console.error("❌ Firebase error:", error);
       toast.error('Submission failed. Please try again.');
       setLoading(false);
       setSubmitted(false);
     }
+    setTimeout(() => {
+      navigate('/thankyou');
+      }, 3000); // Optional delay to allow the popup to show
+
   };
 
   return (
