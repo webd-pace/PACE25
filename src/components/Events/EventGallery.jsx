@@ -21,9 +21,9 @@ const eventData = {
       img: "/assets/Events/Logos/CSR.jpg",
       winners: ["Team CSR", "Group Hope"],
       gallery: [
-        "/assets/Events/csr1.jpg",
-        "/assets/Events/csr2.jpg",
-        "/assets/Events/csr3.jpg",
+        "/assets/Events/CSR1.jpg",
+        "/assets/Events/CSR2.jpg",
+        "/assets/Events/CSR3.jpg",
       ],
     },
     {

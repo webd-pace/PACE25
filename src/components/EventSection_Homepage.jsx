@@ -9,17 +9,17 @@ const events = [
   },
   {
     title: "CSR",
-    img: "/assets/Events/Logos/csr.jpg",
+    img: "/assets/Events/Logos/CSR.jpg",
     desc: "Promotes social responsibility and ethical leadership through impactful outreach.",
   },
   {
     title: "PAT",
-    img: "/assets/Events/Logos/pat.jpg",
+    img: "/assets/Events/Logos/PAT.jpg",
     desc: "Placement preparation assessments simulating aptitude and technical rounds.",
   },
   {
     title: "Campus Tour",
-    img: "/assets/Events/Logos/campus tour.jpg",
+    img: "/assets/Events/Logos/Campus Tour.jpg",
     desc: "Explore our vibrant campus, its culture, and engage with student mentors.",
   },
 ];
