@@ -58,7 +58,7 @@ export const Hero = ({ onExploreClick }) => {
             <br/>
             <br/>
             {/* Prudance Registration Now Button */}
-            <Link to="/">
+            <Link to="/PrudenceRegistration">
               <button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300">
                 Register for Prudence 2k25....
               </button>

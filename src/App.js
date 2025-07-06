@@ -10,6 +10,7 @@ import FullBoard from "./Pages/FullBoard";
 import Events from "./Pages/Events";
 import About from "./Pages/About";
 import Thankyou from "./Pages/Thankyou";
+import PrudenceRegistration from "./Pages/PrudenceRegistration/PrudenceRegistration";
 import "./App.css";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Events" element={<Events />} />
         <Route path="/About" element={<About />} />
         <Route path="/Thankyou" element={<Thankyou />} />
+        <Route path="/PrudenceRegistration" element={<PrudenceRegistration />} />
       </Routes>
     </Router>
   );
