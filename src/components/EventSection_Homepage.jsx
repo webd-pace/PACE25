@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const events = [
   {
     title: "Prudence",
-    img: "/assets/prudence.jpg",
+    img: "/assets/Events/Logos/Prudence.jpg",
     desc: "National level fest fostering managerial intellect since 2001.",
   },
   {

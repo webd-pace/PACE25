@@ -6,7 +6,7 @@ const eventData = {
     {
       title: "Prudence 2k24",
       desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc.",
-      img: "/assets/aspire-2024.jpg",
+      img: "/assets/Events/Logos/Prudence.jpg",
       winners: ["Team Alpha", "Team Beta", "Team Gamma"],
       gallery: [
         "/assets/Events/Aspire2.jpg",
