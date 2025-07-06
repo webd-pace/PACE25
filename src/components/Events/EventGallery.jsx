@@ -9,7 +9,7 @@ const eventData = {
       img: "/assets/Events/Logos/Prudence.jpg",
       winners: ["Team Alpha", "Team Beta", "Team Gamma"],
       gallery: [
-        "/assets/Events/Aspire2.jpg",
+        // "/assets/Events/Aspire2.jpg",
         "/assets/Events/Ideathon3.jpg",
         "/assets/Events/Nitigya1.jpg",
         "/assets/Events/Standout2.jpg",
@@ -33,7 +33,7 @@ const eventData = {
       winners: ["Student X", "Student Y"],
       gallery: [
         "/assets/Events/Campus Tour 1.jpg",
-        "/assets/Events/Campus Tour 2.jpg",
+        // "/assets/Events/Campus Tour 2.jpg",
         "/assets/Events/Campus Tour 3.jpg",
         "/assets/Events/Campus Tour 4.jpg",
       ],
