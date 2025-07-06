@@ -293,6 +293,7 @@ const JoinForm = () => {
 
 
      {loading && <Loader />}
+     <br /><br />
      <Footer />
     </>
   );
