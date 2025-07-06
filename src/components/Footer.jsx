@@ -22,14 +22,14 @@ const Footer = () => {
                 <li><a className="hover:text-yellow-400 transition-colors">President: Vishvajeet Pawar  +91 7887739590</a></li>
                 <li><a className="hover:text-yellow-400 transition-colors">Vice-President: Prasad Bedge +91 9307286697</a></li>
                 <li><a className="hover:text-yellow-400 transition-colors">Secretary: Pranav Patil      +91 8767939192</a></li>
-                <li><a className="hover:text-yellow-400 transition-colors">Mail: wcepace@gmail.com </a></li>
+                <li><a className="hover:text-yellow-400 transition-colors">Mail: pacesecretary10@gmail.com </a></li>
               </ul>
             </div>
             {/* <div>
               <h3 className="text-yellow-400 font-semibold mb-2">Resources</h3>
               <ul className="space-y-1">
                 <li><a href="#" className="hover:text-yellow-400 transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-yellow-400 transition-colors">Events</a></li>
+                
                 <li><a href="#" className="hover:text-yellow-400 transition-colors">Help Center</a></li>
               </ul>
             </div>
