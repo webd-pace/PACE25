@@ -11,11 +11,13 @@ import Events from "./Pages/Events";
 import About from "./Pages/About";
 import Thankyou from "./Pages/Thankyou";
 import PrudenceRegistration from "./Pages/PrudenceRegistration/PrudenceRegistration";
+import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/JoinForm" element={<JoinForm />} />
