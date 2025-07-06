@@ -9,6 +9,7 @@ import FullBoard from "./Pages/FullBoard";
 // import Nitigya from "./Pages/events/Nitigya";
 import Events from "./Pages/Events";
 import About from "./Pages/About";
+import Thankyou from "./Pages/Thankyou";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/events/ideathon" element={<Ideathon />} /> */}
         <Route path="/Events" element={<Events />} />
         <Route path="/About" element={<About />} />
+        <Route path="/Thankyou" element={<Thankyou />} />
       </Routes>
     </Router>
   );

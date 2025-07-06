@@ -45,13 +45,22 @@ export const Hero = ({ onExploreClick }) => {
           </div>
 
           {/*Top Right Button*/}
-          <section className=" text-white py-23.8 text-center font-cinzel-decorative">
-            <h1 className="text-5xl font-bold mb-6">Welcome to <span className="font-semibold text-yellow-400 ">PACE</span> </h1>
+          <section className=" text-white py-23.8 text-center ">
+            <h1 className="text-5xl font-bold mb-6">Welcome to <span className="font-semibold text-yellow-400 font-cinzel-decorative">PACE</span> </h1>
             <p className="text-xl mb-10 ">Scaling Heights Since 1994</p>
-
+            
+            {/* Join Now Button */}
             <Link to="/JoinForm">
               <button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300">
                 Join Now
+              </button>
+            </Link>
+            <br/>
+            <br/>
+            {/* Prudance Registration Now Button */}
+            <Link to="/">
+              <button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300">
+                Register for Prudence 2k25....
               </button>
             </Link>
           </section>
