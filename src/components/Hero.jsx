@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 export const Hero = ({ onExploreClick }) => {
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center justify-center relative">
+      <div className="min-h-screen flex flex-col items-center justify-center relative h-23 md:h-42 ">
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('/assets/FullBoard.jpg')`,
+            backgroundImage: `url('/assets/FullBoard3.jpg')`,
             backgroundSize: 'cover',
 
             backgroundPosition: 'center',
