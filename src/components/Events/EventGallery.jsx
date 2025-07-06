@@ -159,12 +159,12 @@ const EventGallery = ({ year }) => {
                   <p className="text-sm text-gray-300 mt-2">{event.desc}</p>
 
                   <div className="flex flex-wrap gap-4 mt-4">
-                    <button
+                    {/* <button
                       onClick={() => setWinnerEvent(event)}
                       className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
                     >
                       Winners
-                    </button>
+                    </button> */}
                     <button
                       onClick={() => setGalleryImages(event.gallery)}
                       className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
