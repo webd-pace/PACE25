@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           {/* Logo & Description */}
           <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-yellow-400 font-cinzel-decorative">PACE</h2>
+            <h2 className="text-2xl font-bold text-yellow-400">PACE</h2>
             <p className="text-sm mt-2 max-w-xs opacity-75">
               Empowering learners with knowledge and tools for a better tomorrow.
             </p>

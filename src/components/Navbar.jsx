@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex-shrink-0 text-xl font-bold text-yellow-400 font-cinzel-decorative">
+          <div className="flex-shrink-0 text-xl font-bold text-yellow-400">
             <a href="/"> PACE</a>
           </div>
 
