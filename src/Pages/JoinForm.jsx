@@ -193,7 +193,22 @@ const JoinForm = () => {
         <div className="flex justify-center mt-6 mb-10">
           <span className="block w-20 h-1 bg-yellow-400 rounded-full"></span>
         </div>
+      
+      <div className="mx-auto p-2 bg-gray-900 text-white rounded-xl shadow-2xl font-sans">
+        <h3 calssname= "text-3xl mt-4 mb-1 font-bold underline decoration-2 pd-2">Instructions:</h3>
 
+        <ul className="list-disc pl-6 text-gray-300">
+          <li>Fill all the details correctly.</li>
+          <li>Provide the email id of college wherever required ( eg: piyush.dawkhare@walchandsangli.ac.in)</li>
+          <li>Ensure all information is accurate.</li>
+          <li>Do not upload selfie in the section of passport size photo.</li>
+          <li>Upload your resume in PDF format and a passport-sized photo in JPG/PNG format.</li>
+          <li>The candidate should bring the same resume which he/she has uploaded in the form.</li>
+          <li>You should be present in the college campus during interview hours.</li>
+        </ul>
+      </div>
+      <div className="mt-10 border-t border-yellow-400/20 pt-6 text-center text-sm text-gray-400"></div>
+        
         <form onSubmit={handleSubmit} className="flex flex-col">
           {/* Name */}
           <label className="mt-4 mb-1 font-semibold">Full Name</label>
@@ -226,12 +241,12 @@ const JoinForm = () => {
           {errors.Branch && <p className="text-red-500 text-sm mt-1">{errors.Branch}</p>}
 
           {/* PRN */}
-          <label className="mt-4 mb-1 font-semibold">PRNr</label>
+          <label className="mt-4 mb-1 font-semibold">PRN</label>
           <input name="PRN" value={formData.PRN} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.PRN && <p className="text-red-500 text-sm mt-1">{errors.PRN}</p>}
 
           {/* Linked_In */}
-          <label className="mt-4 mb-1 font-semibold">Linked In Profile Link </label>
+          <label className="mt-4 mb-1 font-semibold">Linked In URL (N.A if not available)</label>
           <input name="LinkedIn" value={formData.LinkedIn} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.LinkedIn && <p className="text-red-500 text-sm mt-1">{errors.LinkedIn}</p>}
 
