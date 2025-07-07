@@ -53,7 +53,7 @@ export const Hero = ({ onExploreClick }) => {
             {/* Join Now Button */}
             <Link to="/JoinForm">
               <button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300">
-                Join Now
+                Apply For Joint-Board Now!
               </button>
             </Link>
             <br/>
