@@ -19,6 +19,7 @@ const JoinForm = () => {
     email: '',
     Branch: '',
     LinkedIn: '',
+    PRN: '',
     preference1: '',
     reason1: '',
     preference2: '',
@@ -71,6 +72,7 @@ const JoinForm = () => {
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     if (!formData.Branch.trim()) newErrors.Branch = 'Branch is required';
     if (!formData.LinkedIn.trim()) newErrors.LinkedIn = 'LinkedIn profile';
+    if (!formData.PRN.trim()) newErrors.PRN = 'PRN is required';
     if (!formData.preference1) newErrors.preference1 = 'Preference 1 is required';
     if (!formData.reason1.trim()) newErrors.reason1 = 'Reason 1 is required';
     if (!formData.preference2) newErrors.preference2 = 'Preference 2 is required';
@@ -123,6 +125,7 @@ const JoinForm = () => {
         email: formData.email,
         Branch: formData.Branch,
         LinkedIn: formData.LinkedIn,
+        PRN: formData.PRN, 
         preference1: formData.preference1,
         reason1: formData.reason1,
         preference2: formData.preference2,
@@ -161,6 +164,7 @@ const JoinForm = () => {
         Why_Pace: '',
         Initiatives: '',
         LinkedIn: '',
+        PRN: '',
         resume: null,
         photo: null,
       });
@@ -183,7 +187,7 @@ const JoinForm = () => {
     <>
       <Navbar />
       <div className="max-w-2xl mx-auto mt-10 p-8 bg-gray-900 text-white rounded-xl shadow-2xl font-sans">
-        <h2 className="text-3xl font-bold mb-6 text-center text-yellow-400 font-cinzel-decorative">Join PACE</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-yellow-400 font-cinzel-decorative">Joint-Board Registration Forms</h2>
 
         { /* Accent line below the title */}
         <div className="flex justify-center mt-6 mb-10">
@@ -221,6 +225,10 @@ const JoinForm = () => {
           </select>
           {errors.Branch && <p className="text-red-500 text-sm mt-1">{errors.Branch}</p>}
 
+          {/* PRN */}
+          <label className="mt-4 mb-1 font-semibold">PRNr</label>
+          <input name="PRN" value={formData.PRN} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
+          {errors.PRN && <p className="text-red-500 text-sm mt-1">{errors.PRN}</p>}
 
           {/* Linked_In */}
           <label className="mt-4 mb-1 font-semibold">Linked In Profile Link </label>
