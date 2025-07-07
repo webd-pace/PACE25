@@ -69,7 +69,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
          <div className="md:hidden bg-black px-4 pt-2 pb-4 space-y-2 text-gray-200 font-medium border-b border-yellow-400/20">
-          <Link to="/" className="block hover:text-yellow-400 py-2">Home</Link><br/>
+          <Link to="/" className="block hover:text-yellow-400 py-2">Home</Link>
           <Link to="/about" className="hover:text-yellow-400 transition-colors">About</Link><br/>
           <Link to="/events" className="hover:text-yellow-400 transition-colors">Events</Link><br/>
           <a href="#contact" className="hover:text-yellow-400 transition-colors">Contact</a><br/>
