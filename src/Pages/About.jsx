@@ -21,9 +21,11 @@ const About = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 font-cinzel-decorative text-center mb-6">
               About PACE
             </h1>
+            
             <div className="flex justify-center mt-6 mb-10">
                 <span className="block w-24 h-1 bg-yellow-400 rounded-full"></span>
             </div>
+
             <p className="text-gray-300 text-lg leading-relaxed text-justify">
               Established in 1994, the <span className="text-yellow-400 font-semibold">Personality Advancement Circle of Engineers (PACE)</span> is a reputed, student-led, non-profit organization at Walchand College of Engineering (WCE), Sangli. PACE has consistently worked toward shaping well-rounded engineering professionals by nurturing essential life skills such as leadership, communication, confidence, and ethical responsibility.
               <br /><br />

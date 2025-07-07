@@ -51,6 +51,7 @@ const JoinForm = () => {
     'Joint Art Developer',
     'Joint Video Editor',
     'Joint Aptitude Developer',
+    'Joint Resource Manager',
     'Joint Web Developer',
     'Joint Pacer'
   ];

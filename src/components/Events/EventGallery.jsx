@@ -51,41 +51,52 @@ const eventData = {
   ],
   "2025": [
     {
-      title: "Prudence 2k25",
-      desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc.",
+      title: "Coming Soon !!",
+      desc: "The Website is under construction. Stay tuned for updates.",
       img: "/assets/aspire-2024.jpg",
-      winners: ["Team Alpha", "Team Beta", "Team Gamma"],
-      gallery: [
-        "/assets/aspire-2024.jpg",
-        "/assets/aspire-2024b.jpg",
-        "/assets/aspire-2024c.jpg",
-      ],
+      // winners: ["Team Alpha", "Team Beta", "Team Gamma"],
+      // gallery: [
+      //   "/assets/aspire-2024.jpg",
+      //   "/assets/aspire-2024b.jpg",
+      //   "/assets/aspire-2024c.jpg",
+      // ],
     },
-    {
-      title: "CSR 2k25",
-      desc: "Every year PACE conducts CSR which is an event exclusively aiming to conduct social activities to benefit the less privileged people around Sangli.",
-      img: "/assets/csr-2023.jpg",
-      winners: ["Team CSR", "Group Hope"],
-      gallery: [
-        "/assets/csr-2023.jpg",
-        "/assets/csr-2023b.jpg",
-        "/assets/csr-2023c.jpg",
-      ],
-    },
-    {
-      title: "Campus Tour 2k25",
-      desc: "Every year PACE Conducts campus tour for the first year students to give an amazing start to the wonderful journey of  four years in this campus.",
-      img: "/assets/nitigya-2024.jpg",
-      winners: ["Student X", "Student Y"],
-      gallery: ["/assets/nitigya-2024.jpg"],
-    },
-    {
-      title: "PAT 2k25",
-      desc: "PACE APTITUDE TEST A regular test series designed to evaluate and enhance students’ aptitude skills",
-      img: "/assets/csr-2023.jpg",
-      winners: ["Winner A", "Winner B"],
-      gallery: ["/assets/csr-2023.jpg"],
-    },
+    // {
+    //   title: "Prudence 2k25",
+    //   desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc.",
+    //   img: "/assets/aspire-2024.jpg",
+    //   winners: ["Team Alpha", "Team Beta", "Team Gamma"],
+    //   gallery: [
+    //     "/assets/aspire-2024.jpg",
+    //     "/assets/aspire-2024b.jpg",
+    //     "/assets/aspire-2024c.jpg",
+    //   ],
+    // },
+  //   {
+  //     title: "CSR 2k25",
+  //     desc: "Every year PACE conducts CSR which is an event exclusively aiming to conduct social activities to benefit the less privileged people around Sangli.",
+  //     img: "/assets/csr-2023.jpg",
+  //     winners: ["Team CSR", "Group Hope"],
+  //     gallery: [
+  //       "/assets/csr-2023.jpg",
+  //       "/assets/csr-2023b.jpg",
+  //       "/assets/csr-2023c.jpg",
+  //     ],
+  //   },
+  //   {
+  //     title: "Campus Tour 2k25",
+  //     desc: "Every year PACE Conducts campus tour for the first year students to give an amazing start to the wonderful journey of  four years in this campus.",
+  //     img: "/assets/nitigya-2024.jpg",
+  //     winners: ["Student X", "Student Y"],
+  //     gallery: ["/assets/nitigya-2024.jpg"],
+  //   },
+  //   {
+  //     title: "PAT 2k25",
+  //     desc: "PACE APTITUDE TEST A regular test series designed to evaluate and enhance students’ aptitude skills",
+  //     img: "/assets/csr-2023.jpg",
+  //     winners: ["Winner A", "Winner B"],
+  //     gallery: ["/assets/csr-2023.jpg"],
+  //   },
   ],
 };
 
