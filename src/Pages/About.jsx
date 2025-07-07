@@ -101,7 +101,7 @@ const About = () => {
 
               {/* Club Service */}
               <div>
-                <h3 className="text-2xl font-semibold text-yellow-300 mb-2">Club Service</h3>
+                <h3 className="text-2xl font-semibold text-yellow-300 mb-2">Club Meetups</h3>
                 <p className="text-gray-300">
                   Regular group sessions encouraging discussion on current affairs, social issues, and personal development. These help members build critical thinking and communication skills.
                 </p>
