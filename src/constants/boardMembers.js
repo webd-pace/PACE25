@@ -16,7 +16,7 @@ export const boardMembersChief = [
   { post: "Chief Skid-P & Chief Web Developer",fullName: "Piyush Dawkhare",    imgUrl: "/assets/Cheif_Board/Piyush_Dawkhare.png"     },
   { post: "Chief Skid-P",                      fullName: "Manisha Shinde",     imgUrl: "/assets/Cheif_Board/Manisha_Shinde.jpg"    },
   { post: "Chief Skid-P",                      fullName: "Dhanshri Mali",      imgUrl: "/assets/Cheif_Board/Dhanshri_Mali.jpg"     },
-  { post: "Chief Skid-P",                      fullName: "Pratik Kapre",       imgUrl: "/assets/Cheif_Board/Pratik_Kapre0.jpg"    },
+  { post: "Chief Skid-P",                      fullName: "Pratik Kapre",       imgUrl: "/assets/Cheif_Board/Pratik_Kapre.jpg"    },
   //{ post: "Chief Skid-W",                      fullName: "Samruddhi Shinde",   imgUrl: "/assets/Cheif_Board/Samruddhi_Shinde.jpg"       },
   { post: "Creative Team Head",                fullName: "Rajvardhan Kadam",   imgUrl: "/assets/Cheif_Board/Rajvardhan_Kadam.png"       },
   { post: "Creative Team Head",                fullName: "Chaitrali Jadhav",   imgUrl: "/assets/Cheif_Board/Chaitrali_Jadhav.jpg"      },
