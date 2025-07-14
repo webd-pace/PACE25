@@ -211,22 +211,22 @@ const JoinForm = () => {
         
         <form onSubmit={handleSubmit} className="flex flex-col">
           {/* Name */}
-          <label className="mt-4 mb-1 font-semibold">Full Name</label>
+          <label className="mt-4 mb-1 font-semibold">  Full Name <span className="text-red-500">*</span> </label>
           <input name="name" value={formData.name} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
 
           {/* Phone */}
-          <label className="mt-4 mb-1 font-semibold">Phone Number</label>
+          <label className="mt-4 mb-1 font-semibold">Phone Number <span className="text-red-500">*</span></label>
           <input name="phone" value={formData.phone} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
 
           {/* Email */}
-          <label className="mt-4 mb-1 font-semibold">Email</label>
+          <label className="mt-4 mb-1 font-semibold">Email <span className="text-red-500">*</span></label>
           <input name="email" value={formData.email} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
 
           {/* Branch */}
-          <label className="mt-4 mb-1 font-semibold">Branch </label>
+          <label className="mt-4 mb-1 font-semibold">Branch <span className="text-red-500">*</span></label>
           <select name="Branch" value={formData.Branch} onChange={handleChange} className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white"> 
           <option value="">-- Select Branch --</option>
           <option value="Computer Science">S.Y. CSE</option>
@@ -241,7 +241,7 @@ const JoinForm = () => {
           {errors.Branch && <p className="text-red-500 text-sm mt-1">{errors.Branch}</p>}
 
           {/* PRN */}
-          <label className="mt-4 mb-1 font-semibold">PRN</label>
+          <label className="mt-4 mb-1 font-semibold">PRN <span className="text-red-500">*</span></label>
           <input name="PRN" value={formData.PRN} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.PRN && <p className="text-red-500 text-sm mt-1">{errors.PRN}</p>}
 
@@ -251,58 +251,76 @@ const JoinForm = () => {
           {errors.LinkedIn && <p className="text-red-500 text-sm mt-1">{errors.LinkedIn}</p>}
 
           {/* Preferences */}
-      {[1, 2, 3].map((num) => {
-        const ordinal = num === 1 ? '1st' : num === 2 ? '2nd' : '3rd';
-          return (
-          <div key={num} className="mt-6">
-          <label className="block mb-1 font-semibold">{ordinal} Preference</label>
-          <select
-              name={`preference${num}`}
-              value={formData[`preference${num}`]}
-              onChange={handleChange}
-              className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white"
-            >
-          <option value="">-- Select Preference --</option>
-              {options.map((opt, idx) => (
-              <option key={idx} value={opt}>{opt}</option>
-            ))}
-          </select>
-        {num === 1 && errors.preference1 && <p className="text-red-500 text-sm mt-1">{errors.preference1}</p>}
+{[1, 2, 3].map((num) => {
+  const ordinal = num === 1 ? "1st" : num === 2 ? "2nd" : "3rd";
+  const isFirst = num === 1;
 
-        <label className="block mt-4 mb-1 font-semibold">Why this preference?</label>
-        <textarea
-          name={`reason${num}`}
-          value={formData[`reason${num}`]}
-          onChange={handleChange}
-          className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white h-24"
-        />
-        {num === 1 && errors.reason1 && <p className="text-red-500 text-sm mt-1">{errors.reason1}</p>}
-      </div>
-      );
-    })}
+  return (
+    <div key={num} className="mt-6">
+      {/* Preference Label */}
+      <label className="block mb-1 font-semibold">
+        {ordinal} Preference <span className="text-red-500">*</span>
+      </label>
+      <select
+        name={`preference${num}`}
+        value={formData[`preference${num}`]}
+        onChange={handleChange}
+        className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white"
+      >
+        <option value="">-- Select Preference --</option>
+        {options.map((opt, idx) => (
+          <option key={idx} value={opt}>
+            {opt}
+          </option>
+        ))}
+      </select>
+      {isFirst && errors.preference1 && (
+        <p className="text-red-500 text-sm mt-1">{errors.preference1}</p>
+      )}
+
+      {/* Reason Label with red asterisk for first only */}
+      <label className="block mt-4 mb-1 font-semibold">
+         Why this preference? {isFirst && <span className="text-red-500">*</span>}
+      </label>
+
+      {/* Only the 1st reason is compulsory */}
+      <textarea
+        name={`reason${num}`}
+        value={formData[`reason${num}`]}
+        onChange={handleChange}
+        className="w-full p-3 rounded-md bg-gray-800 border border-gray-600 text-white h-24"
+        required={isFirst}
+      />
+      {isFirst && errors.reason1 && (
+        <p className="text-red-500 text-sm mt-1">{errors.reason1}</p>
+      )}
+    </div>
+  );
+})}
+
 
           {/* Describe Yourself */}
-          <label className="mt-4 mb-1 font-semibold">Describe yourself and why should we take you on board?</label>
+          <label className="mt-4 mb-1 font-semibold">Describe yourself and why should we take you on board? <span className="text-red-500">*</span></label>
           <input name="Describe" value={formData.Describe} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.Describe && <p className="text-red-500 text-sm mt-1">{errors.Describe}</p>}
 
           {/* Why do you want to Join Pace */}
-          <label className="mt-4 mb-1 font-semibold">Why do you want to join Pace?</label>
+          <label className="mt-4 mb-1 font-semibold">Why do you want to join Pace? <span className="text-red-500">*</span></label>
           <input name="Why_Pace" value={formData.Why_Pace} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.Why_Pace && <p className="text-red-500 text-sm mt-1">{errors.Why_Pace}</p>}
 
           {/* Initiatives */}
-          <label className="mt-4 mb-1 font-semibold">What new initiatives would you bring to Pace?</label>
+          <label className="mt-4 mb-1 font-semibold">What new initiatives would you bring to Pace? <span className="text-red-500">*</span></label>
           <input name="Initiatives" value={formData.Initiatives} onChange={handleChange} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.Initiatives && <p className="text-red-500 text-sm mt-1">{errors.Initiatives}</p>}
 
           {/* Resume Upload */}
-          <label className="mt-4 mb-1 font-semibold">Upload Resume (PDF)</label>
+          <label className="mt-4 mb-1 font-semibold">Upload Resume (PDF) <span className="text-red-500">*</span></label>
           <input type="file" name="resume" onChange={handleChange} accept=".pdf" ref={resumeInputRef} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.resume && <p className="text-red-500 text-sm mt-1">{errors.resume}</p>}
 
           {/* Photo Upload */}
-          <label className="mt-4 mb-1 font-semibold">Upload Passport Photo (JPG/PNG)</label>
+          <label className="mt-4 mb-1 font-semibold">Upload Passport Photo (JPG/PNG) <span className="text-red-500">*</span></label>
           <input type="file" name="photo" onChange={handleChange} accept="image/jpeg, image/png" ref={photoInputRef} className="p-3 rounded-md bg-gray-800 border border-gray-600 text-white" />
           {errors.photo && <p className="text-red-500 text-sm mt-1">{errors.photo}</p>}
 
