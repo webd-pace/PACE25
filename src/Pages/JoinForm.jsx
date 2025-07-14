@@ -235,8 +235,8 @@ const JoinForm = () => {
           <option value="Electrical">S.Y. Electrical</option>
           <option value="Mechanical">S.Y. Mechanical</option>
           <option value="Civil">S.Y. Civil</option>
-          <option value="Chemical">S.Y. AIML</option>
-          <option value="Other">S.Y. Robotics</option>
+          <option value="AIML">S.Y. AIML</option>
+          <option value="Robotics">S.Y. Robotics</option>
           </select>
           {errors.Branch && <p className="text-red-500 text-sm mt-1">{errors.Branch}</p>}
 
