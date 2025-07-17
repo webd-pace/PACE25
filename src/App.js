@@ -13,6 +13,7 @@ import Thankyou from "./Pages/Thankyou";
 import PrudenceRegistration from "./Pages/PrudenceRegistration/PrudenceRegistration";
 import ScrollToTop from "./components/ScrollToTop";
 import ComingSoon from "./components/ComingSoon";
+import RegistrationsClosed from "./components/RegistrationsClosed";
 import "./App.css";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/Thankyou" element={<Thankyou />} />
         <Route path="/ComingSoon" element={<ComingSoon />} />
         <Route path="/PrudenceRegistration" element={<PrudenceRegistration />} />
+        <Route path="/RegistrationsClosed" element={<RegistrationsClosed />} />
       </Routes>
     </Router>
   );
