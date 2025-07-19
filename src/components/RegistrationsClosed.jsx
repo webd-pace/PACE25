@@ -14,7 +14,7 @@ const RegistrationsClosed = () => {
           </h1>
           <br /><br />
           <p className="text-gray-400 text-lg md:text-xl mb-6">
-            PACE Joint-Board registration forms are now closed. We truly appreciate your interest. Keep an eye on our socials for upcoming opportunities and events!
+            PACE Joint Board registration forms are now closed. We truly appreciate your interest. Keep an eye on our socials for upcoming opportunities and events!
           </p>
 
           <p className="text-gray-300 text-md md:text-lg mb-4">
