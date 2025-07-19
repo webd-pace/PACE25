@@ -23,7 +23,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/JoinForm" element={<JoinForm />} />
+        {/* <Route path="/JoinForm" element={<JoinForm />} /> */}
         <Route path="/FullBoard" element={<FullBoard />} />
         <Route path="/Events/sub-events/Standout" element={<Standout />} />
         <Route path="/Events/sub-events/Aspire" element={<Aspire />} />
