@@ -61,7 +61,10 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
 
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mb-12">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl font-extrabold text-yellow-400 mb-4"> Prudence 2K25
+        <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl font-extrabold text-yellow-400 mb-4">
+          <h1 className="text-5xl font-extrabold text-yellow-400 uppercase font-cinzel-decorative">
+          Prudence 2K25
+          </h1> 
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.6 }} className="text-lg text-gray-300 leading-relaxed">   
           Prudence is the flagship event series of PACE, designed to test and
