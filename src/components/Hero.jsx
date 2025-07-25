@@ -51,11 +51,11 @@ export const Hero = ({ onExploreClick }) => {
             {/* <p className="text-xl mb-10 ">Scaling Heights Since 1994</p> */}
             
             {/* Join Now Button */}
-            <Link to="/RegistrationsClosed">
+            {/* <Link to="/RegistrationsClosed">
               <button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300">
                 Register For Joint-Board
               </button>
-            </Link>
+            </Link> */}
             <br/>
             <br/>
             {/* Prudance Registration Now Button */}
