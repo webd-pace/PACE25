@@ -14,7 +14,7 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
         "A mock placement drive simulating real campus interviews, bridging academics and industry.",
       moreDetails:
         "This event helps participants experience the real corporate selection process: resume shortlisting, group discussion, and personal interviews by industry professionals.",
-      registrationLink: "https://your-registration-link.com/aspire",
+      registrationLink: "https://wcepace.org.in/",
     },
     {
       title: "Nitigya",
@@ -23,7 +23,7 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
         "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making.",
       moreDetails:
         "Challenge your intellect in simulated international crisis management, negotiations, and political strategy.",
-      registrationLink: "https://your-registration-link.com/nitigya",
+      registrationLink: "https://wcepace.org.in/",
     },
     {
       title: "Standout",
@@ -32,7 +32,7 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
         "Creative themes and adaptability tests through immersive experiences.",
       moreDetails:
         "Perfect for those who want to stand out with creative confidence. Surprise prompts will showcase your personality.",
-      registrationLink: "https://your-registration-link.com/standout",
+      registrationLink: "https://wcepace.org.in/",
     },
     {
       title: "Ideathon",
@@ -41,7 +41,7 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
         "Teams pitch innovative business ideas in a multi-stage competition.",
       moreDetails:
         "Bring your disruptive ideas! Includes idea validation, pitch deck creation, and presentation to real investors.",
-      registrationLink: "https://your-registration-link.com/ideathon",
+      registrationLink: "https://wcepace.org.in/",
     },
   ];
 
