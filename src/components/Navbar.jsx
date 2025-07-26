@@ -14,9 +14,7 @@ export default function Navbar() {
     `${isActive(path) ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"} transition-colors`;
 
   useEffect(() => {
-    const onScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -26,16 +24,15 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 60, damping: 12 }}
-      className={`bg-black sticky top-0 z-50 border-b border-yellow-400/20 ${
+      className={`fixed top-0 w-full z-50 bg-black text-white border-b border-yellow-400/20 ${
         isScrolled ? "shadow-md" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-
           {/* Logo */}
           <div className="flex-shrink-0 text-xl font-bold text-yellow-400">
-            <a href="/" aria-label="Go to homepage">PACE</a>
+          <a href="/" aria-label="Go to homepage">PACE</a>
           </div>
 
           {/* Desktop Links */}
@@ -43,7 +40,16 @@ export default function Navbar() {
             <Link to="/" className={linkClass("/")}>Home</Link>
             <Link to="/events" className={linkClass("/events")}>Events</Link>
             <Link to="/about" className={linkClass("/about")}>About</Link>
-            <a href="#contact" className={`${location.hash === "#contact" ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"} transition-colors`} > Contact </a>
+            <a
+              href="#contact"
+              className={`${
+                location.hash === "#contact"
+                  ? "text-yellow-400"
+                  : "text-gray-200 hover:text-yellow-400"
+              } transition-colors`}
+            >
+              Contact
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -84,14 +90,14 @@ export default function Navbar() {
             <Link to="/events" className={`block py-2 ${linkClass("/events")}`} onClick={() => setMenuOpen(false)}>
               Events
             </Link>
-            
             <Link to="/about" className={`block py-2 ${linkClass("/about")}`} onClick={() => setMenuOpen(false)}>
               About
             </Link>
-            
             <a
               href="#contact"
-              className={`block py-2 ${location.hash === "#contact" ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"} transition-colors`}
+              className={`block py-2 ${
+                location.hash === "#contact" ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"
+              } transition-colors`}
               onClick={() => setMenuOpen(false)}
             >
               Contact

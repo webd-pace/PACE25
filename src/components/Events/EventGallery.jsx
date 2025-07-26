@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PrudenceSection from "../PrudenceSection.jsx";
+import { motion } from "framer-motion";
 
 const eventData = {
   "2024": [
@@ -86,21 +87,34 @@ const EventGallery = ({ year }) => {
   const [galleryImages, setGalleryImages] = useState(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
 
-  return (
+    return (
     <>
       <div className="flex flex-col gap-16 max-w-6xl mx-auto px-4">
         {data.map((event, i) => {
           const isExpanded = expandedIndex === i;
+          const isReverse = i % 2 !== 0;
+
+          // Set motion variants for fade from left/right
+          const motionVariant = {
+            hidden: { opacity: 0, x: isReverse ? 100 : -100 },
+            visible: { opacity: 1, x: 0 },
+          };
+
           return (
-            <div
+            <motion.div
               key={i}
               className={`flex flex-col gap-10 border border-yellow-500 rounded-2xl p-5 shadow-md transition duration-300 ease-in-out overflow-hidden ${
                 isExpanded ? "bg-black bg-opacity-90" : "hover:bg-black/30"
               }`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              variants={motionVariant}
             >
               <div
                 className={`flex flex-col md:flex-row ${
-                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  isReverse ? "md:flex-row-reverse" : "md:flex-row"
                 } items-center gap-6`}
               >
                 <img
@@ -142,7 +156,7 @@ const EventGallery = ({ year }) => {
                   {EventDetails[event.title]}
                 </div>
               )}
-            </div>
+            </motion.div>
           );
         })}
       </div>
