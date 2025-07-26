@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "./assets/Pace_Logo_White.svg",
+      "src": "./assets/Pace_Logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./assets/Pace_Logo_White.svg",
+      "src": "./assets/Pace_Logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
