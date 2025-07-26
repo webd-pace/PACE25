@@ -41,14 +41,9 @@ export default function Navbar() {
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8 font-medium">
             <Link to="/" className={linkClass("/")}>Home</Link>
-            <Link to="/about" className={linkClass("/about")}>About</Link>
             <Link to="/events" className={linkClass("/events")}>Events</Link>
-            <a
-              href="#contact"
-              className={`${location.hash === "#contact" ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"} transition-colors`}
-            >
-              Contact
-            </a>
+            <Link to="/about" className={linkClass("/about")}>About</Link>
+            <a href="#contact" className={`${location.hash === "#contact" ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"} transition-colors`} > Contact </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -86,12 +81,14 @@ export default function Navbar() {
             <Link to="/" className={`block py-2 ${linkClass("/")}`} onClick={() => setMenuOpen(false)}>
               Home
             </Link>
-            <Link to="/about" className={`block py-2 ${linkClass("/about")}`} onClick={() => setMenuOpen(false)}>
-              About
-            </Link>
             <Link to="/events" className={`block py-2 ${linkClass("/events")}`} onClick={() => setMenuOpen(false)}>
               Events
             </Link>
+            
+            <Link to="/about" className={`block py-2 ${linkClass("/about")}`} onClick={() => setMenuOpen(false)}>
+              About
+            </Link>
+            
             <a
               href="#contact"
               className={`block py-2 ${location.hash === "#contact" ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"} transition-colors`}
