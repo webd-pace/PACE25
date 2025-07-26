@@ -60,12 +60,12 @@ const EventSection_Homepage = () => {
 
         {/* Accent Line */}
         <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: "6rem" }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center mt-6 mb-10"
+          initial={{ opacity: 0, scaleX: 0.3 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex justify-center mt-6 mb-10 origin-center"
         >
-          <span className="block h-1 bg-yellow-400 rounded-full"></span>
+          <span className="block w-[200px] h-1 bg-yellow-400 rounded-full"></span>
         </motion.div>
 
         {/* Event Cards */}
