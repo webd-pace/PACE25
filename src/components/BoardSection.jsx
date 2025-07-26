@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { motion } from "framer-motion";
 
 export const BoardSection = ({ title, members }) => {
   const containerRef = useRef(null);
@@ -7,37 +8,34 @@ export const BoardSection = ({ title, members }) => {
   const scrollAmount = 250;
   const scrollDelay = 1500;
 
-  const startAutoScroll = () => {
+  const startAutoScroll = useCallback(() => {
     const el = containerRef.current;
     if (!el) return;
 
     scrollInterval.current = setInterval(() => {
       if (isHovered) return;
-
       el.scrollBy({ left: scrollAmount, behavior: "smooth" });
-
       if (el.scrollLeft >= el.scrollWidth / 2) {
         el.scrollTo({ left: 0, behavior: "auto" });
       }
     }, scrollDelay);
-  };
+  }, [isHovered]);
 
-  const stopAutoScroll = () => {
+  const stopAutoScroll = useCallback(() => {
     if (scrollInterval.current) {
       clearInterval(scrollInterval.current);
     }
-  };
-
-  useEffect(() => {
-    startAutoScroll();
-
-    return () => stopAutoScroll(); // Cleanup on unmount
   }, []);
 
   useEffect(() => {
-    stopAutoScroll(); // Clear previous
-    if (!isHovered) startAutoScroll(); // Restart if not hovering
-  }, [isHovered]);
+    startAutoScroll();
+    return () => stopAutoScroll();
+  }, [startAutoScroll, stopAutoScroll]);
+
+  useEffect(() => {
+    stopAutoScroll();
+    if (!isHovered) startAutoScroll();
+  }, [isHovered, startAutoScroll, stopAutoScroll]);
 
   const scrollLeft = () => {
     containerRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
@@ -51,13 +49,24 @@ export const BoardSection = ({ title, members }) => {
     <section className="py-16 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Title */}
-        <h2 className="text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 uppercase tracking-widest font-cinzel-decorative">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 uppercase tracking-widest font-cinzel-decorative"
+        >
           {title}
-        </h2>
+        </motion.h2>
 
-        <div className="flex justify-center mt-6 mb-10">
+        {/* Underline */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0.3 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex justify-center mt-6 mb-10 origin-center"
+        >
           <span className="block w-[200px] h-1 bg-yellow-400 rounded-full"></span>
-        </div>
+        </motion.div>
 
         {/* Scroll container + arrows */}
         <div className="flex justify-center items-center relative group">
@@ -75,8 +84,11 @@ export const BoardSection = ({ title, members }) => {
             onMouseLeave={() => setIsHovered(false)}
           >
             {[...members, ...members].map((m, i) => (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
                 className="snap-center flex-shrink-0 w-64 bg-transparent rounded-3xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20"
               >
                 <div className="relative mb-4">
@@ -89,7 +101,7 @@ export const BoardSection = ({ title, members }) => {
                 <hr className="w-12 border-yellow-400 mb-3" />
                 <h4 className="text-xs uppercase text-white opacity-70">{m.post}</h4>
                 <h3 className="mt-1 text-lg font-bold text-white">{m.fullName}</h3>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -101,11 +113,17 @@ export const BoardSection = ({ title, members }) => {
           </button>
         </div>
 
-        <div className="flex justify-center mt-8">
+        {/* View Full Board Button */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.4 }}
+          className="flex justify-center mt-8"
+        >
           <button className="px-6 py-2 bg-yellow-400 text-black font-bold rounded-full hover:bg-yellow-300 transition">
             <a href="/FullBoard">View Full Board</a>
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

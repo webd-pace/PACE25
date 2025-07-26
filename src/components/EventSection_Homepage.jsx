@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const events = [
   {
@@ -24,6 +25,20 @@ const events = [
   },
 ];
 
+// Animation variants
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const EventSection_Homepage = () => {
   return (
     <section className="relative py-24 bg-black text-white overflow-hidden">
@@ -33,20 +48,36 @@ const EventSection_Homepage = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Heading */}
-        <h2 className="text-5xl md:text-6xl font-extrabold text-center text-yellow-400 uppercase tracking-wider font-cinzel-decorative">
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl md:text-6xl font-extrabold text-center text-yellow-400 uppercase tracking-wider font-cinzel-decorative"
+        >
           Events
-        </h2>
+        </motion.h2>
 
         {/* Accent Line */}
-        <div className="flex justify-center mt-6 mb-10">
-          <span className="block w-24 h-1 bg-yellow-400 rounded-full"></span>
-        </div>
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "6rem" }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mt-6 mb-10"
+        >
+          <span className="block h-1 bg-yellow-400 rounded-full"></span>
+        </motion.div>
 
         {/* Event Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {events.map((event) => (
-            <div
+          {events.map((event, index) => (
+            <motion.div
               key={event.title}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
               className="bg-black border border-yellow-400 rounded-3xl overflow-hidden shadow-lg hover:shadow-yellow-400/40 transform hover:scale-105 transition-all duration-300"
             >
               <img
@@ -62,18 +93,24 @@ const EventSection_Homepage = () => {
                   {event.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Explore More Button */}
-        <div className="text-center mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="text-center mt-12"
+        >
           <Link to="/Events">
             <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full shadow-md transition-all duration-300">
               Explore the Details
             </button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
