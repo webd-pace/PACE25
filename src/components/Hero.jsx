@@ -31,7 +31,7 @@ export const Hero = ({ onExploreClick }) => {
             <img
               src="/assets/Pace_Logo_White.svg"
               alt="Pace_Logo"
-              className="h-20 md:h-40 w-auto object-contain"
+              className="h-23 md:h-42 w-auto object-contain" //h-20 md:h-40
             />
           </motion.div>
 
