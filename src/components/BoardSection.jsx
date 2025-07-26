@@ -46,8 +46,12 @@ export const BoardSection = ({ title, members }) => {
   };
 
   return (
-    <section className="py-16 bg-black text-white">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="relative py-16 bg-black text-white overflow-hidden">
+      {/* 🔁 Swapped Glow Corners */}
+      <div className="absolute -top-20 -right-20 w-72 h-72 bg-yellow-500 opacity-20 rounded-full filter blur-3xl z-0"></div>
+      <div className="absolute -bottom-24 -left-20 w-96 h-96 bg-yellow-500 opacity-20 rounded-full filter blur-3xl z-0"></div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -99,8 +103,12 @@ export const BoardSection = ({ title, members }) => {
                   />
                 </div>
                 <hr className="w-12 border-yellow-400 mb-3" />
-                <h4 className="text-xs uppercase text-white opacity-70">{m.post}</h4>
-                <h3 className="mt-1 text-lg font-bold text-white">{m.fullName}</h3>
+                <h4 className="text-xs uppercase text-white opacity-70">
+                  {m.post}
+                </h4>
+                <h3 className="mt-1 text-lg font-bold text-white">
+                  {m.fullName}
+                </h3>
               </motion.div>
             ))}
           </div>
