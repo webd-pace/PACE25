@@ -58,7 +58,7 @@ export const Hero = ({ onExploreClick }) => {
               Welcome to <span className="font-semibold text-yellow-400">PACE</span>
             </h1>
 
-            <Link to="/PrudenceRegistration">
+            <Link to="/ComingSoon">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
