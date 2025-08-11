@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 export default function NitygyaRegistration() {
-  const FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfBK5rGTX3aG5AlhA6mwSWz156SM3eRnU0s71PZMgZN6wbo7w/formResponse"; 
+  const FORM_ACTION_URL = "https://docs.google.com/forms/d/e/19pFvb2XPwI1xQ_h_kZgCZFZrLm_QFAJ2yjwiDIajlSw/formResponse"; 
   // Replace YOUR_FORM_ID with your new form's ID
 
   const [formData, setFormData] = useState({
