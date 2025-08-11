@@ -160,10 +160,12 @@ export default function NitygyaRegistration() {
                 required
               >
                 <option value="">Select your year</option>
-                <option>First Year</option>
-                <option>Second Year</option>
-                <option>Third Year</option>
-                <option>Fourth Year</option>
+                <option>First Year Degree</option>
+                <option>Second Year Degree</option>
+                <option>Third Year Degree</option>
+                <option>First Year Diploma</option>
+                <option>Second Year Diploma</option>
+                <option>Third Year Diploma</option>
               </select>
             </motion.div>
 
