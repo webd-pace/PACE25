@@ -20,7 +20,7 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
       img: "/assets/Events/Logos/Nitigya.jpg",
       desc: "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making.",
       moreDetails: "Challenge your intellect in simulated international crisis management, negotiations, and political strategy.",
-      registrationLink: "https://wcepace.org.in/",
+      registrationLink: "NitigyaForm.jsx",
     },
     {
       title: "Standout",
