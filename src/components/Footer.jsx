@@ -28,7 +28,7 @@ const Footer = () => {
                 <span className="font-medium">Secretary:</span> Pranav Patil – +91 8767939192
               </li>
               <li>
-                <span href="mailto:pacesecretary10@gmail.com" className="font-medium">Email:</span> pacesecretary10@gmail.com
+                <span href="mailto:pace@walchandsangli.ac.in" className="font-medium">Email:</span> pace@walchandsangli.ac.in
               </li>
             </ul>
           </div>
