@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function NitygyaRegistration() {
+function NitygyaRegistration() {
   const FORM_ACTION_URL =
     "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfBK5rGTX3aG5AIhA6mwSWz156SM3eRnU0s71PZMgZN6wbo7w/formResponse";
 
@@ -48,7 +48,6 @@ export default function NitygyaRegistration() {
     document.body.appendChild(form);
     form.submit();
     document.body.removeChild(form);
-
     // Simulate short delay before showing success
     setTimeout(() => {
       setIsSubmitting(false);
@@ -217,3 +216,5 @@ function InputField({ label, name, type, value, onChange, placeholder, delay }) 
     </motion.div>
   );
 }
+
+export default NitygyaRegistration;
