@@ -12,7 +12,7 @@ export default function NitygyaRegistration() {
     phone: "",
     college: "",
     year: "",
-    message: ""
+    // message: ""
   });
 
   const handleChange = (e) => {
@@ -32,7 +32,7 @@ export default function NitygyaRegistration() {
       phone: "entry.YOUR_ID_3",   // Phone Number field ID
       college: "entry.YOUR_ID_4", // College/Branch field ID
       year: "entry.YOUR_ID_5",    // Year field ID
-      message: "entry.YOUR_ID_6"  // Message field ID
+    //   message: "entry.YOUR_ID_6"  // Message field ID
     };
 
     Object.keys(formData).forEach((field) => {
@@ -54,7 +54,7 @@ export default function NitygyaRegistration() {
       phone: "",
       college: "",
       year: "",
-      message: ""
+    //   message: ""
     });
   };
 
@@ -115,7 +115,7 @@ export default function NitygyaRegistration() {
             </select>
           </motion.div>
 
-          {/* Message */}
+          {/* Message
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.55 }}>
             <label className="block text-gray-700 font-medium mb-1">Message (Optional)</label>
             <textarea
@@ -126,7 +126,7 @@ export default function NitygyaRegistration() {
               className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
               rows="3"
             ></textarea>
-          </motion.div>
+          </motion.div> */}
 
           <motion.button
             type="submit"
