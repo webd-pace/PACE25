@@ -27,11 +27,11 @@ export default function NitygyaRegistration() {
     form.target = "hidden_iframe";
 
     const mapping = {
-      name: "entry.YOUR_ID_1",    // Full Name field ID
-      email: "entry.YOUR_ID_2",   // Email field ID
-      phone: "entry.YOUR_ID_3",   // Phone Number field ID
-      college: "entry.YOUR_ID_4", // College/Branch field ID
-      year: "entry.YOUR_ID_5",    // Year field ID
+      name: "entry.1501513834",    // Full Name field ID
+      email: "entry.410529509",   // Email field ID
+      phone: "entry.1400921432",   // Phone Number field ID
+      college: "entry.716519714", // College/Branch field ID
+      year: "entry.731568522",    // Year field ID
     //   message: "entry.YOUR_ID_6"  // Message field ID
     };
 
