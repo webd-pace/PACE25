@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 function NitygyaRegistration() {
@@ -30,7 +32,7 @@ function NitygyaRegistration() {
     form.target = "hidden_iframe";
 
     const mapping = {
-      name: "entry.1501513834",
+      name: "4entry.150151383",
       email: "entry.410529509",
       phone: "entry.1400921432",
       college: "entry.716519714",
