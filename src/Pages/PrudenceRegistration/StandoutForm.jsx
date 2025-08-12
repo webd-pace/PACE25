@@ -2,6 +2,8 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
+import { db, storage } from "../../firebasePrudence";
+
 
 function NitygyaRegistration() {
   const FORM_ACTION_URL =
