@@ -177,6 +177,9 @@ function NitygyaRegistration() {
             {/* QR Code Payment Section */}
             {formData.eventmode && (
               <div className="text-center my-6 p-6 bg-gray-50 rounded-xl shadow-md">
+                  <p className="mb-4 text-sm text-indigo-800 bg-ingigo-100 border border-indigo-300 rounded-md p-3">
+                      💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
+                  </p>
                 <h4 className="mb-4 font-semibold text-lg text-gray-800">
                   Scan to Pay
                 </h4>
@@ -205,7 +208,23 @@ function NitygyaRegistration() {
             )}
 
             {/* Transaction ID Section */}
-            <InputField label="Transaction ID" name="transactionID" type="text" value={formData.transactionID} onChange={handleChange} />
+            <div>
+                <p className="mb-3 text-sm text-yellow-800 bg-yellow-100 border border-yellow-300 rounded-md p-2">
+                      For the offline entries, please enter the id given on your Receipt. 
+                </p>
+
+              <label className="block text-gray-700 font-medium mb-1">
+                Transaction ID
+              </label>
+              <input
+                type="text"
+                name="transactionID"
+                value={formData.transactionID}
+                onChange={handleChange}
+                placeholder="e.g., AXIS12345ABC"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
+              />
+            </div>
 
             {/* Screenshot Section */}
             <div className="mb-4">
