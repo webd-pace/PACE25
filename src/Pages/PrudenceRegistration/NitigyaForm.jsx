@@ -4,7 +4,12 @@ import { prudenceDb, prudenceStorage } from "../../firebasePrudence";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
+
+
+
+
 function NitygyaRegistration() {
+  const [screenshotName, setScreenshotName] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +20,6 @@ function NitygyaRegistration() {
     transactionID: "",
     eventmode: "",
     paymentMode: "",
-    entry: "",
     screenShot: null,
   });
 
@@ -80,7 +84,6 @@ function NitygyaRegistration() {
         transactionID: "",
         eventmode: "",
         paymentMode: "",
-        entry: "",
         screenShot: null,
       });
       setUploadProgress(0);
@@ -227,30 +230,42 @@ function NitygyaRegistration() {
             </div>
 
             {/* Screenshot Section */}
-            <div className="mb-4">
-              <label className="block text-gray-700 font-medium mb-2">
-                Payment Screenshot
-              </label>
+<div className="mb-4">
+  <label className="block text-gray-700 font-medium mb-2">
+    Payment Screenshot
+  </label>
 
-              <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
-                <input
-                  type="file"
-                  name="screenShot"
-                  accept="image/*"
-                  onChange={handleChange}
-                  className="absolute inset-0 opacity-0 cursor-pointer"
-                />
-                <span className="text-gray-500 text-sm text-center">
-                  Click or drag & drop to upload
-                </span>
-              </div>
+  <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
+    <input
+      type="file"
+      name="screenShot"
+      accept="image/*"
+      onChange={(e) => {
+        handleChange(e);
+        if (e.target.files.length > 0) {
+          setScreenshotName(e.target.files[0].name);
+        }
+      }}
+      className="absolute inset-0 opacity-0 cursor-pointer"
+    />
+    {screenshotName ? (
+      <span className="text-green-600 font-medium text-center px-2">
+        {screenshotName}
+      </span>
+    ) : (
+      <span className="text-gray-500 text-sm text-center">
+        Click or drag & drop to upload
+      </span>
+    )}
+  </div>
 
-              {uploadProgress > 0 && (
-                <p className="text-sm text-gray-600 mt-2">
-                  Uploading: {Math.round(uploadProgress)}%
-                </p>
-              )}
-            </div>
+  {uploadProgress > 0 && (
+    <p className="text-sm text-gray-600 mt-2">
+      Uploading: {Math.round(uploadProgress)}%
+    </p>
+  )}
+</div>
+
 
             {/* Submit Button */}
             <motion.button
