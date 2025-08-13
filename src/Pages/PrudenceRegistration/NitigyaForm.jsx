@@ -13,7 +13,7 @@ function NitygyaRegistration() {
     year: "",
     branch: "",
     transactionID: "",
-    track: "",
+    eventmode: "",
     paymentMode: "",
     entry: "",
     screenShot: null,
@@ -38,7 +38,6 @@ function NitygyaRegistration() {
     try {
       let downloadURL = "";
 
-      // Upload screenshot to Firebase Storage if it exists
       if (formData.screenShot) {
         const storageRef = ref(
           prudenceStorage,
@@ -63,7 +62,6 @@ function NitygyaRegistration() {
         });
       }
 
-      // Save form data to Firestore
       await addDoc(collection(prudenceDb, "nitygya_registrations"), {
         ...formData,
         screenShot: downloadURL || null,
@@ -80,7 +78,7 @@ function NitygyaRegistration() {
         year: "",
         branch: "",
         transactionID: "",
-        track: "",
+        eventmode: "",
         paymentMode: "",
         entry: "",
         screenShot: null,
@@ -155,17 +153,17 @@ function NitygyaRegistration() {
             />
 
             <SelectField
-              label="Track" 
-              name="track" 
-              value={formData.track}
+              label="Event Mode"
+              name="eventmode"
+              value={formData.eventmode}
               onChange={handleChange}
               options={[
-                "Novice Track",
-                "Expert Track",
+                "Offline Mode",
+                "Online Mode",
               ]}
             />
 
-             <SelectField
+            <SelectField
               label="Payment Mode" 
               name="paymentMode"
               value={formData.paymentMode}
@@ -176,53 +174,73 @@ function NitygyaRegistration() {
               ]}
             /> 
 
-          {/* QR Code Payment Section */}
-<div className="text-center my-6 p-4 bg-gray-50 rounded-xl shadow-sm">
-  <h4 className="mb-4 font-semibold text-lg text-gray-800">
-    Scan to Pay
-  </h4>
+            {/* QR Code Payment Section */}
+            {formData.eventmode && (
+              <div className="text-center my-6 p-6 bg-gray-50 rounded-xl shadow-md">
+                <h4 className="mb-4 font-semibold text-lg text-gray-800">
+                  Scan to Pay
+                </h4>
 
-  <div className="w-96 h-96 mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 p-1">
-    <img
-      src="/assets/QRs/GooglePay_QR.png" // Place in /public folder
-      alt="Payment QR Code"
-      className="max-w-full max-h-full object-contain"
-    />
-  </div>
+                <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
+                  <img
+                    src={
+                      formData.eventmode === "Offline Mode"
+                        ? "/assets/QRs/GooglePay_QR_129Rs.png" /* Offline Mode */
+                        : "/assets/QRs/GooglePay_QR_99Rs.png" /* Online Mode */
+                    }
+                    alt="Payment QR Code"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
 
-  <p className="mt-2 text-sm text-gray-600">
-    UPI ID: <span className="font-medium">piyushdawkhare000@okaxis</span>
-  </p>
-</div>
+                <p className="mt-3 text-sm text-gray-600 break-words">
+                  UPI ID:{"piyushdawkhare0000@okaxis"}
+                  <span className="font-medium">
+                    {formData.eventmode === "Offline Mode"
+                      ? "piyushdawkhare0000@okaxis" /* Offline Mode */
+                      : "piyushdawkhare0000@okaxis" /* Online Mode */}
+                  </span>
+                </p>
+              </div>
+            )}
 
-
-            
+            {/* Transaction ID Section */}
             <InputField label="Transaction ID" name="transactionID" type="text" value={formData.transactionID} onChange={handleChange} />
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">
+
+            {/* Screenshot Section */}
+            <div className="mb-4">
+              <label className="block text-gray-700 font-medium mb-2">
                 Payment Screenshot
               </label>
-              <input
-                type="file"
-                name="screenShot"
-                accept="image/*"
-                onChange={handleChange}
-                className="w-full"
-              />
+
+              <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                <input
+                  type="file"
+                  name="screenShot"
+                  accept="image/*"
+                  onChange={handleChange}
+                  className="absolute inset-0 opacity-0 cursor-pointer"
+                />
+                <span className="text-gray-500 text-sm text-center">
+                  Click or drag & drop to upload
+                </span>
+              </div>
+
               {uploadProgress > 0 && (
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-gray-600 mt-2">
                   Uploading: {Math.round(uploadProgress)}%
                 </p>
               )}
             </div>
 
+            {/* Submit Button */}
             <motion.button
               type="submit"
               disabled={isSubmitting}
               className={`w-full ${isSubmitting ? "bg-gray-400" : "bg-indigo-600 hover:bg-indigo-700"} text-white font-semibold py-2 px-6 rounded-lg`}
               whileTap={{ scale: 0.97 }}
             >
-              {isSubmitting ? "Submitting..." : "Register Now"}
+              {isSubmitting ? "Submitting..." : "Submit"}
             </motion.button>
           </form>
         )}
