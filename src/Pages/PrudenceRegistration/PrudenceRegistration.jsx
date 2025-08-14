@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
-import NitigyaForm from './NitigyaForm';
+import SponsorSection from './SponsorSectionB';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const PreudenceRegistrationbase = ({ prudenceRef }) => {
@@ -14,28 +14,28 @@ const events = [
     title: "Aspire",
     img: "/assets/Events/Logos/Aspire.jpg",
     desc: "A mock placement drive simulating real campus interviews, bridging academics and industry.",
-    moreDetails: "This event helps participants experience the real corporate selection process: resume shortlisting, group discussion, and personal interviews by industry professionals.",
+    moreDetails: "A mock placement drive simulating real campus interviews, bridging academics and industry. This event helps participants experience the real corporate selection process: resume shortlisting, group discussion, and personal interviews by industry professionals.",
     registrationLink: "/aspire-form",
   },
   {
     title: "Nitigya",
     img: "/assets/Events/Logos/Nitigya.jpg",
     desc: "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making.",
-    moreDetails: "Challenge your intellect in simulated international crisis management, negotiations, and political strategy.",
+    moreDetails: "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making. Challenge your intellect in simulated international crisis management, negotiations, and political strategy.",
     registrationLink: "/nitigya-form",
   },
   {
     title: "Standout",
     img: "/assets/Events/Logos/Standout.jpg",
     desc: "Creative themes and adaptability tests through immersive experiences.",
-    moreDetails: "Perfect for those who want to stand out with creative confidence. Surprise prompts will showcase your personality.",
+    moreDetails: "Creative themes and adaptability tests through immersive experiences. Perfect for those who want to stand out with creative confidence. Surprise prompts will showcase your personality.",
     registrationLink: "/standout-form",
   },
   {
     title: "Ideathon",
     img: "/assets/Events/Logos/Ideathon.jpg",
     desc: "Teams pitch innovative business ideas in a multi-stage competition.",
-    moreDetails: "Bring your disruptive ideas! Includes idea validation, pitch deck creation, and presentation to real investors.",
+    moreDetails: "Teams pitch innovative business ideas in a multi-stage competition. Bring your disruptive ideas! Includes idea validation, pitch deck creation, and presentation to real investors.",
     registrationLink: "/ideathon-form",
   },
 ];
@@ -158,6 +158,7 @@ const events = [
         </div>
       </section>
 
+      <SponsorSection />
       <Footer />
     </>
   );

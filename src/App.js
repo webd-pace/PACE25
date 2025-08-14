@@ -19,6 +19,8 @@ import AspireForm from './Pages/PrudenceRegistration/AspireForm';
 import NitigyaForm from './Pages/PrudenceRegistration/NitigyaForm';
 import StandoutForm from './Pages/PrudenceRegistration/StandoutForm';
 import IdeathonForm from './Pages/PrudenceRegistration/IdeathonForm';
+import SponsorSectionB from "./Pages/PrudenceRegistration/SponsorSectionB";
+import SponsorSectionW from "./Pages/PrudenceRegistration/SponsorSectionW";
 import "./App.css";
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
         <Route path="/nitigya-form" element={<NitigyaForm />} />
         <Route path="/standout-form" element={<StandoutForm />} />
         <Route path="/ideathon-form" element={<IdeathonForm />} />
+        <Route path="/SponsorSectionB" element={<SponsorSectionB />} />
+        <Route path="/SponsorSectionW" element={<SponsorSectionW />} />
       </Routes>
     </Router>
   );
