@@ -6,11 +6,15 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import SponsorSectionW from "./SponsorSectionW";
 import PrudenceNavbar from "./PrudenceNavbar";
 import PrudenceFotter from "./PrudenceFotter";
-
+import { useNavigate } from "react-router-dom";
+import ThankYou from "../Thankyou";
+import Loader from "../../components/Loader";
 
 
 function NitygyaRegistration() {
   const [screenshotName, setScreenshotName] = useState("");
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,66 +40,87 @@ function NitygyaRegistration() {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      let downloadURL = "";
+  try {
+    let downloadURL = "";
 
-      if (formData.screenShot) {
-        const storageRef = ref(
-          prudenceStorage,
-          `nitygya_screenshots/${Date.now()}_${formData.screenShot.name}`
+    if (formData.screenShot) {
+      const storageRef = ref(
+        prudenceStorage,
+        `nitygya_screenshots/${Date.now()}_${formData.screenShot.name}`
+      );
+      const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
+
+      await new Promise((resolve, reject) => {
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setUploadProgress(progress);
+          },
+          (error) => reject(error),
+          async () => {
+            downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            resolve();
+          }
         );
-        const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
-
-        await new Promise((resolve, reject) => {
-          uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-              const progress =
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              setUploadProgress(progress);
-            },
-            (error) => reject(error),
-            async () => {
-              downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-              resolve();
-            }
-          );
-        });
-      }
-
-      await addDoc(collection(prudenceDb, "nitygya_registrations"), {
-        ...formData,
-        screenShot: downloadURL || null,
-        createdAt: Timestamp.now(),
       });
-
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        college: "",
-        year: "",
-        branch: "",
-        transactionID: "",
-        eventmode: "",
-        paymentMode: "",
-        screenShot: null,
-      });
-      setUploadProgress(0);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setIsSubmitting(false);
     }
-  };
+
+    await addDoc(collection(prudenceDb, "nitygya_registrations"), {
+      ...formData,
+      screenShot: downloadURL || null,
+      createdAt: Timestamp.now(),
+    });
+
+    await fetch("https://script.google.com/macros/s/AKfycbwNvZUWcVQYGrLvyQPyQEWOX3fjfm6pqtlWpaZdYy5NYSDYxvGK7gs6yIv0WJqrdXA5/exec", {
+      method: "POST",
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        college: formData.college,
+        year: formData.year,
+        branch: formData.branch,
+        eventmode: formData.eventmode,
+        paymentMode: formData.paymentMode,
+        transactionID: formData.transactionID,
+        screenShot: downloadURL || ""
+      }),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    // Clear form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      college: "",
+      year: "",
+      branch: "",
+      transactionID: "",
+      eventmode: "",
+      paymentMode: "",
+      screenShot: null,
+    });
+    setUploadProgress(0);
+
+    // Redirect
+    navigate("/Thankyou");
+
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <>
+    {isSubmitting && <Loader />}
     <PrudenceNavbar />
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex items-center justify-center px-4 py-8">
       <motion.div
@@ -195,14 +220,14 @@ function NitygyaRegistration() {
             {/* QR Code Payment Section */}
             {formData.eventmode && (
               <div className="text-center my-6 p-6 bg-gray-50 rounded-xl shadow-md">
-                  <p className="mb-4 text-sm text-indigo-800 bg-ingigo-100 border border-indigo-300 rounded-md p-3">
+                  <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
                       💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
                   </p>
                 <h4 className="mb-4 font-semibold text-lg text-gray-800">
                   Scan to Pay
                 </h4>
 
-                <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
+                <div className="mx-auto flex items-center flex-justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
                       formData.eventmode === "Offline Mode"
@@ -215,13 +240,11 @@ function NitygyaRegistration() {
                 </div>
 
                 <p className="mt-3 text-sm text-gray-600 break-words">
-                  UPI ID:{"piyushdawkhare0000@okaxis"}
-                  <span className="font-medium">
-                    {formData.eventmode === "Offline Mode"
-                      ? "piyushdawkhare0000@okaxis" /* Offline Mode */
-                      : "piyushdawkhare0000@okaxis" /* Online Mode */}
-                  </span>
+                    UPI ID: 
+                    <span className="font-medium"> piyushdawkhare0000@okaxis 
+                    </span>
                 </p>
+
               </div>
             )}
 
