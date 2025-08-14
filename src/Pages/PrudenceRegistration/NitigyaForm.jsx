@@ -106,9 +106,21 @@ function NitygyaRegistration() {
       >
         {/* Event Info */}
         <div className="mb-8 border-b border-gray-200 pb-4">
-          <h1 className="text-3xl sm:text-4xl font-bold text-indigo-600">
+          <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-600">
             Nitygya 2025
           </h1>
+
+          {/* Underline */}
+             <motion.div
+                    initial={{ opacity: 0, scaleX: 0.3 }}
+                    animate={{ opacity: 1, scaleX: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    className="flex justify-center  mt-2.5   mb-10 origin-center"
+                  >
+                    <span className="block w-[200px] h-1 bg-blue-400 rounded-full"></span>
+              </motion.div>
+
+
           <p className="mt-2 text-gray-700">
             Join us for Nitygya – the ultimate quiz competition at PACE Club.
           </p>

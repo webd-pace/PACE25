@@ -24,7 +24,7 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 60, damping: 12 }}
-      className={`fixed top-0 w-full z-50 bg-black text-white border-b border-yellow-400/20 ${
+      className={`fixed top-0 w-full mt -10 z-50 bg-black text-white border-b border-yellow-400/20 ${
         isScrolled ? "shadow-md" : ""
       }`}
     >
