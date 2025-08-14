@@ -54,7 +54,7 @@ const events = [
 
       <section
         ref={prudenceRef}
-        className="relative pt-16 pb-24 bg-black text-white overflow-hidden"
+        className="relative pt-16 mt-10 pb-24 bg-black text-white overflow-hidden"
       >
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
