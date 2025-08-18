@@ -1,13 +1,18 @@
-
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { db, storage } from "../../firebasePrudence";
+import { prudenceDb, prudenceStorage } from "../../firebasePrudence";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
+import PrudenceNavbar from "./PrudenceNavbar";
+import PrudenceFotter from "./PrudenceFotter";
+import SponsorSectionW from "./SponsorSectionW";
+import Loader from "../../components/Loader";
 
-function NitygyaRegistration() {
-  const FORM_ACTION_URL =
-    "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfBK5rGTX3aG5AIhA6mwSWz156SM3eRnU0s71PZMgZN6wbo7w/formResponse";
+function StandoutRegistration() {
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -15,210 +20,266 @@ function NitygyaRegistration() {
     phone: "",
     college: "",
     year: "",
+    branch: "",
+    transactionID: "",
+    eventmode: "",
+    paymentMode: "",
+    screenShot: null,
   });
 
+  const [screenshotName, setScreenshotName] = useState("");
+  const [uploadProgress, setUploadProgress] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Handle input change
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === "screenShot") {
+      setFormData({ ...formData, screenShot: e.target.files[0] });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
-  const handleSubmit = (e) => {
+  // Handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = FORM_ACTION_URL;
-    form.target = "hidden_iframe";
+    try {
+      let downloadURL = "";
 
-    const mapping = {
-      name: "4entry.150151383",
-      email: "entry.410529509",
-      phone: "entry.1400921432",
-      college: "entry.716519714",
-      year: "entry.731568522",
-    };
+      // Upload screenshot if present
+      if (formData.screenShot) {
+        const storageRef = ref(
+          prudenceStorage,
+          `Standout_screenshots/${Date.now()}_${formData.screenShot.name}` // 🔥 Standout folder
+        );
+        const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
 
-    Object.keys(formData).forEach((field) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = mapping[field];
-      input.value = formData[field];
-      form.appendChild(input);
-    });
+        await new Promise((resolve, reject) => {
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              const progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              setUploadProgress(progress);
+            },
+            (error) => reject(error),
+            async () => {
+              downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+              resolve();
+            }
+          );
+        });
+      }
 
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-    // Simulate short delay before showing success
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
+      // Save to Firestore
+      await addDoc(collection(prudenceDb, "Standout_registrations"), {  // 🔥 Standout collection
+        ...formData,
+        screenShot: downloadURL || null,
+        createdAt: Timestamp.now(),
+      });
+
+      toast.success("✅ Aspire registration submitted successfully!");
+
+      // Reset form
       setFormData({
         name: "",
         email: "",
         phone: "",
         college: "",
         year: "",
+        branch: "",
+        transactionID: "",
+        eventmode: "",
+        paymentMode: "",
+        screenShot: null,
       });
-    }, 800);
+      setScreenshotName("");
+      setUploadProgress(0);
+
+      // Navigate to Thank You page
+      navigate("/Thankyou");
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
+      toast.error("Submission failed: " + error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex items-center justify-center px-4 py-8">
-      <motion.div
-        className="max-w-3xl w-full bg-white shadow-2xl rounded-2xl p-6 sm:p-10"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        {/* Event Info */}
+    <>
+      {isSubmitting && <Loader />}
+      <PrudenceNavbar />
+
+      <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex items-center justify-center px-4 py-8">
         <motion.div
-          className="mb-8 border-b border-gray-200 pb-4"
-          initial={{ opacity: 0, y: -20 }}
+          className="max-w-3xl w-full bg-white shadow-2xl rounded-2xl p-6 sm:p-10"
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          <h1 className="text-3xl sm:text-4xl font-bold text-indigo-600">
-            Nitygya 2025
-          </h1>
-          <p className="mt-2 text-gray-700">
-            Join us for Nitygya – the ultimate quiz competition at PACE Club.
-          </p>
-          <div className="mt-4 grid sm:grid-cols-3 gap-3 text-sm text-gray-600">
-            <p>
-              <span className="font-semibold">📅 Date:</span> 20th August 2025
-            </p>
-            <p>
-              <span className="font-semibold">⏰ Time:</span> 10:00 AM – 1:00 PM
-            </p>
-            <p>
-              <span className="font-semibold">📍 Venue:</span> WCE Auditorium
+          {/* Event Info */}
+          <div className="mb-8 border-b border-gray-200 pb-4">
+            <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-600">
+              Satandout 2k25
+            </h1>
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0.3 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="flex justify-center mt-2.5 mb-10 origin-center"
+            >
+              <span className="block w-[200px] h-1 bg-blue-400 rounded-full"></span>
+            </motion.div>
+            <p className="mt-2 text-gray-700 text-center">
+              Showcase your entrepreneurial spirit at Aspire – the Business Plan Competition.
             </p>
           </div>
-        </motion.div>
 
-        {isSubmitted ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="p-4 bg-green-100 text-green-800 rounded-lg text-center font-medium"
-          >
-            ✅ Registration Successful! See you at the event.
-          </motion.div>
-        ) : (
+          {/* Registration Form */}
           <form className="space-y-5" onSubmit={handleSubmit}>
-            <InputField
-              label="Full Name"
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Enter your full name"
-              delay={0.3}
-            />
-            <InputField
-              label="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              delay={0.35}
-            />
-            <InputField
-              label="Phone Number"
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Enter your phone number"
-              delay={0.4}
-            />
-            <InputField
-              label="College / Branch"
-              name="college"
-              type="text"
-              value={formData.college}
-              onChange={handleChange}
-              placeholder="Enter your college and branch"
-              delay={0.45}
-            />
+            <InputField label="Full Name" name="name" type="text" value={formData.name} onChange={handleChange} />
+            <InputField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
+            <InputField label="Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
+            <InputField label="College / Branch" name="college" type="text" value={formData.college} onChange={handleChange} />
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <label className="block text-gray-700 font-medium mb-1">
-                Year
-              </label>
-              <select
-                name="year"
-                value={formData.year}
+            <SelectField label="Year" name="year" value={formData.year} onChange={handleChange} options={[
+              "First Year Degree", "Second Year Degree", "Third Year Degree",
+              "First Year Diploma", "Second Year Diploma", "Third Year Diploma",
+            ]} />
+
+            <SelectField label="Branch/Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
+              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics",
+            ]} />
+
+            <SelectField label="Event Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode", "Online Mode"]} />
+
+            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online", "Offline"]} />
+
+            {/* QR Section */}
+            {formData.eventmode && (
+              <div className="text-center my-6 p-6 bg-gray-50 rounded-xl shadow-md">
+                <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
+                  💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
+                </p>
+                <h4 className="mb-4 font-semibold text-lg text-gray-800">Scan to Pay</h4>
+                <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
+                  <img
+                    src={
+                      formData.eventmode === "Offline Mode"
+                        ? "/assets/QRs/GooglePay_QR_129Rs.png"
+                        : "/assets/QRs/GooglePay_QR_99Rs.png"
+                    }
+                    alt="Payment QR"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                <p className="mt-3 text-sm text-gray-600">
+                  UPI ID: <span className="font-medium">piyushdawkhare0000@okaxis</span>
+                </p>
+              </div>
+            )}
+
+            {/* Transaction ID */}
+            <div>
+              <p className="mb-3 text-sm text-yellow-800 bg-yellow-100 border border-yellow-300 rounded-md p-2">
+                For offline entries, please enter the ID given on your Receipt.
+              </p>
+              <label className="block text-gray-700 font-medium mb-1">Transaction ID</label>
+              <input
+                type="text"
+                name="transactionID"
+                value={formData.transactionID}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
-                required
-              >
-                <option value="">Select your year</option>
-                <option>First Year Degree</option>
-                <option>Second Year Degree</option>
-                <option>Third Year Degree</option>
-                <option>First Year Diploma</option>
-                <option>Second Year Diploma</option>
-                <option>Third Year Diploma</option>
-              </select>
-            </motion.div>
+                placeholder="e.g., AXIS12345ABC"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
+              />
+            </div>
 
+            {/* Screenshot Upload */}
+            <div className="mb-4">
+              <label className="block text-gray-700 font-medium mb-2">Payment Screenshot</label>
+              <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                <input
+                  type="file"
+                  name="screenShot"
+                  accept="image/*"
+                  onChange={(e) => {
+                    handleChange(e);
+                    if (e.target.files.length > 0) {
+                      setScreenshotName(e.target.files[0].name);
+                    }
+                  }}
+                  className="absolute inset-0 opacity-0 cursor-pointer"
+                />
+                {screenshotName ? (
+                  <span className="text-green-600 font-medium text-center px-2">{screenshotName}</span>
+                ) : (
+                  <span className="text-gray-500 text-sm text-center">Click or drag & drop to upload</span>
+                )}
+              </div>
+              {uploadProgress > 0 && (
+                <p className="text-sm text-gray-600 mt-2">Uploading: {Math.round(uploadProgress)}%</p>
+              )}
+            </div>
+
+            {/* Submit */}
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full ${
-                isSubmitting
-                  ? "bg-gray-400"
-                  : "bg-indigo-600 hover:bg-indigo-700"
-              } text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105`}
-              whileHover={!isSubmitting ? { scale: 1.05 } : {}}
+              className={`w-full ${isSubmitting ? "bg-gray-400" : "bg-indigo-600 hover:bg-indigo-700"} text-white font-semibold py-2 px-6 rounded-lg`}
               whileTap={{ scale: 0.97 }}
-              transition={{ duration: 0.2 }}
             >
-              {isSubmitting ? "Submitting..." : "Register Now"}
+              {isSubmitting ? "Submitting..." : "Submit"}
             </motion.button>
           </form>
-        )}
-      </motion.div>
+        </motion.div>
+      </div>
 
-      {/* Hidden iframe */}
-      <iframe
-        name="hidden_iframe"
-        style={{ display: "none" }}
-        title="hidden"
-      ></iframe>
-    </div>
+      <SponsorSectionW />
+      <PrudenceFotter />
+    </>
   );
 }
 
-function InputField({ label, name, type, value, onChange, placeholder, delay }) {
+// Reusable input
+function InputField({ label, name, type, value, onChange }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay }}
-    >
+    <div>
       <label className="block text-gray-700 font-medium mb-1">{label}</label>
       <input
         type={type}
         name={name}
         value={value}
         onChange={onChange}
-        placeholder={placeholder}
-        className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 outline-none"
+        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-200"
         required
       />
-    </motion.div>
+    </div>
   );
 }
 
-export default NitygyaRegistration;
+// Reusable select
+function SelectField({ label, name, value, onChange, options }) {
+  return (
+    <div>
+      <label className="block text-gray-700 font-medium mb-1">{label}</label>
+      <select
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-200"
+        required
+      >
+        <option value="">Select</option>
+        {options.map((opt) => (
+          <option key={opt} value={opt}>{opt}</option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+export default StandoutRegistration;
