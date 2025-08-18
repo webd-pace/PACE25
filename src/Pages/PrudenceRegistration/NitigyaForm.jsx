@@ -3,16 +3,15 @@ import { motion } from "framer-motion";
 import { prudenceDb, prudenceStorage } from "../../firebasePrudence";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import SponsorSectionW from "./SponsorSectionW";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+
 import PrudenceNavbar from "./PrudenceNavbar";
 import PrudenceFotter from "./PrudenceFotter";
-import { useNavigate } from "react-router-dom";
-import ThankYou from "../Thankyou";
+import SponsorSectionW from "./SponsorSectionW";
 import Loader from "../../components/Loader";
 
-
-function NitygyaRegistration() {
-  const [screenshotName, setScreenshotName] = useState("");
+function NitigyaRegistration() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -28,10 +27,11 @@ function NitygyaRegistration() {
     screenShot: null,
   });
 
+  const [screenshotName, setScreenshotName] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Handle input change
   const handleChange = (e) => {
     if (e.target.name === "screenShot") {
       setFormData({ ...formData, screenShot: e.target.files[0] });
@@ -40,223 +40,154 @@ function NitygyaRegistration() {
     }
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  try {
-    let downloadURL = "";
+    try {
+      let downloadURL = "";
 
-    if (formData.screenShot) {
-      const storageRef = ref(
-        prudenceStorage,
-        `nitygya_screenshots/${Date.now()}_${formData.screenShot.name}`
-      );
-      const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
-
-      await new Promise((resolve, reject) => {
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            const progress =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            setUploadProgress(progress);
-          },
-          (error) => reject(error),
-          async () => {
-            downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-            resolve();
-          }
+      // Upload screenshot if present
+      if (formData.screenShot) {
+        const storageRef = ref(
+          prudenceStorage,
+          `nitygya_screenshots/${Date.now()}_${formData.screenShot.name}`
         );
+        const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
+
+        await new Promise((resolve, reject) => {
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              const progress =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              setUploadProgress(progress);
+            },
+            (error) => reject(error),
+            async () => {
+              downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+              resolve();
+            }
+          );
+        });
+      }
+
+      // Save to Firestore
+      await addDoc(collection(prudenceDb, "nitygya_registrations"), {
+        ...formData,
+        screenShot: downloadURL || null,
+        createdAt: Timestamp.now(),
       });
+
+      toast.success("✅ Registration submitted successfully!");
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        college: "",
+        year: "",
+        branch: "",
+        transactionID: "",
+        eventmode: "",
+        paymentMode: "",
+        screenShot: null,
+      });
+      setScreenshotName("");
+      setUploadProgress(0);
+
+      // Navigate to Thank You page
+      navigate("/Thankyou");
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
+      toast.error("Submission failed: " + error.message);
+    } finally {
+      setIsSubmitting(false);
     }
-
-    await addDoc(collection(prudenceDb, "nitygya_registrations"), {
-      ...formData,
-      screenShot: downloadURL || null,
-      createdAt: Timestamp.now(),
-    });
-
-    await fetch("https://script.google.com/macros/s/AKfycbwNvZUWcVQYGrLvyQPyQEWOX3fjfm6pqtlWpaZdYy5NYSDYxvGK7gs6yIv0WJqrdXA5/exec", {
-      method: "POST",
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        college: formData.college,
-        year: formData.year,
-        branch: formData.branch,
-        eventmode: formData.eventmode,
-        paymentMode: formData.paymentMode,
-        transactionID: formData.transactionID,
-        screenShot: downloadURL || ""
-      }),
-      headers: { "Content-Type": "application/json" }
-    });
-
-    // Clear form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      college: "",
-      year: "",
-      branch: "",
-      transactionID: "",
-      eventmode: "",
-      paymentMode: "",
-      screenShot: null,
-    });
-    setUploadProgress(0);
-
-    // Redirect
-    navigate("/Thankyou");
-
-  } catch (error) {
-    console.error("Error submitting form:", error);
-    setIsSubmitting(false);
-  }
-};
+  };
 
   return (
     <>
-    {isSubmitting && <Loader />}
-    <PrudenceNavbar />
-    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex items-center justify-center px-4 py-8">
-      <motion.div
-        className="max-w-3xl w-full bg-white shadow-2xl rounded-2xl p-6 sm:p-10"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        {/* Event Info */}
-        <div className="mb-8 border-b border-gray-200 pb-4">
-          <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-600">
-            Nitygya 2025
-          </h1>
+      {isSubmitting && <Loader />}
+      <PrudenceNavbar />
 
-          {/* Underline */}
-             <motion.div
-                    initial={{ opacity: 0, scaleX: 0.3 }}
-                    animate={{ opacity: 1, scaleX: 1 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                    className="flex justify-center  mt-2.5   mb-10 origin-center"
-                  >
-                    <span className="block w-[200px] h-1 bg-blue-400 rounded-full"></span>
-              </motion.div>
-
-
-          <p className="mt-2 text-gray-700">
-            Join us for Nitygya – the ultimate quiz competition at PACE Club.
-          </p>
-        </div>
-
-        {isSubmitted ? (
-          <div className="p-4 bg-green-100 text-green-800 rounded-lg text-center font-medium">
-            ✅ Registration Successful! See you at the event.
+      <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex items-center justify-center px-4 py-8">
+        <motion.div
+          className="max-w-3xl w-full bg-white shadow-2xl rounded-2xl p-6 sm:p-10"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Event Info */}
+          <div className="mb-8 border-b border-gray-200 pb-4">
+            <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-600">
+              Nitygya 2025
+            </h1>
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0.3 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="flex justify-center mt-2.5 mb-10 origin-center"
+            >
+              <span className="block w-[200px] h-1 bg-blue-400 rounded-full"></span>
+            </motion.div>
+            <p className="mt-2 text-gray-700 text-center">
+              Join us for Nitygya – the ultimate quiz competition at PACE Club.
+            </p>
           </div>
-        ) : (
+
+          {/* Registration Form */}
           <form className="space-y-5" onSubmit={handleSubmit}>
             <InputField label="Full Name" name="name" type="text" value={formData.name} onChange={handleChange} />
-
             <InputField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
-
             <InputField label="Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
-
             <InputField label="College / Branch" name="college" type="text" value={formData.college} onChange={handleChange} />
-            
-            <SelectField
-              label="Year"
-              name="year"
-              value={formData.year}
-              onChange={handleChange}
-              options={[
-                "First Year Degree",
-                "Second Year Degree",
-                "Third Year Degree",
-                "First Year Diploma",
-                "Second Year Diploma",
-                "Third Year Diploma",
-              ]}
-            />
-            <SelectField
-              label="Branch/Trade"
-              name="branch"
-              value={formData.branch}
-              onChange={handleChange}
-              options={[
-                "CSE",
-                "IT",
-                "AIML",
-                "Robotics",
-                "Civil",
-                "Mechanical",
-                "Electronics",
-              ]}
-            />
 
-            <SelectField
-              label="Event Mode"
-              name="eventmode"
-              value={formData.eventmode}
-              onChange={handleChange}
-              options={[
-                "Offline Mode",
-                "Online Mode",
-              ]}
-            />
+            <SelectField label="Year" name="year" value={formData.year} onChange={handleChange} options={[
+              "First Year Degree", "Second Year Degree", "Third Year Degree",
+              "First Year Diploma", "Second Year Diploma", "Third Year Diploma",
+            ]} />
 
-            <SelectField
-              label="Payment Mode" 
-              name="paymentMode"
-              value={formData.paymentMode}
-              onChange={handleChange}
-              options={[
-                "Online",
-                "Offline",
-              ]}
-            /> 
+            <SelectField label="Branch/Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
+              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics",
+            ]} />
 
-            {/* QR Code Payment Section */}
+            <SelectField label="Event Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode", "Online Mode"]} />
+
+            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online", "Offline"]} />
+
+            {/* QR Section */}
             {formData.eventmode && (
               <div className="text-center my-6 p-6 bg-gray-50 rounded-xl shadow-md">
-                  <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
-                      💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
-                  </p>
-                <h4 className="mb-4 font-semibold text-lg text-gray-800">
-                  Scan to Pay
-                </h4>
-
-                <div className="mx-auto flex items-center flex-justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
+                <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
+                  💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
+                </p>
+                <h4 className="mb-4 font-semibold text-lg text-gray-800">Scan to Pay</h4>
+                <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
                       formData.eventmode === "Offline Mode"
-                        ? "/assets/QRs/GooglePay_QR_129Rs.png" /* Offline Mode */
-                        : "/assets/QRs/GooglePay_QR_99Rs.png" /* Online Mode */
+                        ? "/assets/QRs/GooglePay_QR_129Rs.png"
+                        : "/assets/QRs/GooglePay_QR_99Rs.png"
                     }
-                    alt="Payment QR Code"
+                    alt="Payment QR"
                     className="w-full h-auto object-contain"
                   />
                 </div>
-
-                <p className="mt-3 text-sm text-gray-600 break-words">
-                    UPI ID: 
-                    <span className="font-medium"> piyushdawkhare0000@okaxis 
-                    </span>
+                <p className="mt-3 text-sm text-gray-600">
+                  UPI ID: <span className="font-medium">piyushdawkhare0000@okaxis</span>
                 </p>
-
               </div>
             )}
 
-            {/* Transaction ID Section */}
+            {/* Transaction ID */}
             <div>
-                <p className="mb-3 text-sm text-yellow-800 bg-yellow-100 border border-yellow-300 rounded-md p-2">
-                      For the offline entries, please enter the id given on your Receipt. 
-                </p>
-
-              <label className="block text-gray-700 font-medium mb-1">
-                Transaction ID
-              </label>
+              <p className="mb-3 text-sm text-yellow-800 bg-yellow-100 border border-yellow-300 rounded-md p-2">
+                For offline entries, please enter the ID given on your Receipt.
+              </p>
+              <label className="block text-gray-700 font-medium mb-1">Transaction ID</label>
               <input
                 type="text"
                 name="transactionID"
@@ -267,45 +198,34 @@ const handleSubmit = async (e) => {
               />
             </div>
 
-            {/* Screenshot Section */}
-<div className="mb-4">
-  <label className="block text-gray-700 font-medium mb-2">
-    Payment Screenshot
-  </label>
+            {/* Screenshot Upload */}
+            <div className="mb-4">
+              <label className="block text-gray-700 font-medium mb-2">Payment Screenshot</label>
+              <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                <input
+                  type="file"
+                  name="screenShot"
+                  accept="image/*"
+                  onChange={(e) => {
+                    handleChange(e);
+                    if (e.target.files.length > 0) {
+                      setScreenshotName(e.target.files[0].name);
+                    }
+                  }}
+                  className="absolute inset-0 opacity-0 cursor-pointer"
+                />
+                {screenshotName ? (
+                  <span className="text-green-600 font-medium text-center px-2">{screenshotName}</span>
+                ) : (
+                  <span className="text-gray-500 text-sm text-center">Click or drag & drop to upload</span>
+                )}
+              </div>
+              {uploadProgress > 0 && (
+                <p className="text-sm text-gray-600 mt-2">Uploading: {Math.round(uploadProgress)}%</p>
+              )}
+            </div>
 
-  <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
-    <input
-      type="file"
-      name="screenShot"
-      accept="image/*"
-      onChange={(e) => {
-        handleChange(e);
-        if (e.target.files.length > 0) {
-          setScreenshotName(e.target.files[0].name);
-        }
-      }}
-      className="absolute inset-0 opacity-0 cursor-pointer"
-    />
-    {screenshotName ? (
-      <span className="text-green-600 font-medium text-center px-2">
-        {screenshotName}
-      </span>
-    ) : (
-      <span className="text-gray-500 text-sm text-center">
-        Click or drag & drop to upload
-      </span>
-    )}
-  </div>
-
-  {uploadProgress > 0 && (
-    <p className="text-sm text-gray-600 mt-2">
-      Uploading: {Math.round(uploadProgress)}%
-    </p>
-  )}
-</div>
-
-
-            {/* Submit Button */}
+            {/* Submit */}
             <motion.button
               type="submit"
               disabled={isSubmitting}
@@ -315,15 +235,16 @@ const handleSubmit = async (e) => {
               {isSubmitting ? "Submitting..." : "Submit"}
             </motion.button>
           </form>
-        )}
-      </motion.div>
-    </div>
-    <SponsorSectionW />
-    <PrudenceFotter />
+        </motion.div>
+      </div>
+
+      <SponsorSectionW />
+      <PrudenceFotter />
     </>
   );
 }
 
+// Reusable input
 function InputField({ label, name, type, value, onChange }) {
   return (
     <div>
@@ -333,13 +254,14 @@ function InputField({ label, name, type, value, onChange }) {
         name={name}
         value={value}
         onChange={onChange}
-        className="w-full px-4 py-2 border rounded-lg"
+        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-200"
         required
       />
     </div>
   );
 }
 
+// Reusable select
 function SelectField({ label, name, value, onChange, options }) {
   return (
     <div>
@@ -348,18 +270,16 @@ function SelectField({ label, name, value, onChange, options }) {
         name={name}
         value={value}
         onChange={onChange}
-        className="w-full px-4 py-2 border rounded-lg"
+        className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-200"
         required
       >
         <option value="">Select</option>
         {options.map((opt) => (
-          <option key={opt} value={opt}>
-            {opt}
-          </option>
+          <option key={opt} value={opt}>{opt}</option>
         ))}
       </select>
     </div>
   );
 }
 
-export default NitygyaRegistration;
+export default NitigyaRegistration;
