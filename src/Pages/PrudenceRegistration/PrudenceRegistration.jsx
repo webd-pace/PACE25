@@ -61,35 +61,34 @@ const events = [
           style={{ backgroundImage: 'url("/assets/prudence-bg.jpg")' }}
         ></div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mb-12">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-extrabold text-yellow-400 mb-4"
-          >
-            <h1 className="text-5xl font-extrabold text-yellow-400 uppercase font-cinzel-decorative">
-              Prudence 2K25
-            </h1>
-          </motion.h2>
-          <motion.p
+    <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mb-12">
+      <motion.h1
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+        className="text-5xl font-extrabold text-yellow-400 uppercase font-cinzel-decorative mb-4"
+      >
+        Prudence 2K25
+      </motion.h1>
+
+      <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-lg text-gray-300 leading-relaxed"
           >
-            Prudence is the flagship event series of PACE, designed to test and
-            nurture your skills across multiple domains including innovation,
-            diplomacy, creative expression, and business strategy. Join us in this
-            intellectual extravaganza and showcase your potential through events like
-            Aspire, Nitigya, Standout, and Ideathon.
-          </motion.p>
-        </div>
+          Prudence is the flagship event series of PACE, designed to test and
+          nurture your skills across multiple domains including innovation,
+          diplomacy, creative expression, and business strategy. Join us in this
+          intellectual extravaganza and showcase your potential through events like
+          Aspire, Nitigya, Standout, and Ideathon.
+        </motion.p>
+    </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {events.map((ev) => {
-              if (!cardRefs.current[ev.title]) {
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {events.map((ev) => {
+            if (!cardRefs.current[ev.title]) {
                 cardRefs.current[ev.title] = React.createRef();
               }
 
