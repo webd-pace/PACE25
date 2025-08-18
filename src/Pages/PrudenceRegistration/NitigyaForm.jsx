@@ -5,7 +5,7 @@ import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-
+import { ArrowLeft } from "lucide-react";
 import PrudenceNavbar from "./PrudenceNavbar";
 import PrudenceFotter from "./PrudenceFotter";
 import SponsorSectionW from "./SponsorSectionW";
@@ -113,13 +113,27 @@ function NitigyaRegistration() {
       {isSubmitting && <Loader />}
       <PrudenceNavbar />
 
-      <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex items-center justify-center px-4 py-8">
+      <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex flex-col items-center justify-center px-4 py-8">
+
+
+       {/* Back Button */}
+      <div className="w-full max-w-3xl pt-10 mt-500 mb-4">
+        <button
+          onClick={() => navigate(-1)} // ✅ Go back to previous page
+          className="flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium"
+        >
+          <ArrowLeft size={18} /> Back
+        </button>
+      </div>
+
+      {/* Main Container Info */}
         <motion.div
           className="max-w-3xl w-full bg-white shadow-2xl rounded-2xl p-6 sm:p-10"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+
           {/* Event Info */}
           <div className="mb-8 border-b border-gray-200 pb-4">
             <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-600">
