@@ -113,7 +113,7 @@ function AspireRegistration() {
       {isSubmitting && <Loader />}
       <PrudenceNavbar />
 
-    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex flex-col items-center px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-lime-50 to-white flex flex-col items-center px-4 py-8">
 
       {/* Back Button */}
       <div className="w-full max-w-3xl pt-10 mt-500 mb-4">
