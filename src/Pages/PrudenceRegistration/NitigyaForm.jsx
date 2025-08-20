@@ -167,7 +167,7 @@ function NitigyaRegistration() {
             ]} />
 
             <SelectField label="Participant's Branch Or Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
-              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics",
+              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical",
             ]} />
 
             <SelectField label="Event Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode (in WCE)", "Online Mode (At your preferable location)"]} />

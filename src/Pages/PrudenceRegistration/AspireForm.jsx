@@ -169,10 +169,10 @@ function AspireRegistration() {
             ]} />
 
             <SelectField label="Participant's Branch Or Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
-              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical","Others",
+              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical",
             ]} />
 
-            <SelectField label="Entry Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["OFFLINE Mode(in WCE)", "ONLINE Mode (At your preferable location)"]} />
+            <SelectField label="Entry Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode", "Online Mode"]} />
 
             <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online Payment", "Offline Payment"]} />
 
@@ -186,7 +186,7 @@ function AspireRegistration() {
                 <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
-                      formData.eventmode === "OFFLINE Mode(in WCE)"
+                      formData.eventmode === "Offline Mode"
                         ? "/assets/QRs/GooglePay_QR_129Rs.png"
                         : "/assets/QRs/GooglePay_QR_99Rs.png"
                     }

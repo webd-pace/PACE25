@@ -26,6 +26,8 @@ const Loader = () => {
 
         {/* ✅ Add your "Please wait..." message here */}
         <p className="loader-text">Please Wait ...</p>
+        <p className="loader-subtext">Please do not refresh the page Or try close the tab.</p>
+        <p className="loader-subtext">This may take a few seconds.</p>
       </div>
     </StyledWrapper>
   );

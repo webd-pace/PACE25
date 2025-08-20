@@ -163,7 +163,7 @@ function StandoutRegistration() {
             ]} />
 
             <SelectField label="Branch/Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
-              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics",
+              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical",
             ]} />
 
             <SelectField label="Event Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode", "Online Mode"]} />

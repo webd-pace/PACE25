@@ -22,8 +22,9 @@ function IdeathonRegistration() {
     year: "",
     branch: "",
     transactionID: "",
-    eventmode: "",
+    teamMembers: "",
     paymentMode: "",
+    referralCode: "",
     screenShot: null,
   });
 
@@ -91,8 +92,9 @@ function IdeathonRegistration() {
         year: "",
         branch: "",
         transactionID: "",
-        eventmode: "",
+        teamMembers: "",
         paymentMode: "",
+        referralCode: "",
         screenShot: null,
       });
       setScreenshotName("");
@@ -151,26 +153,26 @@ function IdeathonRegistration() {
 
           {/* Registration Form */}
           <form className="space-y-5" onSubmit={handleSubmit}>
-            <InputField label="Full Name" name="name" type="text" value={formData.name} onChange={handleChange} />
-            <InputField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
-            <InputField label="Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
-            <InputField label="College / Branch" name="college" type="text" value={formData.college} onChange={handleChange} />
+            <InputField label="Participant's Full Name" name="name" type="text" value={formData.name} onChange={handleChange} />
+            <InputField label="Participant's Email" name="email" type="email" value={formData.email} onChange={handleChange} />
+            <InputField label="Participant's Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
+            <InputField label="Participant's College / Branch" name="college" type="text" value={formData.college} onChange={handleChange} />
 
-            <SelectField label="Year" name="year" value={formData.year} onChange={handleChange} options={[
+            <SelectField label="Participant's Year Of Study" name="year" value={formData.year} onChange={handleChange} options={[
               "First Year Degree", "Second Year Degree", "Third Year Degree",
               "First Year Diploma", "Second Year Diploma", "Third Year Diploma",
             ]} />
 
-            <SelectField label="Branch/Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
-              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics",
+            <SelectField label="Participant's Branch Or Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
+              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics", "Electrical",
             ]} />
 
-            <SelectField label="Event Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode", "Online Mode"]} />
+            <SelectField label="Team Members" name="teamMembers" value={formData.teamMembers} onChange={handleChange} options={["Group of 2", "Group of 3"]} />
 
             <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online", "Offline"]} />
 
             {/* QR Section */}
-            {formData.eventmode && (
+            {formData.teamMembers && (
               <div className="text-center my-6 p-6 bg-gray-50 rounded-xl shadow-md">
                 <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
                   💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
@@ -179,7 +181,7 @@ function IdeathonRegistration() {
                 <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
-                      formData.eventmode === "Offline Mode"
+                      formData.teamMembers === "Group of 3"
                         ? "/assets/QRs/GooglePay_QR_129Rs.png"
                         : "/assets/QRs/GooglePay_QR_99Rs.png"
                     }
@@ -235,6 +237,9 @@ function IdeathonRegistration() {
                 <p className="text-sm text-gray-600 mt-2">Uploading: {Math.round(uploadProgress)}%</p>
               )}
             </div>
+
+            {/* Referral Code */}
+            <InputField label="Referral Code" name="referralCode" type="text" value={formData.referralCode} onChange={handleChange} />
 
             {/* Submit */}
             <motion.button
