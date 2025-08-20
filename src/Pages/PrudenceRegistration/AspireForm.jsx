@@ -24,6 +24,7 @@ function AspireRegistration() {
     transactionID: "",
     eventmode: "",
     paymentMode: "",
+    referralCode: "",
     screenShot: null,
   });
 
@@ -93,6 +94,7 @@ function AspireRegistration() {
         transactionID: "",
         eventmode: "",
         paymentMode: "",
+        referralCode: "",
         screenShot: null,
       });
       setScreenshotName("");
@@ -155,23 +157,24 @@ function AspireRegistration() {
 
           {/* Registration Form */}
           <form className="space-y-5" onSubmit={handleSubmit}>
-            <InputField label="Full Name" name="name" type="text" value={formData.name} onChange={handleChange} />
-            <InputField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
-            <InputField label="Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
-            <InputField label="College / Branch" name="college" type="text" value={formData.college} onChange={handleChange} />
 
-            <SelectField label="Year" name="year" value={formData.year} onChange={handleChange} options={[
-              "First Year Degree", "Second Year Degree", "Third Year Degree",
+            <InputField label="Participant's Full Name " name="name" type="text" value={formData.name} onChange={handleChange} />
+            <InputField label="Participant's Email" name="email" type="email" value={formData.email} onChange={handleChange} />
+            <InputField label="Participant's Contact Number (Preferably WhatsApp)" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
+            <InputField label="Participant's College Or Institute" name="college" type="text" value={formData.college} onChange={handleChange} />
+
+            <SelectField label="Participant's Year Of Study" name="year" value={formData.year} onChange={handleChange} options={[
+              "First Year Degree", "Second Year Degree", "Third Year Degree","Fourth Year Degree",
               "First Year Diploma", "Second Year Diploma", "Third Year Diploma",
             ]} />
 
-            <SelectField label="Branch/Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
-              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics",
+            <SelectField label="Participant's Branch Or Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
+              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical","Others",
             ]} />
 
-            <SelectField label="Event Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode", "Online Mode"]} />
+            <SelectField label="Entry Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["OFFLINE Mode(in WCE)", "ONLINE Mode (At your preferable location)"]} />
 
-            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online", "Offline"]} />
+            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online Payment", "Offline Payment"]} />
 
             {/* QR Section */}
             {formData.eventmode && (
@@ -183,7 +186,7 @@ function AspireRegistration() {
                 <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
-                      formData.eventmode === "Offline Mode"
+                      formData.eventmode === "OFFLINE Mode(in WCE)"
                         ? "/assets/QRs/GooglePay_QR_129Rs.png"
                         : "/assets/QRs/GooglePay_QR_99Rs.png"
                     }
@@ -239,6 +242,9 @@ function AspireRegistration() {
                 <p className="text-sm text-gray-600 mt-2">Uploading: {Math.round(uploadProgress)}%</p>
               )}
             </div>
+
+            {/* Referral Code */}
+            <InputField label="Referral Code" name="referralCode" type="text" value={formData.referralCode} onChange={handleChange} />
 
             {/* Submit */}
             <motion.button
