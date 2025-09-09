@@ -137,22 +137,68 @@ function NitigyaRegistration() {
         >
 
           {/* Event Info */}
-          <div className="mb-8 border-b border-gray-200 pb-4">
-            <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-600">
-              Nitygya 2025
-            </h1>
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0.3 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex justify-center mt-2.5 mb-10 origin-center"
-            >
-              <span className="block w-[200px] h-1 bg-blue-400 rounded-full"></span>
-            </motion.div>
-            <p className="mt-2 text-gray-700 text-center">
-              Join us for Nitygya – the ultimate quiz competition at PACE Club.
-            </p>
-          </div>
+
+<div className="mb-10 pb-6">
+  <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-700">
+    Nītigya 2025
+  </h1>
+  <motion.div
+    initial={{ opacity: 0, scaleX: 0.3 }}
+    animate={{ opacity: 1, scaleX: 1 }}
+    transition={{ delay: 0.3, duration: 0.6 }}
+    className="flex justify-center mt-3 mb-8 origin-center"
+  >
+    <span className="block w-[180px] h-1 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full"></span>
+  </motion.div>
+
+  {/* Tagline */}
+  <p className="text-gray-600 text-center italic mb-2">
+    <span className="font-semibold text-xl text-indigo-700">(नीतिज्ञ)</span> – "One who is knowledgeable in policy and conduct."
+  </p>
+  <p className="text-gray-700 text-center max-w-2xl mx-auto leading-relaxed">
+    A high-stakes, intellectually stimulating event designed to challenge participants’ 
+    understanding of <span className="font-semibold text-indigo-700">global politics, diplomacy, and policy-making</span>.
+    Participants will craft, defend, and present legislative bills, as well as propose 
+    innovative solutions to pressing global issues.
+  </p>
+
+  {/* Rounds Section */}
+  <div className="mt-10 bg-white shadow-lg rounded-2xl p-6 border border-indigo-100">
+    <h2 className="text-2xl font-bold text-indigo-700 text-center mb-6">Event Rounds</h2>
+    <div className="space-y-6">
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold">1</div>
+        <p className="text-gray-700">
+          <span className="font-semibold text-indigo-800">Praśnamālikā (प्रश्नमालिका)</span> – 
+          A quiz based on UPSC PYQs & current affairs.
+        </p>
+      </div>
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold">2</div>
+        <p className="text-gray-700">
+          <span className="font-semibold text-indigo-800">Prastuti (प्रस्तुति)</span> – 
+          A group presentation to collaborate & discuss complex topics.
+        </p>
+      </div>
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold">3</div>
+        <p className="text-gray-700">
+          <span className="font-semibold text-indigo-800">Prajñā–Parīkṣā (प्रज्ञापरीक्षा)</span> – 
+          A one-on-one interview with expert judges.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* Event Details */}
+  <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-md p-6 mt-8 text-left border border-indigo-200">
+    <h3 className="text-xl text- font-semibold text-indigo-700 mb-4">Event Details</h3>
+    <p className="text-gray-700"><strong>Date:</strong> September 28, 2025</p>
+    <p className="text-gray-700"><strong>Venue:</strong> Walchand College Of Engineering, Sangli</p>
+    <p className="text-gray-700"><strong>Contact:</strong> Shardul – +91 8080884368</p>
+  </div>
+</div>
+
 
           {/* Registration Form */}
           <form className="space-y-5" onSubmit={handleSubmit}>

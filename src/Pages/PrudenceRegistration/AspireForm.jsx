@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import { ArrowLeft } from "lucide-react";
 import PrudenceNavbar from "./PrudenceNavbar";
 import PrudenceFotter from "./PrudenceFotter";
-import SponsorSectionW from "./SponsorSectionW";
+// import SponsorSectionW from "./SponsorSectionW";
 import Loader from "../../components/Loader";
 
 function AspireRegistration() {
@@ -262,7 +262,7 @@ function AspireRegistration() {
         </motion.div>
       </div>
 
-      <SponsorSectionW />
+      {/* <SponsorSectionW /> */}
       <PrudenceFotter />
     </>
   );

@@ -12,7 +12,7 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
 const events = [
   {
     title: "Aspire",
-    img: "/assets/Events/Logos/Aspire.jpg",
+    img: "/assets/Events/Logos/2.jpg",
     desc: "A mock placement drive simulating real campus interviews, bridging academics and industry.",
     moreDetails: "A mock placement drive simulating real campus interviews, bridging academics and industry. This event helps participants experience the real corporate selection process: resume shortlisting, group discussion, and personal interviews by industry professionals.",
     registrationLink: "/aspire-form",
@@ -87,11 +87,14 @@ const events = [
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-lg text-gray-300 leading-relaxed"
           >
-          Prudence is the flagship event series of PACE, designed to test and
-          nurture your skills across multiple domains including innovation,
-          diplomacy, creative expression, and business strategy. Join us in this
-          intellectual extravaganza and showcase your potential through events like
-          Aspire, Nitigya, Standout, and Ideathon.
+          PRUDENCE is the National Level Management Fest organised by PACE. An event
+          which aims at fostering managerial skills of youth in its Carnival of intellectuals. Since
+          2001, PACE has The Legacy of organizing a unique mega-event Prudence, which has
+          become the brand name in the student world of Maharashtra. PRUDENCE includes
+          sectors of professional life, right from economics, entrepreneurship, marketing, debate,
+          National International politics and governance, social responsibilities, journalism,
+          environment, etc. through its sub-events, seminars, workshops and guest lectures from
+          erudite personalities every year.
         </motion.p>
     </div>
 
