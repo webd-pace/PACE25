@@ -71,6 +71,16 @@ const events = [
         Prudence 2K25
       </motion.h1>
 
+       {/* Accent line below title */}
+      <motion.div
+          className="flex justify-center mt-6 mb-10"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <span className="block w-44 h-1 bg-yellow-400 rounded-full"></span>
+      </motion.div>
+
       <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -157,7 +167,7 @@ const events = [
         </div>
       </section>
 
-      <SponsorSection />
+      {/* <SponsorSection /> */}
       <Footer />
     </>
   );
