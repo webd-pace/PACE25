@@ -133,7 +133,7 @@ function StandoutRegistration() {
           {/* Event Info */}
           <div className="mb-8 border-b border-gray-200 pb-4">
             <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-600">
-              Satandout 2k25
+              STANDOUT 2K25
             </h1>
             <motion.div
               initial={{ opacity: 0, scaleX: 0.3 }}
@@ -153,7 +153,7 @@ function StandoutRegistration() {
             <InputField label="Full Name" name="name" type="text" value={formData.name} onChange={handleChange} />
             <InputField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
             <InputField label="Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
-            <InputField label="College / Branch" name="college" type="text" value={formData.college} onChange={handleChange} />
+            <InputField label="College " name="college" type="text" value={formData.college} onChange={handleChange} />
 
             <SelectField label="Year" name="year" value={formData.year} onChange={handleChange} options={[
               "First Year Degree",
@@ -164,10 +164,10 @@ function StandoutRegistration() {
               "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical",
             ]} />
 
-            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online", "Offline"]} />
+            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["ONLINE (at your preferable  location)", "OFFLINE (at WCE) "]} />
 
             {/* QR Section */}
-            {formData.eventmode && (
+            
               <div className="text-center my-6 p-6 bg-gray-50 rounded-xl shadow-md">
                 <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
                   💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
@@ -176,19 +176,17 @@ function StandoutRegistration() {
                 <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
-                      formData.eventmode === "Offline Mode"
-                        ? "/assets/QRs/GooglePay_QR_129Rs.png"
-                        : "/assets/QRs/GooglePay_QR_99Rs.png"
+                      
+                        "/assets/QRs/Chinamyi_99.jpg "
                     }
                     alt="Payment QR"
                     className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
-                  UPI ID: <span className="font-medium">piyushdawkhare0000@okaxis</span>
+                  UPI ID: <span className="font-medium">chinamyibargale@oksbi</span>
                 </p>
               </div>
-            )}
 
             {/* Transaction ID */}
             <div>
@@ -210,6 +208,9 @@ function StandoutRegistration() {
             <div className="mb-4">
               <label className="block text-gray-700 font-medium mb-2">Payment Screenshot</label>
               <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
+                  💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
+                </p>
                 <input
                   type="file"
                   name="screenShot"

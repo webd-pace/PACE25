@@ -22,7 +22,7 @@ const PrudenceFooter = () => {
                 <span className="font-medium">President:</span> Vishvajeet Pawar – +91 7887739590
               </li>
               <li>
-                <span className="font-medium">Vice-President:</span> Prasad Bedge – +91 9307286697
+                <span className="font-medium">Vice-President:</span> Prasad Bedage – +91 9307286697
               </li>
               <li>
                 <span className="font-medium">Secretary:</span> Pranav Patil – +91 8767939192

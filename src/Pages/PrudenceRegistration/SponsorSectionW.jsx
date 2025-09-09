@@ -2,21 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const sponsors = [
-  {
-    name: "Microsoft",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-    link: "https://www.microsoft.com/",
-  },
-  {
-    name: "GitHub",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
-    link: "https://github.com/",
-  },
-  {
-    name: "Azure",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
-    link: "https://azure.microsoft.com/",
-  },
+  // {
+  //   name: "Azure",
+  //   logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
+  //   link: "https://azure.microsoft.com/",
+  // },
 ];
 
 function SponsorSectionW() {

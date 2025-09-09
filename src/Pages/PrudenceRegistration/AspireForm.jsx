@@ -172,7 +172,7 @@ function AspireRegistration() {
               "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical",
             ]} />
 
-            <SelectField label="Entry Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode", "Online Mode"]} />
+            <SelectField label="Entry Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["ONLINE (at your preferable  location)", "OFFLINE (at WCE)" ]} />
 
             <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online Payment", "Offline Payment"]} />
 
@@ -186,16 +186,16 @@ function AspireRegistration() {
                 <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
-                      formData.eventmode === "Offline Mode"
-                        ? "/assets/QRs/GooglePay_QR_129Rs.png"
-                        : "/assets/QRs/GooglePay_QR_99Rs.png"
+                      formData.eventmode === "OFFLINE (at WCE)"
+                        ? "/assets/QRs/Prasad_99.jpg"
+                        : "/assets/QRs/Prasad_79.jpg"
                     }
                     alt="Payment QR"
                     className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
-                  UPI ID: <span className="font-medium">piyushdawkhare0000@okaxis</span>
+                  UPI ID: <span className="font-medium">prasadbedage2030@oksbi</span>
                 </p>
               </div>
             )}
@@ -220,6 +220,9 @@ function AspireRegistration() {
             <div className="mb-4">
               <label className="block text-gray-700 font-medium mb-2">Payment Screenshot</label>
               <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
+                  💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
+                </p>
                 <input
                   type="file"
                   name="screenShot"

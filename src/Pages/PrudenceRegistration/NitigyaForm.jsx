@@ -185,15 +185,15 @@ function NitigyaRegistration() {
                   <img
                     src={
                       formData.eventmode === "Offline Mode (in WCE)"
-                        ? "/assets/QRs/GooglePay_QR_129Rs.png"
-                        : "/assets/QRs/GooglePay_QR_99Rs.png"
+                        ? "/assets/QRs/Prasad_99.jpg"
+                        : "/assets/QRs/Prasad_79.jpg"
                     }
                     alt="Payment QR"
                     className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
-                  UPI ID: <span className="font-medium">piyushdawkhare0000@okaxis</span>
+                  UPI ID: <span className="font-medium">prasadbedage2030@oksbi</span>
                 </p>
               </div>
             )}
@@ -218,6 +218,10 @@ function NitigyaRegistration() {
             <div className="mb-4">
               <label className="block text-gray-700 font-medium mb-2">Payment Screenshot</label>
               <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
+                  💡 If the amount is Paid in Offline method, upload the image
+                  of the Receipt you were given.
+                </p>
                 <input
                   type="file"
                   name="screenShot"

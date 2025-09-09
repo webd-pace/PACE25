@@ -306,10 +306,10 @@ function IdeathonRegistration() {
                   <img
                     src={
                       formData.teamMembers === "Group of 4"
-                        ? "/assets/QRs/GooglePay_QR_149Rs.png"
+                        ? "/assets/QRs/Chinamyi_399.jpg"
                         : formData.teamMembers === "Group of 3"
-                        ? "/assets/QRs/GooglePay_QR_129Rs.png"
-                        : "/assets/QRs/GooglePay_QR_99Rs.png"
+                        ? "/assets/QRs/Chinamyi_299.jpg"
+                        : "/assets/QRs/Chinamyi_199.jpg"
                     }
                     alt="Payment QR"
                     className="w-full h-auto object-contain"
@@ -348,6 +348,10 @@ function IdeathonRegistration() {
                 Payment Screenshot
               </label>
               <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
+                <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
+                  💡 If the amount is Paid in Offline method, upload the image
+                  of the Receipt you were given.
+                </p>
                 <input
                   type="file"
                   name="screenShot"
