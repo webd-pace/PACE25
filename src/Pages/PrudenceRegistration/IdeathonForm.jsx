@@ -56,7 +56,7 @@ function IdeathonRegistration() {
       if (formData.screenShot) {
         const storageRef = ref(
           prudenceStorage,
-          `Ideathon_screenshots/${Date.now()}_${formData.screenShot.name}` // 🔥 Ideathon folder
+          `Ideathon_screenshots/${Date.now()}_${formData.screenShot.name}`
         );
         const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
 
@@ -84,7 +84,7 @@ function IdeathonRegistration() {
         createdAt: Timestamp.now(),
       });
 
-      toast.success("✅ Aspire registration submitted successfully!");
+      toast.success("✅ Ideathon registration submitted successfully!");
 
       // Reset form
       setFormData({
@@ -123,9 +123,9 @@ function IdeathonRegistration() {
 
       <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex flex-col items-center justify-center px-4 py-8">
         {/* Back Button */}
-        <div className="w-full max-w-3xl pt-10 mt-500 mb-4">
+        <div className="w-full max-w-3xl pt-10 mb-4">
           <button
-            onClick={() => navigate(-1)} // ✅ Go back to previous page
+            onClick={() => navigate(-1)}
             className="flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium"
           >
             <ArrowLeft size={18} /> Back
@@ -152,7 +152,8 @@ function IdeathonRegistration() {
               <span className="block w-[200px] h-1 bg-blue-400 rounded-full"></span>
             </motion.div>
             <p className="mt-2 text-gray-700 text-center">
-              Showcase your entrepreneurial spirit at Aspire – the Business Plan Competition.
+              Showcase your entrepreneurial spirit at Aspire – the Business Plan
+              Competition.
             </p>
           </div>
 
@@ -295,9 +296,12 @@ function IdeathonRegistration() {
             {formData.teamMembers && (
               <div className="text-center my-6 p-6 bg-gray-50 rounded-xl shadow-md">
                 <p className="mb-4 text-sm text-indigo-800 bg-indigo-100 border border-indigo-300 rounded-md p-3">
-                  💡 If the amount is Paid in Offline method, upload the image of the Receipt You were given.
+                  💡 If the amount is Paid in Offline method, upload the image
+                  of the Receipt you were given.
                 </p>
-                <h4 className="mb-4 font-semibold text-lg text-gray-800">Scan to Pay</h4>
+                <h4 className="mb-4 font-semibold text-lg text-gray-800">
+                  Scan to Pay
+                </h4>
                 <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
@@ -312,7 +316,10 @@ function IdeathonRegistration() {
                   />
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
-                  UPI ID: <span className="font-medium">piyushdawkhare0000@okaxis</span>
+                  UPI ID:{" "}
+                  <span className="font-medium">
+                    piyushdawkhare0000@okaxis
+                  </span>
                 </p>
               </div>
             )}
@@ -322,7 +329,9 @@ function IdeathonRegistration() {
               <p className="mb-3 text-sm text-yellow-800 bg-yellow-100 border border-yellow-300 rounded-md p-2">
                 For offline entries, please enter the ID given on your Receipt.
               </p>
-              <label className="block text-gray-700 font-medium mb-1">Transaction ID</label>
+              <label className="block text-gray-700 font-medium mb-1">
+                Transaction ID
+              </label>
               <input
                 type="text"
                 name="transactionID"
@@ -335,7 +344,9 @@ function IdeathonRegistration() {
 
             {/* Screenshot Upload */}
             <div className="mb-4">
-              <label className="block text-gray-700 font-medium mb-2">Payment Screenshot</label>
+              <label className="block text-gray-700 font-medium mb-2">
+                Payment Screenshot
+              </label>
               <div className="relative flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 transition">
                 <input
                   type="file"
@@ -380,7 +391,9 @@ function IdeathonRegistration() {
               type="submit"
               disabled={isSubmitting}
               className={`w-full ${
-                isSubmitting ? "bg-gray-400" : "bg-indigo-600 hover:bg-indigo-700"
+                isSubmitting
+                  ? "bg-gray-400"
+                  : "bg-indigo-600 hover:bg-indigo-700"
               } text-white font-semibold py-2 px-6 rounded-lg`}
               whileTap={{ scale: 0.97 }}
             >
