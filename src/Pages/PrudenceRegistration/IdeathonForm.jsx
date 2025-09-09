@@ -16,6 +16,9 @@ function IdeathonRegistration() {
 
   const [formData, setFormData] = useState({
     name: "",
+    team_member_name1: "",
+    team_member_name2: "",
+    team_member_name3: "",
     email: "",
     phone: "",
     college: "",
@@ -75,7 +78,7 @@ function IdeathonRegistration() {
       }
 
       // Save to Firestore
-      await addDoc(collection(prudenceDb, "Ideathon_registrations"), {  // 🔥 Ideathon collection
+      await addDoc(collection(prudenceDb, "Ideathon_registrations"), {
         ...formData,
         screenShot: downloadURL || null,
         createdAt: Timestamp.now(),
@@ -86,6 +89,9 @@ function IdeathonRegistration() {
       // Reset form
       setFormData({
         name: "",
+        team_member_name1: "",
+        team_member_name2: "",
+        team_member_name3: "",
         email: "",
         phone: "",
         college: "",
@@ -116,18 +122,17 @@ function IdeathonRegistration() {
       <PrudenceNavbar />
 
       <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex flex-col items-center justify-center px-4 py-8">
-        
-                {/* Back Button */}
-      <div className="w-full max-w-3xl pt-10 mt-500 mb-4">
-        <button
-          onClick={() => navigate(-1)} // ✅ Go back to previous page
-          className="flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium"
-        >
-          <ArrowLeft size={18} /> Back
-        </button>
-      </div>
+        {/* Back Button */}
+        <div className="w-full max-w-3xl pt-10 mt-500 mb-4">
+          <button
+            onClick={() => navigate(-1)} // ✅ Go back to previous page
+            className="flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium"
+          >
+            <ArrowLeft size={18} /> Back
+          </button>
+        </div>
 
-      <motion.div
+        <motion.div
           className="max-w-3xl w-full bg-white shadow-2xl rounded-2xl p-6 sm:p-10"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -153,23 +158,138 @@ function IdeathonRegistration() {
 
           {/* Registration Form */}
           <form className="space-y-5" onSubmit={handleSubmit}>
-            <InputField label="Participant's Full Name" name="name" type="text" value={formData.name} onChange={handleChange} />
-            <InputField label="Participant's Email" name="email" type="email" value={formData.email} onChange={handleChange} />
-            <InputField label="Participant's Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
-            <InputField label="Participant's College / Branch" name="college" type="text" value={formData.college} onChange={handleChange} />
+            <InputField
+              label="Participant's Full Name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <InputField
+              label="Participant's Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <InputField
+              label="Participant's Phone Number"
+              name="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            <InputField
+              label="Participant's College / Branch"
+              name="college"
+              type="text"
+              value={formData.college}
+              onChange={handleChange}
+            />
 
-            <SelectField label="Participant's Year Of Study" name="year" value={formData.year} onChange={handleChange} options={[
-              "First Year Degree", "Second Year Degree", "Third Year Degree",
-              "First Year Diploma", "Second Year Diploma", "Third Year Diploma",
-            ]} />
+            <SelectField
+              label="Participant's Year Of Study"
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+              options={[
+                "First Year Degree",
+                "Second Year Degree",
+                "Third Year Degree",
+                "First Year Diploma",
+                "Second Year Diploma",
+                "Third Year Diploma",
+              ]}
+            />
 
-            <SelectField label="Participant's Branch Or Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
-              "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics", "Electrical",
-            ]} />
+            <SelectField
+              label="Participant's Branch Or Trade"
+              name="branch"
+              value={formData.branch}
+              onChange={handleChange}
+              options={[
+                "CSE",
+                "IT",
+                "AIML",
+                "Robotics",
+                "Civil",
+                "Mechanical",
+                "Electronics",
+                "Electrical",
+              ]}
+            />
 
-            <SelectField label="Team Members" name="teamMembers" value={formData.teamMembers} onChange={handleChange} options={["Group of 2", "Group of 3"]} />
+            <SelectField
+              label="Team Members"
+              name="teamMembers"
+              value={formData.teamMembers}
+              onChange={handleChange}
+              options={["Group of 2", "Group of 3", "Group of 4"]}
+            />
 
-            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online", "Offline"]} />
+            {/* Conditional Team Member Names */}
+            {formData.teamMembers === "Group of 2" && (
+              <InputField
+                label="Team Member 2 Name"
+                name="team_member_name1"
+                type="text"
+                value={formData.team_member_name1}
+                onChange={handleChange}
+              />
+            )}
+
+            {formData.teamMembers === "Group of 3" && (
+              <>
+                <InputField
+                  label="Team Member 2 Name"
+                  name="team_member_name1"
+                  type="text"
+                  value={formData.team_member_name1}
+                  onChange={handleChange}
+                />
+                <InputField
+                  label="Team Member 3 Name"
+                  name="team_member_name2"
+                  type="text"
+                  value={formData.team_member_name2}
+                  onChange={handleChange}
+                />
+              </>
+            )}
+
+            {formData.teamMembers === "Group of 4" && (
+              <>
+                <InputField
+                  label="Team Member 2 Name"
+                  name="team_member_name1"
+                  type="text"
+                  value={formData.team_member_name1}
+                  onChange={handleChange}
+                />
+                <InputField
+                  label="Team Member 3 Name"
+                  name="team_member_name2"
+                  type="text"
+                  value={formData.team_member_name2}
+                  onChange={handleChange}
+                />
+                <InputField
+                  label="Team Member 4 Name"
+                  name="team_member_name3"
+                  type="text"
+                  value={formData.team_member_name3}
+                  onChange={handleChange}
+                />
+              </>
+            )}
+
+            <SelectField
+              label="Payment Mode"
+              name="paymentMode"
+              value={formData.paymentMode}
+              onChange={handleChange}
+              options={["Online", "Offline"]}
+            />
 
             {/* QR Section */}
             {formData.teamMembers && (
@@ -181,7 +301,9 @@ function IdeathonRegistration() {
                 <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
-                      formData.teamMembers === "Group of 3"
+                      formData.teamMembers === "Group of 4"
+                        ? "/assets/QRs/GooglePay_QR_149Rs.png"
+                        : formData.teamMembers === "Group of 3"
                         ? "/assets/QRs/GooglePay_QR_129Rs.png"
                         : "/assets/QRs/GooglePay_QR_99Rs.png"
                     }
@@ -228,24 +350,38 @@ function IdeathonRegistration() {
                   className="absolute inset-0 opacity-0 cursor-pointer"
                 />
                 {screenshotName ? (
-                  <span className="text-green-600 font-medium text-center px-2">{screenshotName}</span>
+                  <span className="text-green-600 font-medium text-center px-2">
+                    {screenshotName}
+                  </span>
                 ) : (
-                  <span className="text-gray-500 text-sm text-center">Click or drag & drop to upload</span>
+                  <span className="text-gray-500 text-sm text-center">
+                    Click or drag & drop to upload
+                  </span>
                 )}
               </div>
               {uploadProgress > 0 && (
-                <p className="text-sm text-gray-600 mt-2">Uploading: {Math.round(uploadProgress)}%</p>
+                <p className="text-sm text-gray-600 mt-2">
+                  Uploading: {Math.round(uploadProgress)}%
+                </p>
               )}
             </div>
 
             {/* Referral Code */}
-            <InputField label="Referral Code" name="referralCode" type="text" value={formData.referralCode} onChange={handleChange} />
+            <InputField
+              label="Referral Code"
+              name="referralCode"
+              type="text"
+              value={formData.referralCode}
+              onChange={handleChange}
+            />
 
             {/* Submit */}
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full ${isSubmitting ? "bg-gray-400" : "bg-indigo-600 hover:bg-indigo-700"} text-white font-semibold py-2 px-6 rounded-lg`}
+              className={`w-full ${
+                isSubmitting ? "bg-gray-400" : "bg-indigo-600 hover:bg-indigo-700"
+              } text-white font-semibold py-2 px-6 rounded-lg`}
               whileTap={{ scale: 0.97 }}
             >
               {isSubmitting ? "Submitting..." : "Submit"}
@@ -291,7 +427,9 @@ function SelectField({ label, name, value, onChange, options }) {
       >
         <option value="">Select</option>
         {options.map((opt) => (
-          <option key={opt} value={opt}>{opt}</option>
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
         ))}
       </select>
     </div>
