@@ -22,7 +22,6 @@ function StandoutRegistration() {
     year: "",
     branch: "",
     transactionID: "",
-    eventmode: "",
     paymentMode: "",
     screenShot: null,
   });
@@ -91,7 +90,6 @@ function StandoutRegistration() {
         year: "",
         branch: "",
         transactionID: "",
-        eventmode: "",
         paymentMode: "",
         screenShot: null,
       });
@@ -158,15 +156,13 @@ function StandoutRegistration() {
             <InputField label="College / Branch" name="college" type="text" value={formData.college} onChange={handleChange} />
 
             <SelectField label="Year" name="year" value={formData.year} onChange={handleChange} options={[
-              "First Year Degree", "Second Year Degree", "Third Year Degree",
-              "First Year Diploma", "Second Year Diploma", "Third Year Diploma",
+              "First Year Degree",
+              "First Year Diploma",
             ]} />
 
             <SelectField label="Branch/Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
               "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical",
             ]} />
-
-            <SelectField label="Event Mode" name="eventmode" value={formData.eventmode} onChange={handleChange} options={["Offline Mode", "Online Mode"]} />
 
             <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online", "Offline"]} />
 
