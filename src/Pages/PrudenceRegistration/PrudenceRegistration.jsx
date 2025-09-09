@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
-import SponsorSection from './SponsorSectionB';
+// import SponsorSection from './SponsorSectionB';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const PreudenceRegistrationbase = ({ prudenceRef }) => {
