@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import { ArrowLeft } from "lucide-react";
 import PrudenceNavbar from "./PrudenceNavbar";
 import PrudenceFotter from "./PrudenceFotter";
-import SponsorSectionW from "./SponsorSectionW";
+// import SponsorSectionW from "./SponsorSectionW";
 import Loader from "../../components/Loader";
 
 function NitigyaRegistration() {
@@ -194,6 +194,7 @@ function NitigyaRegistration() {
   <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-md p-6 mt-8 text-left border border-indigo-200">
     <h3 className="text-xl text- font-semibold text-indigo-700 mb-4">Event Details</h3>
     <p className="text-gray-700"><strong>Date:</strong> September 28, 2025</p>
+    <p className="text-gray-700"><strong>Time:</strong> 9 am - 5 pm</p>
     <p className="text-gray-700"><strong>Venue:</strong> Walchand College Of Engineering, Sangli</p>
     <p className="text-gray-700"><strong>Contact:</strong> Shardul – +91 8080884368</p>
   </div>
@@ -307,7 +308,7 @@ function NitigyaRegistration() {
         </motion.div>
       </div>
 
-      <SponsorSectionW />
+      {/* <SponsorSectionW /> */}
       <PrudenceFotter />
     </>
   );

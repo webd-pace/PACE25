@@ -8,7 +8,7 @@ import { toast } from "react-hot-toast";
 import { ArrowLeft } from "lucide-react";
 import PrudenceNavbar from "./PrudenceNavbar";
 import PrudenceFotter from "./PrudenceFotter";
-import SponsorSectionW from "./SponsorSectionW";
+// import SponsorSectionW from "./SponsorSectionW";
 import Loader from "../../components/Loader";
 
 function StandoutRegistration() {
@@ -131,40 +131,89 @@ function StandoutRegistration() {
           transition={{ duration: 0.6 }}
         >
           {/* Event Info */}
-          <div className="mb-8 border-b border-gray-200 pb-4">
-            <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-600">
-              STANDOUT 2K25
-            </h1>
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0.3 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex justify-center mt-2.5 mb-10 origin-center"
-            >
-              <span className="block w-[200px] h-1 bg-blue-400 rounded-full"></span>
-            </motion.div>
-            <p className="mt-2 text-gray-700 text-center">
-              Showcase your entrepreneurial spirit at Aspire – the Business Plan Competition.
-            </p>
-          </div>
+
+<div className="mb-10 pb-6">
+  <h1 className="text-3xl sm:text-4xl mt-10 text-center font-cinzel-decorative font-bold text-indigo-700">
+  Standout 2025
+  </h1>
+  <motion.div
+    initial={{ opacity: 0, scaleX: 0.3 }}
+    animate={{ opacity: 1, scaleX: 1 }}
+    transition={{ delay: 0.3, duration: 0.6 }}
+    className="flex justify-center mt-3 mb-8 origin-center"
+  >
+    <span className="block w-[180px] h-1 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full"></span>
+  </motion.div>
+
+  {/* Tagline */}
+  <p className="text-gray-600 text-center italic mb-2">
+    <span className="font-semibold text-xl text-indigo-700">(Standout )</span> – "The world says 'fit in', the universe says 'STANDOUT'!"
+  </p>
+  <p className="text-gray-700 text-center max-w-2xl mx-auto leading-relaxed">
+    Exclusively for First Year students.
+    <span className="font-semibold text-indigo-700">Compete, connect, and conquer </span> in a non-technical, fun-filled event.
+    Demonstrate confidence, creativity, and teamwork.
+  </p>
+
+  {/* Rounds Section */}
+  <div className="mt-10 bg-white shadow-lg rounded-2xl p-6 border border-indigo-100">
+    <h2 className="text-2xl font-bold text-indigo-700 text-center mb-6">Event Rounds</h2>
+    <div className="space-y-6">
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold">1</div>
+        <p className="text-gray-700">
+          <span className="font-semibold text-indigo-800">Round 1 </span> – 
+          Aptitude, Visual & Listening Test
+        </p>
+      </div>
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold">2</div>
+        <p className="text-gray-700">
+          <span className="font-semibold text-indigo-800">Round 2 </span> – 
+          Debate
+        </p>
+      </div>
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold">3</div>
+        <p className="text-gray-700">
+          <span className="font-semibold text-indigo-800">Round 3 </span> – 
+          Fastest Finger & Spotlight
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* Event Details */}
+  <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-md p-6 mt-8 text-left border border-indigo-200">
+    <h3 className="text-xl text- font-semibold text-indigo-700 mb-4">Event Details</h3>
+    <p className="text-gray-700"><strong>Date:</strong> September 27, 2025</p>
+    <p className="text-gray-700"><strong>Time:</strong> 9 am - 5 pm</p>
+    <p className="text-gray-700"><strong>Venue:</strong> Walchand College Of Engineering, Sangli</p>
+    <p className="text-gray-700"><strong>Contact:</strong> Jiya Attar – +91 7378369798 </p>
+  </div>
+</div>
 
           {/* Registration Form */}
           <form className="space-y-5" onSubmit={handleSubmit}>
-            <InputField label="Full Name" name="name" type="text" value={formData.name} onChange={handleChange} />
-            <InputField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
-            <InputField label="Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
-            <InputField label="College " name="college" type="text" value={formData.college} onChange={handleChange} />
+
+            <InputField label="Participant's Full Name" name="name" type="text" value={formData.name} onChange={handleChange} required />
+
+            <InputField label="Participant's Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
+
+            <InputField label="Participant's Contact Number (Preferably WhatsApp)" name="phone" type="tel" value={formData.phone} onChange={handleChange} required />
+
+            <InputField label="Participant's College Or Institute " name="college" type="text" value={formData.college} onChange={handleChange} required/>
 
             <SelectField label="Year" name="year" value={formData.year} onChange={handleChange} options={[
               "First Year Degree",
               "First Year Diploma",
             ]} />
 
-            <SelectField label="Branch/Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
+            <SelectField label="Participant's Branch Or Trade" name="branch" value={formData.branch} onChange={handleChange} options={[
               "CSE", "IT", "AIML", "Robotics", "Civil", "Mechanical", "Electronics","Electrical",
             ]} />
 
-            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["ONLINE (at your preferable  location)", "OFFLINE (at WCE) "]} />
+            <SelectField label="Payment Mode" name="paymentMode" value={formData.paymentMode} onChange={handleChange} options={["Online", "Offline "]} />
 
             {/* QR Section */}
             
@@ -177,14 +226,14 @@ function StandoutRegistration() {
                   <img
                     src={
                       
-                        "/assets/QRs/Chinamyi_99.jpg "
+                        "/assets/QRs/Prasad_99.jpg "
                     }
                     alt="Payment QR"
                     className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
-                  UPI ID: <span className="font-medium">chinamyibargale@oksbi</span>
+                  UPI ID: <span className="font-medium">prasadbedage2030@oksbi</span>
                 </p>
               </div>
 
@@ -193,12 +242,13 @@ function StandoutRegistration() {
               <p className="mb-3 text-sm text-yellow-800 bg-yellow-100 border border-yellow-300 rounded-md p-2">
                 For offline entries, please enter the ID given on your Receipt.
               </p>
-              <label className="block text-gray-700 font-medium mb-1">Transaction ID</label>
+              <label className="block text-gray-700 font-medium mb-1">Transaction ID  <span className="text-red-500">*</span> </label>
               <input
                 type="text"
                 name="transactionID"
                 value={formData.transactionID}
                 onChange={handleChange}
+                required
                 placeholder="e.g., AXIS12345ABC"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
               />
@@ -215,6 +265,7 @@ function StandoutRegistration() {
                   type="file"
                   name="screenShot"
                   accept="image/*"
+                  required
                   onChange={(e) => {
                     handleChange(e);
                     if (e.target.files.length > 0) {
@@ -247,7 +298,7 @@ function StandoutRegistration() {
         </motion.div>
       </div>
 
-      <SponsorSectionW />
+      {/* <SponsorSectionW /> */}
       <PrudenceFotter />
     </>
   );
@@ -270,17 +321,20 @@ function InputField({ label, name, type, value, onChange }) {
   );
 }
 
+
 // Reusable select
-function SelectField({ label, name, value, onChange, options }) {
+function SelectField({ label, name, value, onChange, options, required = false }) {
   return (
     <div>
-      <label className="block text-gray-700 font-medium mb-1">{label}</label>
+      <label className="block text-gray-700 font-medium mb-1">
+        {label} {required && <span className="text-red-500">*</span>}
+      </label>
       <select
         name={name}
         value={value}
         onChange={onChange}
+        required={required}
         className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-200"
-        required
       >
         <option value="">Select</option>
         {options.map((opt) => (
@@ -290,5 +344,6 @@ function SelectField({ label, name, value, onChange, options }) {
     </div>
   );
 }
+
 
 export default StandoutRegistration;
