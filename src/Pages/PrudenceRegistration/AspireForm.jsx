@@ -239,15 +239,15 @@ function AspireRegistration() {
                   <img
                     src={
                       formData.eventmode === "OFFLINE (at WCE)"
-                        ? "/assets/QRs/Prasad_99.jpg"
-                        : "/assets/QRs/Prasad_79.jpg"
+                        ? "/assets/QRs/Chinamyi_99.jpg"
+                        : "/assets/QRs/Chinamyi_79.jpg"
                     }
                     alt="Payment QR"
                     className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
-                  UPI ID: <span className="font-medium">prasadbedage2030@oksbi</span>
+                  UPI ID: <span className="font-medium">chinmyibargale@oksbi</span>
                 </p>
               </div>
             )}

@@ -225,15 +225,14 @@ function StandoutRegistration() {
                 <div className="mx-auto flex items-center justify-center bg-white rounded-lg border border-gray-200 shadow-sm p-2 w-full max-w-[250px]">
                   <img
                     src={
-                      
-                        "/assets/QRs/Prasad_99.jpg "
+                      "/assets/QRs/Chinamyi_99.jpg"
                     }
                     alt="Payment QR"
                     className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="mt-3 text-sm text-gray-600">
-                  UPI ID: <span className="font-medium">prasadbedage2030@oksbi</span>
+                  UPI ID: <span className="font-medium">chinmyibargale@oksbi</span>
                 </p>
               </div>
 

@@ -351,10 +351,10 @@ function IdeathonRegistration() {
                   <img
                     src={
                       formData.teamMembers === "Group of 4"
-                        ? "/assets/QRs/Prasad_399.jpg"
+                        ? "/assets/QRs/Chinamyi_399.jpg"
                         : formData.teamMembers === "Group of 3"
-                        ? "/assets/QRs/Prasad_299.jpg"
-                        : "/assets/QRs/Prasad_199.jpg"
+                        ? "/assets/QRs/Chinamyi_299.jpg"
+                        : "/assets/QRs/Chinamyi_199.jpg"
                     }
                     alt="Payment QR"
                     className="w-full h-auto object-contain"
@@ -363,7 +363,7 @@ function IdeathonRegistration() {
                 <p className="mt-3 text-sm text-gray-600">
                   UPI ID:{" "}
                   <span className="font-medium">
-                    prasadbedage2030@oksbi
+                    chinmyibargale@oksbi
                   </span>
                 </p>
               </div>
