@@ -15,28 +15,28 @@ const events = [
     img: "/assets/Events/Logos/Aspire2k25.jpg",
     desc: "A mock placement drive simulating real campus interviews, bridging academics and industry.",
     moreDetails: "A mock placement drive simulating real campus interviews, bridging academics and industry. This event helps participants experience the real corporate selection process: resume shortlisting, group discussion, and personal interviews by industry professionals.",
-    registrationLink: "/aspire-form",
+    registrationLink: "https://forms.gle/iXFADEE8iLWxuFdf7",
   },
   {
     title: "Nitigya",
     img: "/assets/Events/Logos/Nitigya2.jpg",
     desc: "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making.",
     moreDetails: "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making. Challenge your intellect in simulated international crisis management, negotiations, and political strategy.",
-    registrationLink: "/nitigya-form",
+    registrationLink: "https://forms.gle/d8kbRHgpyUvB2usa9",
   },
   {
     title: "Standout",
     img: "/assets/Events/Logos/Standout.jpg",
     desc: "Creative themes and adaptability tests through immersive experiences.",
     moreDetails: "Creative themes and adaptability tests through immersive experiences. Perfect for those who want to stand out with creative confidence. Surprise prompts will showcase your personality.",
-    registrationLink: "/standout-form",
+    registrationLink: "https://forms.gle/zAdiGjrgAnHwNAV2A",
   },
   {
     title: "Ideaignite",
     img: "/assets/Events/Logos/Ideathon2.jpg",
     desc: "Teams pitch innovative business ideas in a multi-stage competition.",
     moreDetails: "Teams pitch innovative business ideas in a multi-stage competition. Bring your disruptive ideas! Includes idea validation, pitch deck creation, and presentation to real investors.",
-    registrationLink: "/ideathon-form",
+    registrationLink: "https://forms.gle/WDys69JLv3DU3fuZ6",
   },
 ];
 
