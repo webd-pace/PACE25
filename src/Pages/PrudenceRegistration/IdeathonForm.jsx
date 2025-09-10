@@ -363,7 +363,7 @@ function IdeathonRegistration() {
                 <p className="mt-3 text-sm text-gray-600">
                   UPI ID:{" "}
                   <span className="font-medium">
-                    piyushdawkhare0000@okaxis
+                    prasadbedage2030@oksbi
                   </span>
                 </p>
               </div>
