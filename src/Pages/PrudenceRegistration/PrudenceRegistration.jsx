@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
-// import SponsorSection from './SponsorSectionB';
+import SponsorSection from './SponsorSectionB';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const PreudenceRegistrationbase = ({ prudenceRef }) => {
@@ -97,7 +97,29 @@ const events = [
           erudite personalities every year.
         </motion.p>
     </div>
-
+      <SponsorSection />
+          <div className="max-w-6xl mx-auto px-6 text-center mb-10">
+            {/* Heading */}
+            <motion.h2
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-yellow-500 mb-4 tracking-wide"
+            >
+              Events
+            </motion.h2>
+            {/* Underline */}
+            <motion.div
+              className="flex justify-center mb-10"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <span className="block w-44 h-1 bg-yellow-400 rounded-full"></span>
+            </motion.div>
+          </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {events.map((ev) => {
@@ -170,7 +192,6 @@ const events = [
         </div>
       </section>
 
-      {/* <SponsorSection /> */}
       <Footer />
     </>
   );

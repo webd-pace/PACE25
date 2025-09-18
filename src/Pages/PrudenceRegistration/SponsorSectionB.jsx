@@ -1,76 +1,94 @@
 import React from "react";
-import { motion } from "framer-motion";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const sponsors = [
-
-  // {
-  //   name: "Azure",
-  //   logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
-  //   link: "https://azure.microsoft.com/",
-  // },
+  {
+    name: "WANUSE",
+    logo: "/assets/Sponsors/Title Sponsor.jpg",
+    link: "#",
+    category: "Title Sponsor",
+  },
+  {
+    name: "Curry Palette",
+    logo: "/assets/Sponsors/Food Partner.jpg",
+    link: "#",
+    category: "Food Partner",
+  },
+  {
+    name: "Unique Academy",
+    logo: "/assets/Sponsors/Educational Partner.jpg",
+    link: "#",
+    category: "Educational Partner",
+  },
+  {
+    name: "Crazy Ice-Cream",
+    logo: "/assets/Sponsors/Refreshment Partner.jpg",
+    link: "#",
+    category: "Refreshment Partner",
+  },
+  {
+    name: "Sakal",
+    logo: "/assets/Sponsors/Media Partner.jpg",
+    link: "#",
+    category: "Media Partner",
+  },
 ];
 
 function SponsorSectionB() {
+  const settings = {
+    dots: true,             // show navigation dots
+    infinite: true,         // infinite loop
+    speed: 800,             // transition speed
+    slidesToShow: 1,        // number of sponsors visible
+    slidesToScroll: 1,
+    autoplay: true,         // auto slide
+    autoplaySpeed: 2500,    // 2.5s per slide
+    arrows: false,           // left/right arrows
+  };
+
   return (
-    <section className="py-16 bg-black">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        
+    <section className="py-16 bg-black mb-8">
+      <div className="max-w-4xl mx-auto px-6 text-center">
         {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold text-yellow-500 mb-4 tracking-wide"
-        >
+        <h2 className="text-4xl font-bold text-yellow-500 mb-4 tracking-wide">
           Our Sponsors
-        </motion.h2>
+        </h2>
 
-        {/* Subtext */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-gray-400 mb-12 max-w-2xl mx-auto"
-        >
-          We are proud to be supported by industry leaders who make this event possible.
-        </motion.p>
+        <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+          We are proud to be supported by our amazing partners who make this
+          event possible.
+        </p>
 
-        {/* Sponsor Logos Grid */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.2 }
-            }
-          }}
-        >
+        {/* Slider */}
+        <Slider {...settings}>
           {sponsors.map((sponsor, index) => (
-            <motion.a
-              key={index}
-              href={sponsor.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-44 h-24 flex justify-center items-center bg-[#0a0a0a] border border-yellow-500 rounded-lg shadow-lg hover:shadow-yellow-500/40 hover:scale-110 transition-all duration-300"
-              variants={{
-                hidden: { opacity: 0, scale: 0.8, y: 20 },
-                visible: { opacity: 1, scale: 1, y: 0 }
-              }}
-              transition={{ duration: 0.5 }}
-            >
-              <img
-                src={sponsor.logo}
-                alt={sponsor.name}
-                className="max-h-12 max-w-[120px] object-contain"
-              />
-            </motion.a>
+            <div key={index} className="flex flex-col items-center">
+              {/* Frame with logo */}
+              <a
+                href={sponsor.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-72 h-48 flex justify-center items-center bg-[#0a0a0a] 
+                           border border-yellow-500 rounded-xl shadow-lg 
+                           hover:shadow-yellow-500/40 hover:scale-110 
+                           transition-all duration-300 p-6 mx-auto"
+              >
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </a>
+
+              {/* Role outside the frame */}
+              <p className="text-xl text-yellow-400 font-semibold mt-4">
+                {sponsor.category}
+              </p>
+            </div>
           ))}
-        </motion.div>
+        </Slider>
       </div>
     </section>
   );
