@@ -117,7 +117,7 @@ const events = [
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <span className="block w-44 h-1 bg-yellow-400 rounded-full"></span>
+              <span className="block w-20 h-1 bg-yellow-400 rounded-full"></span>
             </motion.div>
           </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4">
