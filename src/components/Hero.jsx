@@ -58,13 +58,13 @@ export const Hero = ({ onExploreClick }) => {
               Welcome to <span className="font-semibold text-yellow-400">PACE</span>
             </h1>
 
-            <Link to="/PrudenceRegistration">
+            <Link to="https://forms.gle/Rzpm4UER5dAhR3GQ6">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
               >
-                Register for Prudence 2k25....
+                Assistant Board
               </motion.button>
             </Link>
           </motion.section>
