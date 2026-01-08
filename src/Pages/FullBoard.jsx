@@ -7,7 +7,7 @@ const FullBoard = () => {
   return (
     <>
       <Navbar />
-      <section className="relative py-20 bg-black text-white overflow-hidden">
+      <section className="relative py-20 bg-black mt-5 text-white overflow-hidden">
         {/* Decorative Background */}
         <div className="absolute -top-20 -left-20 w-72 h-72 bg-yellow-500 opacity-10 rounded-full filter blur-3xl"></div>
         <div className="absolute -bottom-20 -right-10 w-96 h-96 bg-yellow-500 opacity-10 rounded-full filter blur-3xl"></div>

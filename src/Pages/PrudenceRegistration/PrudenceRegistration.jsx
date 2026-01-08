@@ -1,42 +1,45 @@
 import React, { useState, useRef } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import { Link } from 'react-router-dom';
+import SponsorSection from './SponsorSectionB';
 import { motion, AnimatePresence } from 'framer-motion';
+import RegistrationsClosed from '../../components/RegistrationsClosed';
 
 export const PreudenceRegistrationbase = ({ prudenceRef }) => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const cardRefs = useRef({});
 
-  const events = [
-    {
-      title: "Aspire",
-      img: "/assets/Events/Logos/Aspire.jpg",
-      desc: "A mock placement drive simulating real campus interviews, bridging academics and industry.",
-      moreDetails: "This event helps participants experience the real corporate selection process: resume shortlisting, group discussion, and personal interviews by industry professionals.",
-      registrationLink: "https://wcepace.org.in/",
-    },
-    {
-      title: "Nitigya",
-      img: "/assets/Events/Logos/Nitigya.jpg",
-      desc: "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making.",
-      moreDetails: "Challenge your intellect in simulated international crisis management, negotiations, and political strategy.",
-      registrationLink: "https://wcepace.org.in/",
-    },
-    {
-      title: "Standout",
-      img: "/assets/Events/Logos/Standout.jpg",
-      desc: "Creative themes and adaptability tests through immersive experiences.",
-      moreDetails: "Perfect for those who want to stand out with creative confidence. Surprise prompts will showcase your personality.",
-      registrationLink: "https://wcepace.org.in/",
-    },
-    {
-      title: "Ideathon",
-      img: "/assets/Events/Logos/Ideathon.jpg",
-      desc: "Teams pitch innovative business ideas in a multi-stage competition.",
-      moreDetails: "Bring your disruptive ideas! Includes idea validation, pitch deck creation, and presentation to real investors.",
-      registrationLink: "https://wcepace.org.in/",
-    },
-  ];
+const events = [
+  {
+    title: "Aspire",
+    img: "/assets/Events/Logos/Aspire2k25.jpg",
+    desc: "A mock placement drive simulating real campus interviews, bridging academics and industry.",
+    moreDetails: "A mock placement drive simulating real campus interviews, bridging academics and industry. This event helps participants experience the real corporate selection process: resume shortlisting, group discussion, and personal interviews by industry professionals.",
+    registrationLink: '/RegistrationsClosed',
+  },
+  {
+    title: "Nitigya",
+    img: "/assets/Events/Logos/Nitigya2.jpg",
+    desc: "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making.",
+    moreDetails: "High-stakes geopolitical challenge on global politics, diplomacy, and policy-making. Challenge your intellect in simulated international crisis management, negotiations, and political strategy.",
+    registrationLink: "/RegistrationsClosed",
+  },
+  {
+    title: "Standout",
+    img: "/assets/Events/Logos/Standout.jpg",
+    desc: "Creative themes and adaptability tests through immersive experiences.",
+    moreDetails: "Creative themes and adaptability tests through immersive experiences. Perfect for those who want to stand out with creative confidence. Surprise prompts will showcase your personality.",
+    registrationLink: "/RegistrationsClosed",
+  },
+  {
+    title: "Ideaignite",
+    img: "/assets/Events/Logos/Ideathon2.jpg",
+    desc: "Teams pitch innovative business ideas in a multi-stage competition.",
+    moreDetails: "Teams pitch innovative business ideas in a multi-stage competition. Bring your disruptive ideas! Includes idea validation, pitch deck creation, and presentation to real investors.",
+    registrationLink: "/RegistrationsClosed",
+  },
+];
 
   const scrollToCardTop = (title) => {
     const ref = cardRefs.current[title];
@@ -52,42 +55,76 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
 
       <section
         ref={prudenceRef}
-        className="relative pt-16 pb-24 bg-black text-white overflow-hidden"
+        className="relative pt-16 mt-10 pb-24 bg-black text-white overflow-hidden"
       >
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: 'url("/assets/prudence-bg.jpg")' }}
         ></div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mb-12">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl font-extrabold text-yellow-400 mb-4"
-          >
-            <h1 className="text-5xl font-extrabold text-yellow-400 uppercase font-cinzel-decorative">
-              Prudence 2K25
-            </h1>
-          </motion.h2>
-          <motion.p
+    <div className="relative z-10 max-w-4xl mx-auto px-4 text-center mb-12">
+      <motion.h1
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+        className="text-5xl font-extrabold text-yellow-400 uppercase font-cinzel-decorative mb-4"
+      >
+        Prudence 2K25
+      </motion.h1>
+
+       {/* Accent line below title */}
+      <motion.div
+          className="flex justify-center mt-6 mb-10"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <span className="block w-44 h-1 bg-yellow-400 rounded-full"></span>
+      </motion.div>
+
+      <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-lg text-gray-300 leading-relaxed"
           >
-            Prudence is the flagship event series of PACE, designed to test and
-            nurture your skills across multiple domains including innovation,
-            diplomacy, creative expression, and business strategy. Join us in this
-            intellectual extravaganza and showcase your potential through events like
-            Aspire, Nitigya, Standout, and Ideathon.
-          </motion.p>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {events.map((ev) => {
-              if (!cardRefs.current[ev.title]) {
+          PRUDENCE is the National Level Management Fest organised by PACE. An event
+          which aims at fostering managerial skills of youth in its Carnival of intellectuals. Since
+          2001, PACE has The Legacy of organizing a unique mega-event Prudence, which has
+          become the brand name in the student world of Maharashtra. PRUDENCE includes
+          sectors of professional life, right from economics, entrepreneurship, marketing, debate,
+          National International politics and governance, social responsibilities, journalism,
+          environment, etc. through its sub-events, seminars, workshops and guest lectures from
+          erudite personalities every year.
+        </motion.p>
+    </div>
+      <SponsorSection />
+          <div className="max-w-6xl mx-auto px-6 text-center mb-10">
+            {/* Heading */}
+            <motion.h2
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold text-yellow-500 mb-4 tracking-wide"
+            >
+              Events
+            </motion.h2>
+            {/* Underline */}
+            <motion.div
+              className="flex justify-center mb-10"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <span className="block w-20 h-1 bg-yellow-400 rounded-full"></span>
+            </motion.div>
+          </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {events.map((ev) => {
+            if (!cardRefs.current[ev.title]) {
                 cardRefs.current[ev.title] = React.createRef();
               }
 
@@ -135,24 +172,18 @@ export const PreudenceRegistrationbase = ({ prudenceRef }) => {
                         {isSelected ? ev.moreDetails : ev.desc}
                       </p>
 
-                      {isSelected && (
-                        <motion.div
-                          key="details"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          className="mt-4"
-                        >
-                          <a
-                            href={ev.registrationLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-4 py-2 mt-2 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-300 transition"
-                          >
-                            Register
-                          </a>
-                        </motion.div>
+                     {isSelected && (
+                      <motion.div
+                        key="details"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="mt-4"
+                      >
+                      <Link to={ev.registrationLink} className="inline-block px-4 py-2 mt-2 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-300 transition"> Register</Link>
+                      </motion.div>
                       )}
+
                     </div>
                   </motion.div>
                 </AnimatePresence>

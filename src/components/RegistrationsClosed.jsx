@@ -20,11 +20,12 @@ const RegistrationsClosed = () => {
           </h1>
 
           <p className="text-gray-400 text-lg md:text-xl mb-6">
-            PACE Joint Board registration forms are now closed. We truly appreciate your interest. Keep an eye on our socials for upcoming opportunities and events!
+            The Registration for Prudence 2k25 are officially closed. We
+            appreciate your interest and enthusiasm!
           </p>
 
           <p className="text-gray-300 text-md md:text-lg mb-4">
-            For any queries or support, please reach out to:
+            For further queries or support, please reach out to:
           </p>
 
           <div className="text-gray-400 text-sm md:text-base leading-relaxed mb-10 mx-auto w-fit text-left space-y-2">

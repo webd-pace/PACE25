@@ -15,6 +15,12 @@ import PrudenceRegistration from "./Pages/PrudenceRegistration/PrudenceRegistrat
 import ScrollToTop from "./components/ScrollToTop";
 import ComingSoon from "./components/ComingSoon";
 import RegistrationsClosed from "./components/RegistrationsClosed";
+import AspireForm from './Pages/PrudenceRegistration/AspireForm';
+import NitigyaForm from './Pages/PrudenceRegistration/NitigyaForm';
+import StandoutForm from './Pages/PrudenceRegistration/StandoutForm';
+import IdeathonForm from './Pages/PrudenceRegistration/IdeathonForm';
+import SponsorSectionB from "./Pages/PrudenceRegistration/SponsorSectionB";
+import SponsorSectionW from "./Pages/PrudenceRegistration/SponsorSectionW";
 import "./App.css";
 
 function App() {
@@ -35,6 +41,12 @@ function App() {
         <Route path="/ComingSoon" element={<ComingSoon />} />
         <Route path="/PrudenceRegistration" element={<PrudenceRegistration />} />
         <Route path="/RegistrationsClosed" element={<RegistrationsClosed />} />
+        <Route path="/aspire-form" element={<AspireForm />} />
+        <Route path="/nitigya-form" element={<NitigyaForm />} />
+        <Route path="/standout-form" element={<StandoutForm />} />
+        <Route path="/ideathon-form" element={<IdeathonForm />} />
+        <Route path="/SponsorSectionB" element={<SponsorSectionB />} />
+        <Route path="/SponsorSectionW" element={<SponsorSectionW />} />
       </Routes>
     </Router>
   );

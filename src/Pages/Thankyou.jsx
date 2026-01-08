@@ -35,7 +35,7 @@ const ThankYou = () => {
 
             <br />
             <br />
-            <Link to="/JoinForm">
+            <Link to="/PrudenceRegistration">
               <button
                 onClick={() => setShowMessage(false)}
                 className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"

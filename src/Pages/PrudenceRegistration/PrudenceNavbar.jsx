@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Navbar() {
+export default function PrudenceNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -11,7 +11,7 @@ export default function Navbar() {
     location.pathname === path || (path === "/" && location.pathname === "");
 
   const linkClass = (path) =>
-    `${isActive(path) ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"} transition-colors`;
+    `${isActive(path) ? "text-blue-600" : "text-gray-800 hover:text-blue-600"} transition-colors`;
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
@@ -24,15 +24,15 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 60, damping: 12 }}
-      className={`fixed top-0 w-full mt -10 z-50 bg-black text-white border-b border-yellow-400/20 ${
+      className={`fixed top-0 w-full z-50 bg-white text-black border-b border-gray-300 ${
         isScrolled ? "shadow-md" : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <div className="flex-shrink-0 text-xl font-bold text-yellow-400">
-          <a href="/" aria-label="Go to homepage">PACE</a>
+          <div className="flex-shrink-0 text-xl font-bold text-blue-600">
+            <a href="/" aria-label="Go to homepage">PACE</a>
           </div>
 
           {/* Desktop Links */}
@@ -44,8 +44,8 @@ export default function Navbar() {
               href="#contact"
               className={`${
                 location.hash === "#contact"
-                  ? "text-yellow-400"
-                  : "text-gray-200 hover:text-yellow-400"
+                  ? "text-blue-600"
+                  : "text-gray-800 hover:text-blue-600"
               } transition-colors`}
             >
               Contact
@@ -56,7 +56,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <motion.button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-200 hover:text-yellow-400 focus:outline-none"
+              className="text-gray-800 hover:text-blue-600 focus:outline-none"
               aria-label="Toggle menu"
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 200 }}
@@ -82,7 +82,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden bg-black px-4 pt-4 pb-4 space-y-2 font-medium border-b border-yellow-400/20"
+            className="md:hidden bg-white px-4 pt-4 pb-4 space-y-2 font-medium border-b border-gray-300"
           >
             <Link to="/" className={`block py-2 ${linkClass("/")}`} onClick={() => setMenuOpen(false)}>
               Home
@@ -96,7 +96,7 @@ export default function Navbar() {
             <a
               href="#contact"
               className={`block py-2 ${
-                location.hash === "#contact" ? "text-yellow-400" : "text-gray-200 hover:text-yellow-400"
+                location.hash === "#contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"
               } transition-colors`}
               onClick={() => setMenuOpen(false)}
             >

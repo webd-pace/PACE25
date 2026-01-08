@@ -16,7 +16,7 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-black text-white py-16 px-6 md:px-16 lg:px-32">
+      <div className="bg-black text-white mt-10 py-16 px-6 md:px-16 lg:px-32">
         <div className="max-w-6xl mx-auto space-y-16">
 
           {/* Section: Intro */}

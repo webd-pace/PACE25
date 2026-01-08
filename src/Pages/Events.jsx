@@ -11,7 +11,7 @@ const Events = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-black text-white min-h-screen py-20 px-4 overflow-hidden">
+      <div className="bg-black text-white min-h-screen mt-10 py-20 px-4 overflow-hidden">
         
         {/* Header Title */}
         <motion.div

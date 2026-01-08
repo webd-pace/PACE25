@@ -37,7 +37,7 @@ export default function Home() {
       />
       {/* <BoardSection 
         title="Joint Board 2025" 
-        members={boardMembersjoints} 
+        members={jointboard} 
       /> */}
     </div>
     <Footer/>
