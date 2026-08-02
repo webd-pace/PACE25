@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import ComingSoon from './ComingSoon';
 
 export const Hero = ({ onExploreClick }) => {
   return (
@@ -60,16 +59,15 @@ export const Hero = ({ onExploreClick }) => {
             </h1>
 
             <Link to="/ComingSoon">
-              <Link to="/ComingSoon">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
-                >
-                  Assistant Board
-                  Register for Prudence 2k25....
-                </motion.button>
-              </Link>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
+              >
+                Assistant Board
+                Register for Prudence 2k25....
+              </motion.button>
+            </Link>
           </motion.section>
 
           {/* Description Text */}
