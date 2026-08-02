@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-
 export const Hero = ({ onExploreClick }) => {
   return (
     <>
@@ -76,7 +75,7 @@ export const Hero = ({ onExploreClick }) => {
                 whileTap={{ scale: 0.97 }}
                 className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
               >
-                Prudence
+                Joint Board- DSY 2028 Batch
               </motion.button>
             </Link>
           </motion.section>
