@@ -4,7 +4,6 @@ import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
 import SponsorSection from './SponsorSectionB';
 import { motion, AnimatePresence } from 'framer-motion';
-import RegistrationsClosed from '../../components/RegistrationsClosed';
 
 export const PreudenceRegistrationbase = ({ prudenceRef }) => {
   const [selectedEvent, setSelectedEvent] = useState(null);
