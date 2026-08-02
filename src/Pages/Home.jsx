@@ -28,7 +28,7 @@ export default function Home() {
     <>
     <Navbar />
     <div className="bg-black text-white min-h-screen overflow-hidden">
-      <Hero onExploreClick={handleExploreClick} />
+      <Hero onExploreClick={handleExploreClick}/>
       {/* <PrudenceSection prudenceRef={prudenceRef} /> */}
       <EventSection_Homepage />
       <BoardSection 
