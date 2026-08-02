@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ComingSoon from './ComingSoon';
 
 export const Hero = ({ onExploreClick }) => {
   return (
@@ -58,26 +59,17 @@ export const Hero = ({ onExploreClick }) => {
               Welcome to <span className="font-semibold text-yellow-400">PACE</span>
             </h1>
 
-            <Link to="https://forms.gle/TVmtnAk6ywLpLVA39">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
-              >
-                Assistant Board- FY 2029 Batch
-              </motion.button>
-            </Link>
-            <br></br>
-            <br></br>
-            <Link to="https://forms.gle/TVmtnAk6ywLpLVA39">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
-              >
-                Joint Board- DSY 2028 Batch
-              </motion.button>
-            </Link>
+            <Link to="/ComingSoon">
+              <Link to="/ComingSoon">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
+                >
+                  Assistant Board
+                  Register for Prudence 2k25....
+                </motion.button>
+              </Link>
           </motion.section>
 
           {/* Description Text */}
