@@ -59,7 +59,7 @@ export const Hero = ({ onExploreClick }) => {
               Welcome to <span className="font-semibold text-yellow-400">PACE</span>
             </h1>
 
-            <Link to="https://forms.gle/LRG1pgUqhiA5suCe7">
+            <Link to="https://forms.gle/TVmtnAk6ywLpLVA39">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
@@ -70,7 +70,7 @@ export const Hero = ({ onExploreClick }) => {
             </Link>
             <br></br>
             <br></br>
-            <Link to="https://forms.gle/LRG1pgUqhiA5suCe7">
+            <Link to="https://forms.gle/TVmtnAk6ywLpLVA39">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
