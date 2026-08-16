@@ -12,8 +12,8 @@ export const boardMembersChief = [
   { post: "Chief PDP",                               fullName: "Parth Gurav",            imgUrl: "/assets/Cheif_Board/Parth_Gurav.jpg"      },
   { post: "Chief Skid-P",                            fullName: "Manish Kumar",           imgUrl: "/assets/Cheif_Board/Manish_Kumar.jpg"      },
   { post: "Chief Skid-P",                            fullName: "Tarun Singh",            imgUrl: "/assets/Cheif_Board/Tarun_Singh.jpg"      },
-  // { post: "Chief Creative Team Head",             fullName: "Vaibhav Pandit",         imgUrl: "/assets/Cheif_Board/Piyush_Dawkhare.png"     },
+  { post: "Chief Creative Team Head",                fullName: "Vaibhav Pandit",         imgUrl: "/assets/Cheif_Board/Piyush_Dawkhare.png"     },
   { post: "Chief Creative Team Head",                fullName: "Vaishnavi Ghule",        imgUrl: "/assets/Cheif_Board/Vaishnavi_Ghule.jpg"    },
-  { post: "Chief Pacer",                            fullName: "Aditya Pawale",          imgUrl: "/assets/Cheif_Board/Aditya_Pawale.jpg"     },
+  { post: "Chief Pacer",                             fullName: "Aditya Pawale",          imgUrl: "/assets/Cheif_Board/Aditya_Pawale.jpg"     },
   { post: "Chief Skid-W",                            fullName: "Sadhna Jadhav",          imgUrl: "/assets/Cheif_Board/Sadhna_Jadhav.png"    },
 ];
