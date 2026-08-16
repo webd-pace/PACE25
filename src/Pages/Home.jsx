@@ -30,7 +30,7 @@ export default function Home() {
       {/* <PrudenceSection prudenceRef={prudenceRef} /> */}
       <EventSectionHomepage />
       <BoardSection 
-        title="Chief Board 2025" 
+        title="Chief Board 2026" 
         members={boardMembersChief} 
       />
       {/* <BoardSection 
