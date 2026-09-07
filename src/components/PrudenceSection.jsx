@@ -36,25 +36,25 @@ export const PrudenceSection = ({ prudenceRef, year = "2024" }) => {
      "2025": [
       {
           title: "Aspire",
-          img: "/assets/Events/Logos/Aspire.jpg",
+          img: "/assets/Events/Logos/Aspire2k25.png",
           desc:
             "A mock placement drive simulating real campus interviews, with Expert & Novice tracks bridging academics and industry.",
         },
         {
           title: "Nitigya",
-          img: "/assets/Events/Logos/Nitigya.jpg",
+          img: "/assets/Events/Logos/Nitigya2k25.png",
           desc:
             "High-stakes geopolitical challenge with three intense rounds on global politics, diplomacy, and policy-making.",
         },
         {
           title: "Standout",
-          img: "/assets/Events/Logos/Standout.jpg",
+          img: "/assets/Events/Logos/Standout2k25.png",
           desc:
             "Creative themes and unexpected adaptability tests that leave a lasting impression through immersive experiences.",
         },
         {
           title: "Ideaignite",
-          img: "/assets/Events/Logos/Ideathon.jpg",
+          img: "/assets/Events/Logos/Ideaignite2k25.png",
           desc:
             "Teams pitch innovative business ideas in a multi-stage competition to ignite entrepreneurial spirit.",
         },
