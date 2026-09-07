@@ -57,9 +57,9 @@ export const Hero = ({ onExploreClick }) => {
             transition={{ delay: 0.5, duration: 0.7 }}
             className="text-white py-6 text-center"
           >
-            <h1 className="text-5xl font-cinzel-decorative mb-6">
+            <h1 className="text-5xl font-semibold mb-6">
               Welcome to{" "}
-              <span className="font-cinzel-decorative text-yellow-400">
+              <span className="font-cinzel-decorative text-yellow-600">
                 PACE
               </span>
             </h1>
