@@ -3,7 +3,7 @@ import PrudenceSection from "../PrudenceSection.jsx";
 import { motion } from "framer-motion";
 
 const eventData = {
-  "2024": [
+  2024: [
     {
       title: "Prudence 2k24",
       desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc.",
@@ -45,11 +45,11 @@ const eventData = {
       ],
     },
   ],
-  "2025": [
-   {
+  2025: [
+    {
       title: "Prudence 2k25",
       desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc.",
-      img: "/assets/Events/Logos/Prudence1.jpg",
+      img: "/assets/Events/Logos/Prudence1.JPG",
       gallery: [
         "/assets/Events/Ideaignite1.jpg",
         "/assets/Events/Nitigya4.jpg",
@@ -59,21 +59,21 @@ const eventData = {
     {
       title: "CSR 2k25",
       desc: "Every year PACE conducts CSR which is an event exclusively aiming to conduct social activities to benefit the less privileged people around Sangli.",
-      img: "/assets/Events/Logos/CSR.jpg",
+      img: "/assets/Events/Logos/CSR25.jpeg",
       gallery: [
-        "/assets/Events/Logos/CSR25.jpg",
-        "/assets/Events/CSR4.jpg",
-        "/assets/Events/CSR5.jpg",
+        "/assets/Events/Logos/CSR25.jpeg",
+        "/assets/Events/CSR4.jpeg",
+        "/assets/Events/CSR5.jpeg",
       ],
     },
     {
       title: "Campus & City Tour 2k25",
       desc: "Every year PACE Conducts campus tour for the first year students to give an amazing start to the wonderful journey of four years in this campus.",
-      img: "/assets/Events/Logos/Campus Tour.jpg",
+      img: "/assets/Events/Logos/Campus Tour25.JPG",
       gallery: [
-        "/assets/Events/Campus Tour 1.jpg",
-        "/assets/Events/Campus Tour 3.jpg",
-        "/assets/Events/Campus Tour 4.jpg",
+        "/assets/Events/Campus Tour 5.JPG",
+        "/assets/Events/Campus Tour 6.JPG",
+        "/assets/Events/Campus Tour 7.JPG",
       ],
     },
   ],
@@ -115,33 +115,35 @@ const EventGallery = ({ year }) => {
   const EventDetails = {
     "Prudence 2k24": <PrudenceSection />,
     "Prudence 2k25": <PrudenceSection year="2025" />,
-  "CSR 2k24": (
-    <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
-      CSR (CORPORATE SOCIAL RESPONSIBILITY)
-      <br />
-      <br />
-      Every year PACE conducts CSR, aiming to conduct social activities to benefit the less privileged people around Sangli. It facilitates students with the opportunity to do something for society.
-    </div>
-  ),
-  "Campus Tour 2k24": (
-    <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
-      CAMPUS TOUR
-      <br />
-      <br />
-      A guided event for first-year students to help them begin their 4-year journey on the right foot.
-    </div>
-  ),
-  "PAT 2k24": (
-    <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
-      PAT (PACE APTITUDE TEST)
-      <br />
-      <br />
-      A regular test series to evaluate and enhance aptitude skills with post-test discussions.
-    </div>
-  ),
-};
+    "CSR 2k24": (
+      <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
+        CSR (CORPORATE SOCIAL RESPONSIBILITY)
+        <br />
+        <br />
+        Every year PACE conducts CSR, aiming to conduct social activities to
+        benefit the less privileged people around Sangli. It facilitates
+        students with the opportunity to do something for society.
+      </div>
+    ),
+    "Campus Tour 2k24": (
+      <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
+        CAMPUS TOUR
+        <br />
+        <br />A guided event for first-year students to help them begin their
+        4-year journey on the right foot.
+      </div>
+    ),
+    "PAT 2k24": (
+      <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
+        PAT (PACE APTITUDE TEST)
+        <br />
+        <br />A regular test series to evaluate and enhance aptitude skills with
+        post-test discussions.
+      </div>
+    ),
+  };
 
-    return (
+  return (
     <>
       <div className="flex flex-col gap-16 max-w-6xl mx-auto px-4">
         {data.map((event, i) => {
@@ -191,23 +193,24 @@ const EventGallery = ({ year }) => {
                         Gallery
                       </button>
                     )}
-                    {EventDetails[event.title] && (
-                      <button
-                        onClick={() =>
-                          setExpandedIndex(isExpanded ? null : i)
-                        }
-                        className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
-                      >
-                        {isExpanded ? "Hide Details" : "View More"}
-                      </button>
-                    )}
+
+                    <button
+                      onClick={() => setExpandedIndex(isExpanded ? null : i)}
+                      className="px-4 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
+                    >
+                      {isExpanded ? "Hide Details" : "View More"}
+                    </button>
                   </div>
                 </div>
               </div>
 
               {isExpanded && (
                 <div className="mt-6 border-t border-yellow-700 pt-6">
-                  {EventDetails[event.title]}
+                  {EventDetails[event.title] || (
+                    <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed">
+                      {event.desc}
+                    </div>
+                  )}
                 </div>
               )}
             </motion.div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export const Hero = ({ onExploreClick }) => {
+  const prudence2026 = false;
   return (
     <>
       <div className="min-h-screen flex flex-col items-center justify-center relative">
@@ -57,17 +58,19 @@ export const Hero = ({ onExploreClick }) => {
             <h1 className="text-5xl font-bold mb-6">
               Welcome to <span className="font-semibold text-yellow-400">PACE</span>
             </h1>
-
-            <Link to="/ComingSoon">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
-              >
-                Assistant Board
-                Register for Prudence 2k25....
-              </motion.button>
-            </Link>
+ 
+            {prudence2026 && (
+              <Link to="/ComingSoon">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
+                >
+                  Assistant Board
+                  Register for Prudence 2k25....
+                </motion.button>
+              </Link>
+            )}
           </motion.section>
 
           {/* Description Text */}
