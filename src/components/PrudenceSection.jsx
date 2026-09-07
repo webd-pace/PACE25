@@ -36,7 +36,7 @@ export const PrudenceSection = ({ prudenceRef, year = "2024" }) => {
      "2025": [
       {
           title: "Aspire",
-          img: "/assets/Events/Logos/Aspire2k25.JPG",
+          img: "/assets/Events/Logos/Aspire2k25.jpg",
           desc:
             "A mock placement drive simulating real campus interviews, with Expert & Novice tracks bridging academics and industry.",
         },

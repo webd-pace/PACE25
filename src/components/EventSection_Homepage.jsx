@@ -19,7 +19,7 @@ const events = [
     desc: "Placement preparation assessments simulating aptitude and technical rounds.",
   },
   {
-    title: "Campus Tour & City Tour",
+    title: "Campus & City Tour",
     img: "/assets/Events/Logos/Campus Tour25.JPG",
     desc: "Explore our vibrant campus, its culture, and engage with student mentors.",
   },

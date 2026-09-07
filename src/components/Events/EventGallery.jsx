@@ -51,9 +51,9 @@ const eventData = {
       desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc.",
       img: "/assets/Events/Logos/Prudence1.JPG",
       gallery: [
-        "/assets/Events/Ideaignite1.jpg",
-        "/assets/Events/Nitigya4.jpg",
-        "/assets/Events/Aspire3.jpg",
+        "/assets/Events/Ideaignite1.JPG",
+        "/assets/Events/Nitigya4.JPG",
+        "/assets/Events/Aspire3.JPG",
       ],
     },
     {
