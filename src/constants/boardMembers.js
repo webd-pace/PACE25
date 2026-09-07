@@ -8,7 +8,7 @@ export const boardMembersChief = [
   { post: "Chief PDE",                               fullName: "Anshu Yadav",            imgUrl: "/assets/Cheif_Board/Anshu_Yadav.jpg"      },
   { post: "Chief PDE",                               fullName: "Vijay Bodkhe",           imgUrl: "/assets/Cheif_Board/Vijay_Bodkhe.jpeg"      },
   { post: "Chief PDP & Chief Web Developer",         fullName: "Aditya Jaybhaye",        imgUrl: "/assets/Cheif_Board/Aditya_Jaybhaye.jpeg"       },
-  // { post: "Chief PDP & Chief Skid-P",             fullName: "Atharva Baviskar",       imgUrl: "/assets/Cheif_Board/Juhi_Zinage.png"       },
+  { post: "Chief PDP & Chief Skid-P",                fullName: "Atharva Baviskar",       imgUrl: "/assets/Cheif_Board/Atharva Bavisakr.jpeg"       },
   { post: "Chief PDP",                               fullName: "Parth Gurav",            imgUrl: "/assets/Cheif_Board/Parth_Gurav.jpg"      },
   { post: "Chief Skid-P",                            fullName: "Manish Kumar",           imgUrl: "/assets/Cheif_Board/Manish_Kumar.jpg"      },
   { post: "Chief Skid-P",                            fullName: "Tarun Singh",            imgUrl: "/assets/Cheif_Board/Tarun_Singh.jpg"      },
