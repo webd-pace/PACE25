@@ -59,7 +59,7 @@ export const Hero = ({ onExploreClick }) => {
           >
             <h1 className="text-5xl font-semibold mb-6">
               Welcome to{" "}
-              <span className="font-cinzel-decorative text-yellow-600">
+              <span className="font-cinzel-decorative text-yellow-400">
                 PACE
               </span>
             </h1>
