@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const events = [
   {
     title: "Prudence",
-    img: "/assets/Events/Logos/Prudence1.jpg",
+    img: "/assets/Events/Logos/Prudence1.JPG",
     desc: "National level fest fostering managerial intellect since 2001.",
   },
   {
@@ -14,13 +14,13 @@ const events = [
     desc: "Promotes social responsibility and ethical leadership through impactful outreach.",
   },
   {
-    title: "PAT",
+    title: "PASS Session",
     img: "/assets/Events/Logos/PAT.jpg",
     desc: "Placement preparation assessments simulating aptitude and technical rounds.",
   },
   {
-    title: "Campus Tour",
-    img: "/assets/Events/Logos/Campus Tour25.jpg",
+    title: "Campus Tour & City Tour",
+    img: "/assets/Events/Logos/Campus Tour25.JPG",
     desc: "Explore our vibrant campus, its culture, and engage with student mentors.",
   },
 ];
