@@ -46,16 +46,75 @@ const eventData = {
     },
   ],
   "2025": [
+   {
+      title: "Prudence 2k25",
+      desc: "PRUDENCE includes sectors of professional life, right from economics, entrepreneurship, marketing, debate, national international politics and governance, social responsibilities, journalism, environment, etc.",
+      img: "/assets/Events/Logos/Prudence1.jpg",
+      gallery: [
+        "/assets/Events/Ideaignite1.jpg",
+        "/assets/Events/Nitigya4.jpg",
+        "/assets/Events/Aspire3.jpg",
+      ],
+    },
     {
-      title: "Coming Soon !!",
-      desc: "The Website is under construction. Stay tuned for updates.",
-      img: "/assets/aspire-2024.jpg",
+      title: "CSR 2k25",
+      desc: "Every year PACE conducts CSR which is an event exclusively aiming to conduct social activities to benefit the less privileged people around Sangli.",
+      img: "/assets/Events/Logos/CSR.jpg",
+      gallery: [
+        "/assets/Events/Logos/CSR25.jpg",
+        "/assets/Events/CSR4.jpg",
+        "/assets/Events/CSR5.jpg",
+      ],
+    },
+    {
+      title: "Campus & City Tour 2k25",
+      desc: "Every year PACE Conducts campus tour for the first year students to give an amazing start to the wonderful journey of four years in this campus.",
+      img: "/assets/Events/Logos/Campus Tour.jpg",
+      gallery: [
+        "/assets/Events/Campus Tour 1.jpg",
+        "/assets/Events/Campus Tour 3.jpg",
+        "/assets/Events/Campus Tour 4.jpg",
+      ],
     },
   ],
 };
 
-const EventDetails = {
-  "Prudence 2k24": <PrudenceSection />,
+// const EventDetails = {
+//   "Prudence 2k24": <PrudenceSection />,
+//   "CSR 2k24": (
+//     <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
+//       CSR (CORPORATE SOCIAL RESPONSIBILITY)
+//       <br />
+//       <br />
+//       Every year PACE conducts CSR, aiming to conduct social activities to benefit the less privileged people around Sangli. It facilitates students with the opportunity to do something for society.
+//     </div>
+//   ),
+//   "Campus Tour 2k24": (
+//     <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
+//       CAMPUS TOUR
+//       <br />
+//       <br />
+//       A guided event for first-year students to help them begin their 4-year journey on the right foot.
+//     </div>
+//   ),
+//   "PAT 2k24": (
+//     <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
+//       PAT (PACE APTITUDE TEST)
+//       <br />
+//       <br />
+//       A regular test series to evaluate and enhance aptitude skills with post-test discussions.
+//     </div>
+//   ),
+// };
+
+const EventGallery = ({ year }) => {
+  const data = eventData[year] || [];
+  const [galleryImages, setGalleryImages] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const EventDetails = {
+    "Prudence 2k24": <PrudenceSection />,
+    "Prudence 2k25": <PrudenceSection year="2025" />,
   "CSR 2k24": (
     <div className="text-gray-300 text-center max-w-3xl mx-auto text-lg leading-relaxed mb-10">
       CSR (CORPORATE SOCIAL RESPONSIBILITY)
@@ -81,11 +140,6 @@ const EventDetails = {
     </div>
   ),
 };
-
-const EventGallery = ({ year }) => {
-  const data = eventData[year] || [];
-  const [galleryImages, setGalleryImages] = useState(null);
-  const [expandedIndex, setExpandedIndex] = useState(null);
 
     return (
     <>

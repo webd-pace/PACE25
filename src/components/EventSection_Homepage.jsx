@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 const events = [
   {
     title: "Prudence",
-    img: "/assets/Events/Logos/Prudence.jpg",
+    img: "/assets/Events/Logos/Prudence1.jpg",
     desc: "National level fest fostering managerial intellect since 2001.",
   },
   {
     title: "CSR",
-    img: "/assets/Events/Logos/CSR.jpg",
+    img: "/assets/Events/Logos/CSR25.jpeg",
     desc: "Promotes social responsibility and ethical leadership through impactful outreach.",
   },
   {
@@ -20,7 +20,7 @@ const events = [
   },
   {
     title: "Campus Tour",
-    img: "/assets/Events/Logos/Campus Tour.jpg",
+    img: "/assets/Events/Logos/Campus Tour25.jpg",
     desc: "Explore our vibrant campus, its culture, and engage with student mentors.",
   },
 ];

@@ -19,13 +19,13 @@ const PrudenceFooter = () => {
             <h2 className="text-yellow-400 font-semibold mb-3">Contact</h2>
             <ul className="space-y-1">
               <li>
-                <span className="font-medium">President:</span> Vishvajeet Pawar – +91 7887739590
+                <span className="font-medium">President:</span> Shardul Bhaaskar – +91 8080884368
               </li>
               <li>
-                <span className="font-medium">Vice-President:</span> Prasad Bedage – +91 9307286697
+                <span className="font-medium">Vice-President:</span> Advait Kulkarni – +91 9405580080
               </li>
               <li>
-                <span className="font-medium">Secretary:</span> Pranav Patil – +91 8767939192
+                <span className="font-medium">Secretary:</span> Pranav Khot – +91 8329105091
               </li>
               <li>
                 <span href="mailto:pace@walchandsangli.ac.in" className="font-medium">Email:</span> pace@walchandsangli.ac.in
@@ -43,7 +43,7 @@ const PrudenceFooter = () => {
           {/* Social Media Icons */}
           <div className="flex justify-center mt-4 gap-6">
             <a
-              href="https://www.youtube.com/@wcepace1758"
+              href="https://www.youtube.com/@wcepace"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-red-500 transition-colors text-2xl"

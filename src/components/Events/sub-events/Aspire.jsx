@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
 
 const Aspire = () => {
   const navigate = useNavigate();
-
+  const { year } = useParams();
+  const selectedYear = year || "2024";
   return (
     <>
     <Navbar />

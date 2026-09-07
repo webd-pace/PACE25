@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const years = ["2024", "2025"];
+const years = ["2024", "2025", "2026"];
 
 const YearSelector = ({ selectedYear, onChange }) => {
   const navigate = useNavigate();
 
   const handleClick = (year) => {
-    if (year === "2025") {
+    if (year === "2026") {
       navigate("/ComingSoon");
     } else {
       onChange(year);

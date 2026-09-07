@@ -33,6 +33,13 @@ function App() {
         <Route path="/Events/sub-events/Aspire" element={<Aspire />} />
         <Route path="/Events/sub-events/Nitigya" element={<Nitigya />} />
         <Route path="/Events/sub-events/Ideathon" element={<Ideathon />} />
+
+        <Route path="/Events/sub-events/:year/standout" element={<Standout />} />
+        <Route path="/Events/sub-events/:year/aspire" element={<Aspire />} />
+        <Route path="/Events/sub-events/:year/nitigya" element={<Nitigya />} />
+        <Route path="/Events/sub-events/:year/ideathon" element={<Ideathon />} />
+        <Route path="/Events/sub-events/:year/ideaignite" element={<Ideathon />} />
+
         <Route path="/Events" element={<Events />} />
         <Route path="/About" element={<About />} />
         <Route path="/Thankyou" element={<Thankyou />} />

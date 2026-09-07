@@ -2,39 +2,69 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-export const PrudenceSection = ({ prudenceRef }) => {
+export const PrudenceSection = ({ prudenceRef, year = "2024" }) => {
   const navigate = useNavigate();
 
-  const events = [
-    {
-      title: "Aspire",
-      img: "/assets/Events/Logos/Aspire.jpg",
-      desc:
-        "A mock placement drive simulating real campus interviews, with Expert & Novice tracks bridging academics and industry.",
-    },
-    {
-      title: "Nitigya",
-      img: "assets/Events/Logos/Nitigya.jpg",
-      desc:
-        "High-stakes geopolitical challenge with three intense rounds on global politics, diplomacy, and policy-making.",
-    },
-    {
-      title: "Standout",
-      img: "/assets/Events/Logos/Standout.jpg",
-      desc:
-        "Creative themes and unexpected adaptability tests that leave a lasting impression through immersive experiences.",
-    },
-    {
-      title: "Ideathon",
-      img: "/assets/Events/Logos/Ideathon.jpg",
-      desc:
-        "Teams pitch innovative business ideas in a multi-stage competition to ignite entrepreneurial spirit.",
-    },
-  ];
-
+  const events = {
+    "2024": [
+        {
+          title: "Aspire",
+          img: "/assets/Events/Logos/Aspire.jpg",
+          desc:
+            "A mock placement drive simulating real campus interviews, with Expert & Novice tracks bridging academics and industry.",
+        },
+        {
+          title: "Nitigya",
+          img: "/assets/Events/Logos/Nitigya.jpg",
+          desc:
+            "High-stakes geopolitical challenge with three intense rounds on global politics, diplomacy, and policy-making.",
+        },
+        {
+          title: "Standout",
+          img: "/assets/Events/Logos/Standout.jpg",
+          desc:
+            "Creative themes and unexpected adaptability tests that leave a lasting impression through immersive experiences.",
+        },
+        {
+          title: "Ideathon",
+          img: "/assets/Events/Logos/Ideathon.jpg",
+          desc:
+            "Teams pitch innovative business ideas in a multi-stage competition to ignite entrepreneurial spirit.",
+        },
+    ],
+    
+     "2025": [
+      {
+          title: "Aspire",
+          img: "/assets/Events/Logos/Aspire.jpg",
+          desc:
+            "A mock placement drive simulating real campus interviews, with Expert & Novice tracks bridging academics and industry.",
+        },
+        {
+          title: "Nitigya",
+          img: "/assets/Events/Logos/Nitigya.jpg",
+          desc:
+            "High-stakes geopolitical challenge with three intense rounds on global politics, diplomacy, and policy-making.",
+        },
+        {
+          title: "Standout",
+          img: "/assets/Events/Logos/Standout.jpg",
+          desc:
+            "Creative themes and unexpected adaptability tests that leave a lasting impression through immersive experiences.",
+        },
+        {
+          title: "Ideaignite",
+          img: "/assets/Events/Logos/Ideathon.jpg",
+          desc:
+            "Teams pitch innovative business ideas in a multi-stage competition to ignite entrepreneurial spirit.",
+        },
+    ]
+  };
+ 
+  const selectedEvents = events[year] || events["2024"];
   const handleCardClick = (title) => {
     const slug = title.toLowerCase().replace(/\s+/g, '');
-    navigate(`/Events/sub-events/${slug}`);
+    navigate(`/Events/sub-events/${year}/${slug}`);
   };
 
   return (
@@ -50,7 +80,7 @@ export const PrudenceSection = ({ prudenceRef }) => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {events.map((ev, index) => (
+          {selectedEvents.map((ev, index) => (
             <motion.div
               key={ev.title}
               onClick={() => handleCardClick(ev.title)}
