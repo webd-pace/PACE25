@@ -14,7 +14,7 @@ const events = [
     desc: "Promotes social responsibility and ethical leadership through impactful outreach.",
   },
   {
-    title: "PASS Session",
+    title: "PAS Session",
     img: "/assets/Events/Logos/PAT.jpg",
     desc: "Placement preparation assessments simulating aptitude and technical rounds.",
   },
