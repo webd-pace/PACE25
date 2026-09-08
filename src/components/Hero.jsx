@@ -11,7 +11,7 @@ export const Hero = ({ onExploreClick }) => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('/assets/FullBoard3.jpg')`,
+            backgroundImage: `url('/assets/Prudence1.JPG')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
@@ -30,7 +30,7 @@ export const Hero = ({ onExploreClick }) => {
             className="flex justify-center items-center mb-6"
           >
             <img
-              src="/assets/Pace_Logo_White.svg"
+              src="/Pace_Logo.png"
               alt="Pace_Logo"
               className="h-23 md:h-42 w-auto object-contain" //h-20 md:h-40
             />
@@ -59,7 +59,7 @@ export const Hero = ({ onExploreClick }) => {
           >
             <h1 className="text-5xl font-semibold mb-6">
               Welcome to{" "}
-              <span className="font-cinzel-decorative text-yellow-400">
+              <span className="font-cinzel-decorative-400 text-yellow-400">
                 PACE
               </span>
             </h1>
@@ -82,7 +82,7 @@ export const Hero = ({ onExploreClick }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-gray-200 mt-4 max-w-2xl mx-auto text-xs md:text-base leading-relaxed px-2 font-semibold"
+            className="text-gray-200 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed px-2 font-semibold"
           >
             Personality Advancement Circle of Engineers is a student
             organization started in 1994...

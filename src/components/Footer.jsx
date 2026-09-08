@@ -19,13 +19,13 @@ const PrudenceFooter = () => {
             <h2 className="text-yellow-400 font-semibold mb-3">Contact</h2>
             <ul className="space-y-1">
               <li>
-                <span className="font-medium">President :</span> Shardul Bhaskar – +91 8080884368
+                <span className="font-medium">President :</span> Shardul Bhaskar – +91 80808 84368
               </li>
               <li>
-                <span className="font-medium">Vice-President :</span> Advait Kulkarni – +91 9405580080
+                <span className="font-medium">Vice-President :</span> Advait Kulkarni – +91 94055 80080
               </li>
               <li>
-                <span className="font-medium">Secretary :</span> Pranav Khot – +91 8329105091
+                <span className="font-medium">Secretary :</span> Pranav Khot – +91 83291 05091
               </li>
               <li>
                 <span href="mailto:pace@walchandsangli.ac.in" className="font-medium">Email :</span> pace@walchandsangli.ac.in
