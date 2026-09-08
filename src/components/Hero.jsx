@@ -82,7 +82,7 @@ export const Hero = ({ onExploreClick }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-gray-200 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed px-2 font-semibold"
+            className="text-gray-200 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed px-2 font-semibold italic"
           >
             Personality Advancement Circle of Engineers is a student
             organization started in 1994...
