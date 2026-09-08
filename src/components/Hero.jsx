@@ -11,7 +11,7 @@ export const Hero = ({ onExploreClick }) => {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('/assets/Prudence1.JPG')`,
+            backgroundImage: `url('/assets/Events/Logos/Prudence1.JPG')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
