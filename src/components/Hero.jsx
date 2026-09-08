@@ -30,7 +30,7 @@ export const Hero = ({ onExploreClick }) => {
             className="flex justify-center items-center mb-6"
           >
             <img
-              src="/Pace_Logo.png"
+              src="/assets/Pace_Logo_White.svg"
               alt="Pace_Logo"
               className="h-23 md:h-42 w-auto object-contain" //h-20 md:h-40
             />
