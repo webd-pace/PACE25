@@ -10,7 +10,6 @@ import PrudenceNavbar from "./PrudenceNavbar";
 import PrudenceFotter from "./PrudenceFotter";
 // import SponsorSectionW from "./SponsorSectionW";
 import Loader from "../../components/Loader";
-import Footer from "../../components/Footer";
 
 
 function AspireRegistration() {
