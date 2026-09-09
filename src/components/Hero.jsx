@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export const Hero = ({ onExploreClick }) => {
-  const prudence2026 = false;
+  const prudence2026 = true;
   return (
     <>
       <div className="min-h-screen flex flex-col items-center justify-center relative">
@@ -71,7 +71,7 @@ export const Hero = ({ onExploreClick }) => {
                   whileTap={{ scale: 0.97 }}
                   className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
                 >
-                  Assistant Board Register for Prudence 2k25....
+                  Register for Prudence 2k26....
                 </motion.button>
               </Link>
             )}

@@ -13,7 +13,8 @@ const Footer = () => {
           <div>
             <h2 className="text-3xl font-bold text-blue-600">PACE</h2>
             <p className="text-sm mt-2 max-w-sm opacity-75">
-              Empowering learners with knowledge and tools for a better tomorrow.
+              Empowering learners with knowledge and tools for a better
+              tomorrow.
             </p>
           </div>
 
@@ -22,16 +23,19 @@ const Footer = () => {
             <h2 className="text-blue-600 font-semibold mb-3">Contact</h2>
             <ul className="space-y-1">
               <li>
-                <span className="font-medium">President:</span> Vishvajeet Pawar – +91 7887739590
+                <span className="font-medium">President :</span> Shardul Bhaskar
+                – +91 80808 84368
               </li>
               <li>
-                <span className="font-medium">Vice-President:</span> Prasad Bedge – +91 9307286697
+                <span className="font-medium">Vice-President :</span> Advait
+                Kulkarni – +91 94055 80080
               </li>
               <li>
-                <span className="font-medium">Secretary:</span> Pranav Patil – +91 8767939192
+                <span className="font-medium">Secretary :</span> Pranav Khot –
+                +91 83291 05091
               </li>
               <li>
-                <span className="font-medium">Email:</span>{" "}
+                <span className="font-medium">Email :</span>{" "}
                 <a
                   href="mailto:pace@walchandsangli.ac.in"
                   className="text-blue-600 hover:underline"
@@ -47,6 +51,8 @@ const Footer = () => {
         <div className="border-t border-gray-500/20 mt-10 pt-6 text-center">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} PACE. All rights reserved.
+            <br />
+            Made with ❤️ by PACE Web-Developers.
           </p>
 
           {/* Social Media Icons */}

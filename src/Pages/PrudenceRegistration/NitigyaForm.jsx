@@ -71,7 +71,7 @@ function NitigyaRegistration() {
       if (formData.screenShot) {
         const storageRef = ref(
           prudenceStorage,
-          `nitygya_screenshots/${Date.now()}_${formData.screenShot.name}`
+          `nitygya_screenshots/2026/${Date.now()}_${formData.screenShot.name}`
         );
         const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
 
@@ -98,7 +98,7 @@ function NitigyaRegistration() {
       }
 
       // Save to Firestore
-      await addDoc(collection(prudenceDb, "nitygya_registrations"), {
+      await addDoc(collection(prudenceDb, "nitygya_registrations_2026"), {
         ...formData,
         screenShot: downloadURL || null,
         createdAt: Timestamp.now(),

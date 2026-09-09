@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { getAuth, signInAnonymously } from "firebase/auth";
 
 const firebasePrudenceConfig = {
   apiKey: "AIzaSyAcxiYigRz1QfrbRICRvkfTSpAnqpeGhEI",
@@ -18,3 +19,6 @@ const prudenceApp = initializeApp(firebasePrudenceConfig, "prudence"); // Named 
 
 export const prudenceDb = getFirestore(prudenceApp);
 export const prudenceStorage = getStorage(prudenceApp);
+
+export const prudenceAuth = getAuth(prudenceApp);
+signInAnonymously(prudenceAuth).catch((err) => console.error("Prudence anon auth failed:", err));

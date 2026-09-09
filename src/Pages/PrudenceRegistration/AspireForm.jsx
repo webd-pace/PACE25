@@ -10,6 +10,8 @@ import PrudenceNavbar from "./PrudenceNavbar";
 import PrudenceFotter from "./PrudenceFotter";
 // import SponsorSectionW from "./SponsorSectionW";
 import Loader from "../../components/Loader";
+import Footer from "../../components/Footer";
+
 
 function AspireRegistration() {
   const navigate = useNavigate();
@@ -53,7 +55,7 @@ function AspireRegistration() {
       if (formData.screenShot) {
         const storageRef = ref(
           prudenceStorage,
-          `Aspire_screenshots/${Date.now()}_${formData.screenShot.name}` // 🔥 Aspire folder
+          `Aspire_screenshots/2026/${Date.now()}_${formData.screenShot.name}` // 🔥 Aspire folder
         );
         const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
 
@@ -75,7 +77,7 @@ function AspireRegistration() {
       }
 
       // Save to Firestore
-      await addDoc(collection(prudenceDb, "Aspire_registrations"), {  // 🔥 Aspire collection
+      await addDoc(collection(prudenceDb, "Aspire_registrations_2026"), {  // 🔥 Aspire collection
         ...formData,
         screenShot: downloadURL || null,
         createdAt: Timestamp.now(),
@@ -355,6 +357,7 @@ function SelectField({ label, name, value, onChange, options }) {
         ))}
       </select>
     </div>
+    
   );
 }
 

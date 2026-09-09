@@ -2,7 +2,10 @@ import React from "react";
 
 const PrudenceFooter = () => {
   return (
-    <footer id="contact" className="bg-black text-gray-300 border-t border-yellow-400/20">
+    <footer
+      id="contact"
+      className="bg-black text-gray-300 border-t border-yellow-400/20"
+    >
       <div className="max-w-7xl mx-auto px-6 py-10">
         {/* Top Grid Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
@@ -10,7 +13,8 @@ const PrudenceFooter = () => {
           <div>
             <h2 className="text-3xl font-bold text-yellow-400">PACE</h2>
             <p className="text-sm mt-2 max-w-sm opacity-75">
-              Empowering learners with knowledge and tools for a better tomorrow.
+              Empowering learners with knowledge and tools for a better
+              tomorrow.
             </p>
           </div>
 
@@ -19,16 +23,25 @@ const PrudenceFooter = () => {
             <h2 className="text-yellow-400 font-semibold mb-3">Contact</h2>
             <ul className="space-y-1">
               <li>
-                <span className="font-medium">President :</span> Shardul Bhaskar – +91 80808 84368
+                <span className="font-medium">President :</span> Shardul Bhaskar
+                – +91 80808 84368
               </li>
               <li>
-                <span className="font-medium">Vice-President :</span> Advait Kulkarni – +91 94055 80080
+                <span className="font-medium">Vice-President :</span> Advait
+                Kulkarni – +91 94055 80080
               </li>
               <li>
-                <span className="font-medium">Secretary :</span> Pranav Khot – +91 83291 05091
+                <span className="font-medium">Secretary :</span> Pranav Khot –
+                +91 83291 05091
               </li>
               <li>
-                <span href="mailto:pace@walchandsangli.ac.in" className="font-medium">Email :</span> pace@walchandsangli.ac.in
+                <span
+                  href="mailto:pace@walchandsangli.ac.in"
+                  className="font-medium"
+                >
+                  Email :
+                </span>{" "}
+                pace@walchandsangli.ac.in
               </li>
             </ul>
           </div>
@@ -38,6 +51,8 @@ const PrudenceFooter = () => {
         <div className="border-t border-yellow-400/20 mt-10 pt-6 text-center">
           <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} PACE. All rights reserved.
+            <br />
+            Made with 🤍 by PACE Web-Developers.
           </p>
 
           {/* Social Media Icons */}

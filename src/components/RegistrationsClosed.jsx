@@ -15,12 +15,12 @@ const RegistrationsClosed = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.25] pb-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 mb-6">
             Registrations Closed
           </h1>
 
           <p className="text-gray-400 text-lg md:text-xl mb-6">
-            The Registration for Prudence 2k25 are officially closed. We
+            The Registration for Prudence 2k26 are officially closed. We
             appreciate your interest and enthusiasm!
           </p>
 
@@ -30,13 +30,16 @@ const RegistrationsClosed = () => {
 
           <div className="text-gray-400 text-sm md:text-base leading-relaxed mb-10 mx-auto w-fit text-left space-y-2">
             {[
-              { icon: "📞", text: "Vishvajeet Pawar – +91 7887739590" },
-              { icon: "📞", text: "Prasad Bedge – +91 9307286697" },
-              { icon: "📞", text: "Pranav Patil – +91 8767939192" },
+              { icon: "📞", text: "Shardul Bhaskar – +91 80808 8436" },
+              { icon: "📞", text: "Advait Kulkarni – +91 94055 80080" },
+              { icon: "📞", text: "Pranav Khot – +91 83291 05091" },
               {
                 icon: "✉️",
                 text: (
-                  <a href="mailto:pacesecretary10@gmail.com" className="hover:text-blue-400">
+                  <a
+                    href="mailto:pacesecretary10@gmail.com"
+                    className="hover:text-blue-400"
+                  >
                     pacesecretary10@gmail.com
                   </a>
                 ),

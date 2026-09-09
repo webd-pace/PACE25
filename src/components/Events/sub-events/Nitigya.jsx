@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
 
 const Nitigya = () => {
   const navigate = useNavigate();
-  
+   const { year } = useParams();
+   const selectedYear = year || "2024";
 
   return (
     <>
@@ -33,7 +34,11 @@ const Nitigya = () => {
 
         {/* Image */}
         <img
-          src="/assets/Events/Nitigya1.jpg" // You may want to update this to the correct image for Ideathon
+            src={
+              selectedYear === "2025"
+                ? "/assets/Events/Nitigya(v).JPG"
+                : "/assets/Events/Nitigya1.jpg" // You may want to update this to the correct image for Ideathon
+            }
           alt="Nitigya"
           className="w-100 h-140 object-cover rounded-xl mb-6 border-4 border-orange-500"
         />

@@ -15,13 +15,13 @@ const events = [
   },
   {
     title: "PAS Session",
-    img: "/assets/Events/Logos/PAT.jpg",
-    desc: "Placement preparation assessments simulating aptitude and technical rounds.",
+    img: "/assets/Events/Logos/PAS.jpeg",
+    desc: "Weekly sessions to sharpen aptitude, reasoning, and placement skills through teamwork.",
   },
   {
     title: "Campus & City Tour",
     img: "/assets/Events/Logos/Campus Tour25.JPG",
-    desc: "Explore our vibrant campus, its culture, and engage with student mentors.",
+    desc: "Explore the vibrant campus and city, discover local culture, and connect with student mentors.",
   },
 ];
 

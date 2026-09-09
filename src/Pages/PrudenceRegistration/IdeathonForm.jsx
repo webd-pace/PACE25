@@ -11,7 +11,7 @@ import PrudenceFotter from "./PrudenceFotter";
 // import SponsorSectionW from "./SponsorSectionW";
 import Loader from "../../components/Loader";
 
-function IdeathonRegistration() {
+function IdeaigniteRegistration() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -56,7 +56,7 @@ function IdeathonRegistration() {
       if (formData.screenShot) {
         const storageRef = ref(
           prudenceStorage,
-          `Ideathon_screenshots/${Date.now()}_${formData.screenShot.name}`
+          `Ideaignite_screenshots/2026/${Date.now()}_${formData.screenShot.name}`
         );
         const uploadTask = uploadBytesResumable(storageRef, formData.screenShot);
 
@@ -78,13 +78,13 @@ function IdeathonRegistration() {
       }
 
       // Save to Firestore
-      await addDoc(collection(prudenceDb, "Ideathon_registrations"), {
+      await addDoc(collection(prudenceDb, "Ideaignite_registrations_2026"), {
         ...formData,
         screenShot: downloadURL || null,
         createdAt: Timestamp.now(),
       });
 
-      toast.success("✅ Ideathon registration submitted successfully!");
+      toast.success("✅ Ideaignite registration submitted successfully!");
 
       // Reset form
       setFormData({
@@ -498,4 +498,4 @@ function SelectField({ label, name, value, onChange, options }) {
   );
 }
 
-export default IdeathonRegistration;
+export default IdeaigniteRegistration;
