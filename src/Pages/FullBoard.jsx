@@ -15,7 +15,7 @@ const FullBoard = () => {
         <div className="relative max-w-7xl mx-auto px-4">
           {/* Heading */}
           <h2 className="text-5xl md:text-6xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 uppercase tracking-widest font-cinzel-decorative">
-            Cheif Board 2k26
+            Chief Board 2k26
           </h2>
 
           {/* Underline */}
