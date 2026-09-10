@@ -57,22 +57,21 @@ export const Hero = ({ onExploreClick }) => {
             transition={{ delay: 0.5, duration: 0.7 }}
             className="text-white py-6 text-center"
           >
-            <h1 className="text-5xl font-semibold mb-6">
+            <h1 className="text-5xl font-light sora-font mb-6">
               Welcome to{" "}
-              <span className="font-semibold text-yellow-400">
-                PACE
-              </span>
+              <span className="font-extrabold sora-font text-yellow-400">PACE</span>
             </h1>
 
             {prudence2026 && (
-              < a href = "https://docs.google.com/forms/d/e/1FAIpQLScA1a0MQ1_ABOotQWc3JL15AvWRmmyw7eJDHwwKNx0CwnBDGQ/formResponse?pli=1"
-            target = "_blank"
-            rel = "nooprener noreferrer"
-            >
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScA1a0MQ1_ABOotQWc3JL15AvWRmmyw7eJDHwwKNx0CwnBDGQ/formResponse?pli=1"
+                target="_blank"
+                rel="nooprener noreferrer"
+              >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
-                  className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold text-2x1 px-10 py-5 rounded-xl transition duration-300"
+                  className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold font-cinzel-decorative text-[24px] px-10 py-5 rounded-xl transition duration-300"
                 >
                   Register for Prudence 2k26....
                 </motion.button>
