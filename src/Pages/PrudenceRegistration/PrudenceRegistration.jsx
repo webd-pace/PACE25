@@ -68,7 +68,7 @@ const events = [
       transition={{ duration: 0.6 }}
         className="text-5xl font-extrabold text-yellow-400 uppercase font-cinzel-decorative mb-4"
       >
-        Prudence 2K25
+        Prudence 2K26
       </motion.h1>
 
        {/* Accent line below title */}

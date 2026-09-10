@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export const Hero = ({ onExploreClick }) => {
@@ -65,15 +65,18 @@ export const Hero = ({ onExploreClick }) => {
             </h1>
 
             {prudence2026 && (
-              <Link to="/ComingSoon">
+              < a href = "https://docs.google.com/forms/d/e/1FAIpQLScA1a0MQ1_ABOotQWc3JL15AvWRmmyw7eJDHwwKNx0CwnBDGQ/formResponse?pli=1"
+            target = "_blank"
+            rel = "nooprener noreferrer"
+            >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.97 }}
-                  className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl transition duration-300"
+                  className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold text-2x1 px-10 py-5 rounded-xl transition duration-300"
                 >
                   Register for Prudence 2k26....
                 </motion.button>
-              </Link>
+              </a>
             )}
           </motion.section>
 
