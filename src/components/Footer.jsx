@@ -51,8 +51,6 @@ const PrudenceFooter = () => {
         <div className="border-t border-yellow-400/20 mt-10 pt-6 text-center">
           <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} PACE. All rights reserved.
-            <br />
-            Made with 🤍 by PACE Web-Developers.
           </p>
 
           {/* Social Media Icons */}

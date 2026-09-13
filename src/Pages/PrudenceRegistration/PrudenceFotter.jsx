@@ -51,8 +51,6 @@ const Footer = () => {
         <div className="border-t border-gray-500/20 mt-10 pt-6 text-center">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} PACE. All rights reserved.
-            <br />
-            Made with ❤️ by PACE Web-Developers.
           </p>
 
           {/* Social Media Icons */}
